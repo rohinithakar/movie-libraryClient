@@ -14,7 +14,7 @@
 					<td>
 				</tr>
 				<tr>
-					<td>Password</td>
+					<td>UserPassword</td>
 					<td><input type="password" name="pwd" /></td>
 					<td>
 				</tr>
