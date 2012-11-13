@@ -1,4 +1,4 @@
-package edu.sjsu.videolibrary.utils;
+package edu.sjsu.videolibrary.util;
 
 import java.io.IOException;
 import java.io.PrintWriter;
