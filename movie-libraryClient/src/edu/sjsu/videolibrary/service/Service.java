@@ -11,12 +11,14 @@ public interface Service extends java.rmi.Remote {
     public boolean addItemsToCart(int membershipId, int movieId) throws java.rmi.RemoteException;
     public boolean deleteMovieFromCart(int movieId, int membershipId) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.ItemOnCart[] viewCart(int membershipId) throws java.rmi.RemoteException;
+    public java.lang.String signUpUser(java.lang.String userId, java.lang.String password, java.lang.String memType, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, java.lang.String ccNumber) throws java.rmi.RemoteException;
     public java.lang.String signUpAdmin(java.lang.String userId, java.lang.String password, java.lang.String firstName, java.lang.String lastName) throws java.rmi.RemoteException;
     public java.lang.String signInUser(java.lang.String userId, java.lang.String password) throws java.rmi.RemoteException;
     public java.lang.String signInAdmin(java.lang.String userId, java.lang.String password) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.User[] viewMembers(java.lang.String type) throws java.rmi.RemoteException;
     public java.lang.String deleteUserAccount(java.lang.String userId) throws java.rmi.RemoteException;
     public java.lang.String deleteAdminAccount(java.lang.String userId) throws java.rmi.RemoteException;
+    public java.lang.String createNewMovie(java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, int categoryId) throws java.rmi.RemoteException;
     public java.lang.String deleteMovie(java.lang.String movieId) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.User displayUserInformation(java.lang.String membershipId) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Movie displayMovieInformation(java.lang.String movieId) throws java.rmi.RemoteException;
@@ -27,6 +29,7 @@ public interface Service extends java.rmi.Remote {
     public java.lang.String updateMovieInfo(java.lang.String movieId, java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, double rentAmount, int categoryId) throws java.rmi.RemoteException;
     public java.lang.String generateMonthlyStatement(java.lang.String membershipId, int month, int year) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.StatementInfo[] viewStatement(java.lang.String membershipId, int month, int year) throws java.rmi.RemoteException;
+    public edu.sjsu.videolibrary.model.PaymentForPremiumMemInfo generateMonthlyBillForPremiumMember(java.lang.String membershipId, int month, int year) throws java.rmi.RemoteException;
     public double getRentAmountforMovie() throws java.rmi.RemoteException;
     public double getMonthlyFeesForPremiumMember() throws java.rmi.RemoteException;
 }

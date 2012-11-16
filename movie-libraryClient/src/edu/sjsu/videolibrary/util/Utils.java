@@ -14,12 +14,12 @@ public class Utils {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		out.write("<table border=1><tr>");
-		out.write("<td><a href=\"UserMain\">View Products</a></td>");
+		out.write("<td><a href=\"UserMain\">Home</a></td>");
 		out.write("<td><a href=\"ViewAccount\">View My Account</a></td>");
-		out.write("	<td><a href=\"Cart\">Shopping Cart</a></td>");
-		out.write("	<td><a href=\"SellItem\">Sell an item</a></td>");
-		out.write("	<td>Last Logged In:"+((Date)session.getAttribute("lastLoggedInTime")).toString()+"</td>");
-		out.write("	<td><a href=\"SignOutServlet\">Sign-off</a></td>");
+		out.write("	<td><a href=\"Cart\">View Cart</a></td>");
+		out.write("	<td><a href=\"SellItem\">Return Movie</a></td>");
+	
+		out.write("	<td><a href=\"SignOutServlet\">Sign-Out</a></td>");
 		out.write("</tr>");
 		out.write("</table>");
 	}

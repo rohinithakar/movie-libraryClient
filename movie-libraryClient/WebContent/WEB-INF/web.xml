@@ -9,4 +9,42 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+    <servlet>
+    <servlet-name>ViewAccount</servlet-name>
+    <jsp-file>/View/ViewAccount.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAccount</servlet-name>
+    <url-pattern>/ViewAccount</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>ViewMonthlyBill</servlet-name>
+    <jsp-file>/View/ViewMonthlyBill.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMonthlyBill</servlet-name>
+    <url-pattern>/ViewMonthlyBill</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>UpdateUserInfo</servlet-name>
+    <jsp-file>/View/UpdateUserInfo.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserInfo</servlet-name>
+    <url-pattern>/UpdateUserInfo</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+    <servlet-name>UpdatePasswordInfo</servlet-name>
+    <jsp-file>/View/UpdatePasswordInfo.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePasswordInfo</servlet-name>
+    <url-pattern>/UpdatePasswordInfo</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>

@@ -62,6 +62,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.viewCart(membershipId);
   }
   
+  public java.lang.String signUpUser(java.lang.String userId, java.lang.String password, java.lang.String memType, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, java.lang.String ccNumber) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.signUpUser(userId, password, memType, firstName, lastName, address, city, state, zipCode, ccNumber);
+  }
+  
   public java.lang.String signUpAdmin(java.lang.String userId, java.lang.String password, java.lang.String firstName, java.lang.String lastName) throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();
@@ -96,6 +102,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     if (service == null)
       _initServiceProxy();
     return service.deleteAdminAccount(userId);
+  }
+  
+  public java.lang.String createNewMovie(java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, int categoryId) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.createNewMovie(movieName, movieBanner, releaseDate, availableCopies, categoryId);
   }
   
   public java.lang.String deleteMovie(java.lang.String movieId) throws java.rmi.RemoteException{
@@ -156,6 +168,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     if (service == null)
       _initServiceProxy();
     return service.viewStatement(membershipId, month, year);
+  }
+  
+  public edu.sjsu.videolibrary.model.PaymentForPremiumMemInfo generateMonthlyBillForPremiumMember(java.lang.String membershipId, int month, int year) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.generateMonthlyBillForPremiumMember(membershipId, month, year);
   }
   
   public double getRentAmountforMovie() throws java.rmi.RemoteException{
