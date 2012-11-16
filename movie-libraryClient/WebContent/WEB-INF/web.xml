@@ -57,6 +57,15 @@
     <url-pattern>/UpdateUserInfoServlet</url-pattern>
   </servlet-mapping>
   
-  
+   <servlet>
+    <description>UpdatePasswordInfoServlet</description>
+    <display-name>UpdatePasswordInfoServlet</display-name>
+    <servlet-name>UpdatePasswordInfoServlet</servlet-name>
+    <servlet-class>Servlets.UpdatePasswordInfo</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>UpdatePasswordInfoServlet</servlet-name>
+    <url-pattern>/UpdatePasswordInfoServlet</url-pattern>
+  </servlet-mapping>
   
 </web-app>
