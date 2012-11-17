@@ -7,6 +7,7 @@
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="edu.sjsu.videolibrary.model.PaymentForPremiumMemInfo"%>
+<%@ page import="edu.sjsu.videolibrary.model.User"%>
 <%@ page import="edu.sjsu.videolibrary.model.StatementInfo"%>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
 <%@ page import="edu.sjsu.videolibrary.util.Utils"%>
@@ -32,11 +33,17 @@
 	<%
 		ServiceProxy proxy = new ServiceProxy();
 		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service ");
-		String membershipId = (String)session.getAttribute("membershipId");
-		int month =0;
-		int year = 0;
-		StatementInfo[] statement = proxy.viewStatement(membershipId,month,year);
-		PaymentForPremiumMemInfo pymnt = proxy.generateMonthlyBillForPremiumMember(membershipId,month,year);
+		// User usr = (User)session.getAttribute("user");
+		int month =11;
+		int year = 2012;
+		
+		// Hard code
+		User usr = new User();
+		usr.setMembershipId(1);
+		
+		
+		StatementInfo[] statement = proxy.viewStatement(usr.getMembershipId(),month,year);
+		PaymentForPremiumMemInfo pymnt = proxy.generateMonthlyBillForPremiumMember(usr.getMembershipId(),month,year);
 		%>
 	<% if(statement != null && statement.length != 0){ %>
 

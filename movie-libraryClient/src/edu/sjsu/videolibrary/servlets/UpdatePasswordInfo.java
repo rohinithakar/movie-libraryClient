@@ -30,7 +30,7 @@ public class UpdatePasswordInfo extends HttpServlet{
 
 		PrintWriter out = response.getWriter();
 		try{
-			String membershipId = request.getParameter("membershipId");
+			int membershipId = Integer.parseInt(request.getParameter("membershipId"));
 			String oldPwd = request.getParameter("oldPwd");
 			String newPwd = request.getParameter("newPwd");
 

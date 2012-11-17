@@ -10,6 +10,8 @@ package edu.sjsu.videolibrary.model;
 public class ItemOnCart  implements java.io.Serializable {
     private java.lang.String category;
 
+    private java.lang.String movieBanner;
+
     private int movieId;
 
     private java.lang.String movieName;
@@ -21,10 +23,12 @@ public class ItemOnCart  implements java.io.Serializable {
 
     public ItemOnCart(
            java.lang.String category,
+           java.lang.String movieBanner,
            int movieId,
            java.lang.String movieName,
            double rentAmount) {
            this.category = category;
+           this.movieBanner = movieBanner;
            this.movieId = movieId;
            this.movieName = movieName;
            this.rentAmount = rentAmount;
@@ -48,6 +52,26 @@ public class ItemOnCart  implements java.io.Serializable {
      */
     public void setCategory(java.lang.String category) {
         this.category = category;
+    }
+
+
+    /**
+     * Gets the movieBanner value for this ItemOnCart.
+     * 
+     * @return movieBanner
+     */
+    public java.lang.String getMovieBanner() {
+        return movieBanner;
+    }
+
+
+    /**
+     * Sets the movieBanner value for this ItemOnCart.
+     * 
+     * @param movieBanner
+     */
+    public void setMovieBanner(java.lang.String movieBanner) {
+        this.movieBanner = movieBanner;
     }
 
 
@@ -125,6 +149,9 @@ public class ItemOnCart  implements java.io.Serializable {
             ((this.category==null && other.getCategory()==null) || 
              (this.category!=null &&
               this.category.equals(other.getCategory()))) &&
+            ((this.movieBanner==null && other.getMovieBanner()==null) || 
+             (this.movieBanner!=null &&
+              this.movieBanner.equals(other.getMovieBanner()))) &&
             this.movieId == other.getMovieId() &&
             ((this.movieName==null && other.getMovieName()==null) || 
              (this.movieName!=null &&
@@ -144,6 +171,9 @@ public class ItemOnCart  implements java.io.Serializable {
         if (getCategory() != null) {
             _hashCode += getCategory().hashCode();
         }
+        if (getMovieBanner() != null) {
+            _hashCode += getMovieBanner().hashCode();
+        }
         _hashCode += getMovieId();
         if (getMovieName() != null) {
             _hashCode += getMovieName().hashCode();
@@ -162,6 +192,12 @@ public class ItemOnCart  implements java.io.Serializable {
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("category");
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "category"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("movieBanner");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "movieBanner"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);

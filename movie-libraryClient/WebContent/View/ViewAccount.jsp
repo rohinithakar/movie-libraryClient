@@ -8,6 +8,7 @@
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="edu.sjsu.videolibrary.model.Transaction"%>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
+<%@ page import="edu.sjsu.videolibrary.model.User"%>
 <%@ page import="edu.sjsu.videolibrary.util.Utils"%>
 
 
@@ -30,8 +31,12 @@
 	<%
 		ServiceProxy proxy = new ServiceProxy();
 		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service ");
-		String membershipId = (String) session.getAttribute("membershipId");
-		Transaction[] trans = proxy.viewAccountTransactions(membershipId);
+		// User usr = (User)session.getAttribute("user");
+				
+		// Hard code
+		User usr = new User();
+		usr.setMembershipId(1);
+		Transaction[] trans = proxy.viewAccountTransactions(usr.getMembershipId());
 	%>
 
 	<%

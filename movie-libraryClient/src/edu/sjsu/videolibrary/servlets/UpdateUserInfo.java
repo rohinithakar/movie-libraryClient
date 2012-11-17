@@ -31,7 +31,7 @@ public class UpdateUserInfo extends HttpServlet{
 
 		PrintWriter out = response.getWriter();
 		try{
-			String membershipId = request.getParameter("membershipId");
+			int membershipId = Integer.parseInt(request.getParameter("membershipId"));
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 			String address = request.getParameter("address");

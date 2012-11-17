@@ -16,6 +16,8 @@ public class Movie  implements java.io.Serializable {
 
     private int categoryId;
 
+    private java.lang.String categoryName;
+
     private java.lang.String movieBanner;
 
     private int movieId;
@@ -34,6 +36,7 @@ public class Movie  implements java.io.Serializable {
            java.lang.String[] buyerList,
            java.lang.String catagory,
            int categoryId,
+           java.lang.String categoryName,
            java.lang.String movieBanner,
            int movieId,
            java.lang.String movieName,
@@ -43,6 +46,7 @@ public class Movie  implements java.io.Serializable {
            this.buyerList = buyerList;
            this.catagory = catagory;
            this.categoryId = categoryId;
+           this.categoryName = categoryName;
            this.movieBanner = movieBanner;
            this.movieId = movieId;
            this.movieName = movieName;
@@ -128,6 +132,26 @@ public class Movie  implements java.io.Serializable {
      */
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+
+
+    /**
+     * Gets the categoryName value for this Movie.
+     * 
+     * @return categoryName
+     */
+    public java.lang.String getCategoryName() {
+        return categoryName;
+    }
+
+
+    /**
+     * Sets the categoryName value for this Movie.
+     * 
+     * @param categoryName
+     */
+    public void setCategoryName(java.lang.String categoryName) {
+        this.categoryName = categoryName;
     }
 
 
@@ -250,6 +274,9 @@ public class Movie  implements java.io.Serializable {
              (this.catagory!=null &&
               this.catagory.equals(other.getCatagory()))) &&
             this.categoryId == other.getCategoryId() &&
+            ((this.categoryName==null && other.getCategoryName()==null) || 
+             (this.categoryName!=null &&
+              this.categoryName.equals(other.getCategoryName()))) &&
             ((this.movieBanner==null && other.getMovieBanner()==null) || 
              (this.movieBanner!=null &&
               this.movieBanner.equals(other.getMovieBanner()))) &&
@@ -288,6 +315,9 @@ public class Movie  implements java.io.Serializable {
             _hashCode += getCatagory().hashCode();
         }
         _hashCode += getCategoryId();
+        if (getCategoryName() != null) {
+            _hashCode += getCategoryName().hashCode();
+        }
         if (getMovieBanner() != null) {
             _hashCode += getMovieBanner().hashCode();
         }
@@ -333,6 +363,12 @@ public class Movie  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "categoryId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("categoryName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "categoryName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("movieBanner");
