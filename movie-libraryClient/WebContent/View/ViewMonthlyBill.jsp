@@ -33,6 +33,8 @@
 		ServiceProxy proxy = new ServiceProxy();
 		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service ");
 		String membershipId = (String)session.getAttribute("membershipId");
+		int month =0;
+		int year = 0;
 		StatementInfo[] statement = proxy.viewStatement(membershipId,month,year);
 		PaymentForPremiumMemInfo pymnt = proxy.generateMonthlyBillForPremiumMember(membershipId,month,year);
 		%>
