@@ -44,8 +44,12 @@
 	<%
 		ServiceProxy proxy = new ServiceProxy();
 		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service ");
-		String membershipId = (String) session.getAttribute("membershipId");
-		User usr = proxy.displayUserInformation("membershipId");
+		// User usrSession = (User)session.getAttribute(Parameters.pUserBean);
+
+				// Hard coded values
+				User usrSession = new User();
+				usrSession.setMembershipId(1);
+		User usr = proxy.displayUserInformation(usrSession.getMembershipId());
 	%>
 
 
