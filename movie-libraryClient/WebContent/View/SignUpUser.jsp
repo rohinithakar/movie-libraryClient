@@ -4,10 +4,95 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Sign up User</title>
+<script type="text/javascript">
+       
+        function validateForm()
+        {
+        	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
+        	{
+        		alert("User id  must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["pwd"].value))
+        	{
+        		alert("Password  must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["fname"].value))
+        	{
+        		alert("First Name must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["lname"].value))
+        	{
+        		alert("Last Name must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
+        	{
+        		alert("Streett Address must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
+        	{
+        		alert("Streett Address must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["city"].value))
+        	{
+        		alert("City must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["state"].value))
+        	{
+        		alert("State must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["zip"].value))
+        	{
+        		alert("Zip must be filled out");
+          		return false;
+        	}
+        	else
+        	{
+        		 var re = /^\d{5}([\-]\d{4})?$/;
+        		 var zip = document.forms["form1"]["zip"].value;
+        		 if( !re.test(zip))
+        		 {
+        			alert('Invalid ZipCode');
+        			return false;
+        		  }
+        	}
+        	if(document.forms["form1"]["mem"].value == "Simple")
+        	{
+        		var ccnum = document.forms["form1"]["ccnum"].value;
+        		if(IsEmptyOrNull(ccnum))
+        		{
+        			alert('Non Premium members must fill out credit card number');
+    			 	return false;
+        		}
+        		if(ccnum.length != 16)
+        		{
+        			alert('credit card number must be 16 digits');
+    			 	return false;
+        		}
+        		var regex = /^\s*\d+\s*$/;
+        		if( !regex.test(ccnum) ) 
+        		{
+        			alert('bad input');
+    			 	return false;
+        		}
+        	}
+        }
+        function IsEmptyOrNull(arg)
+        {
+        	return (arg==null || arg=="");	
+        }
+    </script>
 </head>
 <body>
-<form id="form1" method="post" action="SignUpUser">
+<form id="form1" method="post" action="SignUpUser" onsubmit="return validateForm()" >
 <h1>Sign Up User page</h1>
 <table>
 				<tr>
@@ -60,6 +145,8 @@
 					<td>
 				</tr>
 			</table>
+			<br>
+			<input type="submit" value="Submit" />
 </form>
 </body>
 </html>
