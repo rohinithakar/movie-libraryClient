@@ -14,7 +14,7 @@ import Connection.ServicesProxy;
 /**
  * Servlet implementation class SignUpUser
  */
-@WebServlet("/SignUpUser")
+
 public class SignUpUser extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
