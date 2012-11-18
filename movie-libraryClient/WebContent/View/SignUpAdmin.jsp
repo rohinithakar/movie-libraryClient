@@ -4,10 +4,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Sign Up Admin Page</title>
+<script type="text/javascript">
+       
+        function validateForm()
+        {
+        	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
+        	{
+        		alert("User id  must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["pwd"].value))
+        	{
+        		alert("Password  must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["fname"].value))
+        	{
+        		alert("First Name must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["lname"].value))
+        	{
+        		alert("Last Name must be filled out");
+          		return false;
+        	}
+        }
+        function IsEmptyOrNull(arg)
+        {
+        	return (arg==null || arg=="");	
+        }
+    </script>
 </head>
 <body>
-<form id="form1" method="post" action="SignUpAdmin">
+<form id="form1" method="post" action="SignUpAdmin" onsubmit="return validateForm()">
 <h1>Sign Up Admin page</h1>
 	<table>
 				<tr>
@@ -31,6 +61,8 @@
 					<td>
 				</tr>
 			</table>
+			<br>
+			<input type="submit" value="Submit" />
 </form>
 
 </body>
