@@ -4,11 +4,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Sign In User Page</title>
+<script type="text/javascript">
+       
+        function validateForm()
+        {
+        	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
+        	{
+        		alert("User id  must be filled out");
+          		return false;
+        	}
+        	if(IsEmptyOrNull(document.forms["form1"]["pwd"].value))
+        	{
+        		alert("Password  must be filled out");
+          		return false;
+        	}
+        }
+        function IsEmptyOrNull(arg)
+        {
+        	return (arg==null || arg=="");	
+        }
+    </script>
 </head>
 <body>
 <h1>Sign in User Page</h1>
-<form id="form1" method="post" action="SignInUser">
+<form id="form1" method="post" action="SignInUser" onsubmit="return validateForm()">
 <table>
 				<tr>
 					<td>User ID</td>
@@ -21,6 +41,9 @@
 					<td>
 				</tr>
 			</table>
-
+			<br>
+			<input type="submit" value="Submit" />
+			
+			</form>
 </body>
 </html>
