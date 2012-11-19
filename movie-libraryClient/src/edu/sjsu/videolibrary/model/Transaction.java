@@ -16,6 +16,8 @@ public class Transaction  implements java.io.Serializable {
 
     private java.lang.String returnDate;
 
+    private int transactionId;
+
     public Transaction() {
     }
 
@@ -23,11 +25,13 @@ public class Transaction  implements java.io.Serializable {
            java.lang.String movieName,
            double perMovieAmount,
            java.lang.String purchaseDate,
-           java.lang.String returnDate) {
+           java.lang.String returnDate,
+           int transactionId) {
            this.movieName = movieName;
            this.perMovieAmount = perMovieAmount;
            this.purchaseDate = purchaseDate;
            this.returnDate = returnDate;
+           this.transactionId = transactionId;
     }
 
 
@@ -110,6 +114,26 @@ public class Transaction  implements java.io.Serializable {
         this.returnDate = returnDate;
     }
 
+
+    /**
+     * Gets the transactionId value for this Transaction.
+     * 
+     * @return transactionId
+     */
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+
+    /**
+     * Sets the transactionId value for this Transaction.
+     * 
+     * @param transactionId
+     */
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Transaction)) return false;
@@ -131,7 +155,8 @@ public class Transaction  implements java.io.Serializable {
               this.purchaseDate.equals(other.getPurchaseDate()))) &&
             ((this.returnDate==null && other.getReturnDate()==null) || 
              (this.returnDate!=null &&
-              this.returnDate.equals(other.getReturnDate())));
+              this.returnDate.equals(other.getReturnDate()))) &&
+            this.transactionId == other.getTransactionId();
         __equalsCalc = null;
         return _equals;
     }
@@ -153,6 +178,7 @@ public class Transaction  implements java.io.Serializable {
         if (getReturnDate() != null) {
             _hashCode += getReturnDate().hashCode();
         }
+        _hashCode += getTransactionId();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -186,6 +212,12 @@ public class Transaction  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "returnDate"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("transactionId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "transactionId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 
