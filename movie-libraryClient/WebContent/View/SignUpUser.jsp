@@ -92,7 +92,7 @@
     </script>
 </head>
 <body>
-<form id="form1" method="post" action="SignUpUser" onsubmit="return validateForm()" >
+<form id="form1" method="post" action="SignUpUserServlet" onsubmit="return validateForm()" >
 <h1>Sign Up User page</h1>
 <table>
 				<tr>

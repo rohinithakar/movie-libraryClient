@@ -61,7 +61,7 @@ public class SignUpUser extends HttpServlet
 		}
 		try
 		{
-			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
+			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
 			User res = proxy.signUpUser(uid,pwd,mem,fname,lname, stAddress,city,state,zip,ccnum);
 			if(res != null)
 			{

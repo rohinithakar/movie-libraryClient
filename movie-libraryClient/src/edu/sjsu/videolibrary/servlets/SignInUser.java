@@ -43,13 +43,12 @@ public class SignInUser extends HttpServlet
 		String pwd = request.getParameter("pwd");
 		try
 		{
-			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
+			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
 			String res = proxy.signInUser(uid, pwd);
 			if(res != null || res != "")
 			{
 				response.sendRedirect("MainPage.jsp");
-			}
-			else
+			} else
 			{
 				out.println("could not sign in");
 			}

@@ -28,7 +28,7 @@
 </head>
 <body>
 <h1>Sign in User Page</h1>
-<form id="form1" method="post" action="SignInUser" onsubmit="return validateForm()">
+<form id="form1" method="post" action="SignInUserServlet" onsubmit="return validateForm()">
 <table>
 				<tr>
 					<td>User ID</td>

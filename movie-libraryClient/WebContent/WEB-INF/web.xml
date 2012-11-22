@@ -68,4 +68,47 @@
     <url-pattern>/UpdatePasswordInfoServlet</url-pattern>
   </servlet-mapping>
   
+  
+  <!-- SignIn Pages -->
+  <servlet>
+    <display-name>SignInUser</display-name>
+    <servlet-name>SignInUser</servlet-name>
+    <jsp-file>/View/SignInUser.jsp</jsp-file>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>SignInUser</servlet-name>
+    <url-pattern>/SignInUser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <display-name>SignInUserServlet</display-name>
+    <servlet-name>SignInUserServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.SignInUser</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>SignInUserServlet</servlet-name>
+    <url-pattern>/SignInUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Signup Pages -->
+   <servlet>
+    <display-name>SignUpUser</display-name>
+    <servlet-name>SignUpUser</servlet-name>
+    <jsp-file>/View/SignUpUser.jsp</jsp-file>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>SignUpUser</servlet-name>
+    <url-pattern>/SignUpUser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <display-name>SignUpUserServlet</display-name>
+    <servlet-name>SignUpUserServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.SignUpUser</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>SignUpUserServlet</servlet-name>
+    <url-pattern>/SignUpUserServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
