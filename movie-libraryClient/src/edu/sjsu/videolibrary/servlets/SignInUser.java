@@ -1,15 +1,12 @@
-package Servlet;
+package edu.sjsu.videolibrary.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import Connection.ServicesProxy;
+import edu.sjsu.videolibrary.service.ServiceProxy;
 
 /**
  * Servlet implementation class SignInUser
@@ -18,7 +15,7 @@ import Connection.ServicesProxy;
 public class SignInUser extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
-	ServicesProxy proxy = new ServicesProxy(); 
+	ServiceProxy proxy = new ServiceProxy(); 
     /**
      * @see HttpServlet#HttpServlet()
      */

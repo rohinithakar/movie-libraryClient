@@ -1,15 +1,14 @@
-package Servlet;
+package edu.sjsu.videolibrary.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Connection.ServicesProxy;
+import edu.sjsu.videolibrary.model.User;
+import edu.sjsu.videolibrary.service.ServiceProxy;
 
 /**
  * Servlet implementation class SignUpUser
@@ -18,7 +17,7 @@ import Connection.ServicesProxy;
 public class SignUpUser extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
-	ServicesProxy proxy = new ServicesProxy(); 
+	ServiceProxy proxy = new ServiceProxy(); 
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -63,8 +62,8 @@ public class SignUpUser extends HttpServlet
 		try
 		{
 			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
-			String res = proxy.signUpUser(uid,pwd,mem,fname,lname, stAddress,city,state,zip,ccnum);
-			if(res != null || res != "")
+			User res = proxy.signUpUser(uid,pwd,mem,fname,lname, stAddress,city,state,zip,ccnum);
+			if(res != null)
 			{
 				response.sendRedirect("MainPage.jsp");
 			}
