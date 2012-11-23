@@ -43,7 +43,7 @@ public class ViewMovies extends HttpServlet {
 	}
 	
 	public void displayMovies (String category) throws RemoteException { 
-		Movie movies [] = proxy.viewMovies(category);
+		Movie movies [] = proxy.listMoviesByCategory(category);
 		
 		if (movies.length > 0) {
 			for (int i = 0; i < movies.length; i++) { 

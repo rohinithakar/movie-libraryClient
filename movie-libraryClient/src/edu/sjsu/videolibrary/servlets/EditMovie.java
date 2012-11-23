@@ -55,7 +55,7 @@ public class EditMovie extends HttpServlet {
 	}
 	
     public void editMovie (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
-		Movie movie = proxy.displayMovieInformation(id);
+		Movie movie = proxy.displayMovieInformation(Integer.parseInt(id));
 		
 		if (movie.getMovieName() != null) {
 			//Include categories 
@@ -78,7 +78,7 @@ public class EditMovie extends HttpServlet {
 	    
 	    System.out.println(movieId + " " + movieName + " " + movieBanner + releaseDate + "  " + availableCopies + " " + categoryId);
 	   
-	    String done = proxy.updateMovieInfo(movieId, movieName, movieBanner, releaseDate, availableCopies, categoryId);
+	    String done =  proxy.updateMovieInfo(Integer.parseInt(movieId), movieName, movieBanner, releaseDate, availableCopies, categoryId);
 	    
 	    if (!done.equals("true")) {
 	    	msg = "Error with database connection"; 

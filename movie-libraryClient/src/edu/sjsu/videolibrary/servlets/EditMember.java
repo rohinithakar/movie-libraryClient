@@ -54,7 +54,7 @@ public class EditMember extends HttpServlet {
 	}
 	
     public void editUser (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
-		User member = proxy.displayUserInformation(id);
+		User member = proxy.displayUserInformation(Integer.parseInt(id));
 		
 		if (member.getFirstName() != null) {
 			
@@ -71,7 +71,7 @@ public class EditMember extends HttpServlet {
     public void updateUser (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
     	
     	String userId = request.getParameter("userId").trim().toLowerCase(); //Validate Email 
-	    String membershipId = request.getParameter("membershipId"); 
+	    int membershipId = Integer.parseInt(request.getParameter("membershipId")); 
 	    String firstName = request.getParameter("firstName"); 
 	    String lastName = request.getParameter("lastName"); 
 	    String address = request.getParameter("address"); 
@@ -85,7 +85,7 @@ public class EditMember extends HttpServlet {
 	    String newPassword = request.getParameter("newPassword");
 
 	    String done = proxy.updateUserInfo(membershipId, userId, firstName, lastName, address, city, state, zipCode, membershipType, creditCardNumber);
-
+	    
 	    System.out.println("> " + changePassword + " " + newPassword);
 	    
 	    if (!done.equals("true")) {
@@ -104,7 +104,7 @@ public class EditMember extends HttpServlet {
 		}
     }
     
-    public void updateUserPassword (String membershipId, String newPassword) throws RemoteException { 
+    public void updateUserPassword (int membershipId, String newPassword) throws RemoteException { 
 		String updatePassword = proxy.updateUserPassword(membershipId, newPassword);
 		if (updatePassword.equals("true")) {
 			msg = ("Account and Password updated <a href=\"ViewMembers.jsp\">go Back to View Members</a> "); 	

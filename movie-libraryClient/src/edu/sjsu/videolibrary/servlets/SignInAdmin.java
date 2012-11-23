@@ -1,62 +1,52 @@
 package edu.sjsu.videolibrary.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import edu.sjsu.videolibrary.model.Admin;
 import edu.sjsu.videolibrary.service.ServiceProxy;
+ 
 
-/**
- * Servlet implementation class SignInAdmin
- */
-
-public class SignInAdmin extends HttpServlet 
-{
+//@WebServlet("/Admin/SignIn")
+public class SignInAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	ServiceProxy proxy = new ServiceProxy();
+	ServiceProxy proxy = new ServiceProxy(); 
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+ 
     public SignInAdmin() {
         super();
-        // TODO Auto-generated constructor stub
     }
+ 
+    public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, java.io.IOException {
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
+		try {	    
 		
-	    String uid = request.getParameter("uid");
-		String pwd = request.getParameter("pwd");
-		try
-		{
-			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
-			String res = proxy.signInAdmin(uid, pwd);
-			if(res != null || res != "")
-			{
-				response.sendRedirect("MainPage.jsp");
-			}
-			else
-			{
-				out.println("could not sign in");
-			}
+			Admin user = new Admin();
+			String userId = (request.getParameter("userId"));
+			String password = (request.getParameter("password"));
+			
+			System.out.println("WTF");
+			
+			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
+			user = proxy.signInAdminObject(userId, password);
+			   
+			System.out.println("user is " + user.isValid() + " " + user.getPassword()); 
+			
+			if (user.isValid()) {
+				HttpSession session = request.getSession(true);	    
+				session.setAttribute("currentAdmin", user); 
+				response.sendRedirect("Home.jsp"); //logged-in page      		
+			} else 
+				response.sendRedirect("LogIn.jsp"); //error page 
+		} 
+		
+		
+		catch (Throwable theException) 	 { System.out.println(theException);  
 		}
-		catch(Exception e)
-		{}
 	}
 
 }
