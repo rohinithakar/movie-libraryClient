@@ -4,3 +4,6 @@
 .project
 .settings
 build
+movie-libraryClient\WebContent\WEB-INF\lib
+movie-libraryClient\WebContent\WEB-INF\sampleServiceProxy
+movie-libraryClient\src\edu\sjsu\videolibrary\service
