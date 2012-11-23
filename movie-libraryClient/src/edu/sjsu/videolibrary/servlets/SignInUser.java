@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import edu.sjsu.videolibrary.service.ServiceProxy;
 
 /**
@@ -36,6 +38,7 @@ public class SignInUser extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		
@@ -47,7 +50,9 @@ public class SignInUser extends HttpServlet
 			String res = proxy.signInUser(uid, pwd);
 			if(res != null || res != "")
 			{
-				response.sendRedirect("MainPage.jsp");
+				String[] categoryName = proxy.listCategories();
+				session.setAttribute("categoryName",categoryName);
+				response.sendRedirect("HomePage.jsp");
 			} else
 			{
 				out.println("could not sign in");

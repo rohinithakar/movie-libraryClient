@@ -111,4 +111,14 @@
     <url-pattern>/SignUpUserServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <display-name>HomePage</display-name>
+    <servlet-name>HomePage</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.HomePage</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>HomePaget</servlet-name>
+    <url-pattern>/View/HomePage</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
