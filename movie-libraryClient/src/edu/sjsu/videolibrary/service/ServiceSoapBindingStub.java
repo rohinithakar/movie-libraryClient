@@ -16,16 +16,26 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[37];
+        _operations = new org.apache.axis.description.OperationDesc[41];
         _initOperationDesc1();
         _initOperationDesc2();
         _initOperationDesc3();
         _initOperationDesc4();
+        _initOperationDesc5();
     }
 
     private static void _initOperationDesc1(){
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getStates");
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "getStatesReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[0] = oper;
+
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("addItemsToCart");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "membershipId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -37,7 +47,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "addItemsToCartReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[0] = oper;
+        _operations[1] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteMovieFromCart");
@@ -50,7 +60,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "deleteMovieFromCartReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[1] = oper;
+        _operations[2] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("viewCart");
@@ -61,7 +71,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "viewCartReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[2] = oper;
+        _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("checkOutMovieCart");
@@ -74,7 +84,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "checkOutMovieCartReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[3] = oper;
+        _operations[4] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("signUpUser");
@@ -103,7 +113,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "signUpUserReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[4] = oper;
+        _operations[5] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("signUpAdmin");
@@ -120,7 +130,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "signUpAdminReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[5] = oper;
+        _operations[6] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("signInUser");
@@ -133,7 +143,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "signInUserReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[6] = oper;
+        _operations[7] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("signInAdmin");
@@ -146,7 +156,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "signInAdminReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[7] = oper;
+        _operations[8] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("viewMembers");
@@ -157,8 +167,13 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "viewMembersReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[8] = oper;
+        _operations[9] = oper;
 
+    }
+
+    private static void _initOperationDesc2(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteUserAccount");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -168,13 +183,8 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "deleteUserAccountReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[9] = oper;
+        _operations[10] = oper;
 
-    }
-
-    private static void _initOperationDesc2(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteAdminAccount");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "userId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -184,7 +194,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "deleteAdminAccountReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[10] = oper;
+        _operations[11] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("createNewMovie");
@@ -203,7 +213,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "createNewMovieReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[11] = oper;
+        _operations[12] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteMovie");
@@ -214,7 +224,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "deleteMovieReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[12] = oper;
+        _operations[13] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("displayUserInformation");
@@ -225,7 +235,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "displayUserInformationReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[13] = oper;
+        _operations[14] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("displayMovieInformation");
@@ -236,7 +246,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "displayMovieInformationReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[14] = oper;
+        _operations[15] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("viewAccountTransactions");
@@ -247,7 +257,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "viewAccountTransactionsReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[15] = oper;
+        _operations[16] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("makeMonthlyPayment");
@@ -258,7 +268,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "makeMonthlyPaymentReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[16] = oper;
+        _operations[17] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("updateUserInfo");
@@ -287,7 +297,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updateUserInfoReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[17] = oper;
+        _operations[18] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("updatePassword");
@@ -302,8 +312,13 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updatePasswordReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[18] = oper;
+        _operations[19] = oper;
 
+    }
+
+    private static void _initOperationDesc3(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("updateMovieInfo");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "movieId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -316,8 +331,6 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "availableCopies"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "rentAmount"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"), double.class, false, false);
-        oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "categoryId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -325,13 +338,8 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updateMovieInfoReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[19] = oper;
+        _operations[20] = oper;
 
-    }
-
-    private static void _initOperationDesc3(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("generateMonthlyStatement");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "membershipId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
@@ -345,7 +353,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "generateMonthlyStatementReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[20] = oper;
+        _operations[21] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("viewStatement");
@@ -360,7 +368,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "viewStatementReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[21] = oper;
+        _operations[22] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("generateMonthlyBillForPremiumMember");
@@ -375,7 +383,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "generateMonthlyBillForPremiumMemberReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[22] = oper;
+        _operations[23] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getRentAmountforMovie");
@@ -384,7 +392,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "getRentAmountforMovieReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[23] = oper;
+        _operations[24] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getMonthlyFeesForPremiumMember");
@@ -393,7 +401,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "getMonthlyFeesForPremiumMemberReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[24] = oper;
+        _operations[25] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("listCategories");
@@ -402,7 +410,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "listCategoriesReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[25] = oper;
+        _operations[26] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("listMoviesByCategory");
@@ -413,7 +421,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "listMoviesByCategoryReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[26] = oper;
+        _operations[27] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("listAllMovies");
@@ -422,7 +430,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "listAllMoviesReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[27] = oper;
+        _operations[28] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchByName");
@@ -433,8 +441,13 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchByNameReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[28] = oper;
+        _operations[29] = oper;
 
+    }
+
+    private static void _initOperationDesc4(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchByMovieBanner");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "userInput"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -444,13 +457,8 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchByMovieBannerReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[29] = oper;
+        _operations[30] = oper;
 
-    }
-
-    private static void _initOperationDesc4(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchByReleaseDate");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "userInput"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
@@ -460,7 +468,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchByReleaseDateReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[30] = oper;
+        _operations[31] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchUserByFirstName");
@@ -471,7 +479,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchUserByFirstNameReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[31] = oper;
+        _operations[32] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchUserByLastName");
@@ -482,7 +490,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchUserByLastNameReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[32] = oper;
+        _operations[33] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchUserByCity");
@@ -493,7 +501,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchUserByCityReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[33] = oper;
+        _operations[34] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchUserByState");
@@ -504,7 +512,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchUserByStateReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[34] = oper;
+        _operations[35] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchUserByMemberShipType");
@@ -515,7 +523,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchUserByMemberShipTypeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[35] = oper;
+        _operations[36] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("searchUserByMembershipId");
@@ -526,7 +534,53 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "searchUserByMembershipIdReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[36] = oper;
+        _operations[37] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("displayAdminInformation");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "adminId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "Admin"));
+        oper.setReturnClass(edu.sjsu.videolibrary.model.Admin.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "displayAdminInformationReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[38] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("updateAdminInfo");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "adminId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "firstName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "lastName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "password"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updateAdminInfoReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[39] = oper;
+
+    }
+
+    private static void _initOperationDesc5(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("updateUserPassword");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "membershipId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "newPassword"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updateUserPasswordReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[40] = oper;
 
     }
 
@@ -559,6 +613,13 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
             java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            qName = new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "Admin");
+            cachedSerQNames.add(qName);
+            cls = edu.sjsu.videolibrary.model.Admin.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "ItemOnCart");
             cachedSerQNames.add(qName);
             cls = edu.sjsu.videolibrary.model.ItemOnCart.class;
@@ -676,12 +737,46 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
         }
     }
 
-    public java.lang.String addItemsToCart(int membershipId, int movieId) throws java.rmi.RemoteException {
+    public java.lang.String[] getStates() throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[0]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "getStates"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String[]) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String addItemsToCart(int membershipId, int movieId) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[1]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -715,7 +810,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[1]);
+        _call.setOperation(_operations[2]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -749,7 +844,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[2]);
+        _call.setOperation(_operations[3]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -783,7 +878,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[3]);
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -817,7 +912,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
+        _call.setOperation(_operations[5]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -851,7 +946,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[5]);
+        _call.setOperation(_operations[6]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -885,7 +980,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[6]);
+        _call.setOperation(_operations[7]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -919,7 +1014,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[7]);
+        _call.setOperation(_operations[8]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -953,7 +1048,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[8]);
+        _call.setOperation(_operations[9]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -987,7 +1082,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[9]);
+        _call.setOperation(_operations[10]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1021,7 +1116,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[10]);
+        _call.setOperation(_operations[11]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1055,7 +1150,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[11]);
+        _call.setOperation(_operations[12]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1089,7 +1184,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[12]);
+        _call.setOperation(_operations[13]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1123,7 +1218,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[13]);
+        _call.setOperation(_operations[14]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1157,7 +1252,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[14]);
+        _call.setOperation(_operations[15]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1191,7 +1286,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[15]);
+        _call.setOperation(_operations[16]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1225,7 +1320,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[16]);
+        _call.setOperation(_operations[17]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1259,7 +1354,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[17]);
+        _call.setOperation(_operations[18]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1293,7 +1388,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[18]);
+        _call.setOperation(_operations[19]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1322,12 +1417,12 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
 }
     }
 
-    public java.lang.String updateMovieInfo(int movieId, java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, double rentAmount, int categoryId) throws java.rmi.RemoteException {
+    public java.lang.String updateMovieInfo(int movieId, java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, int categoryId) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[19]);
+        _call.setOperation(_operations[20]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1338,7 +1433,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Integer(movieId), movieName, movieBanner, releaseDate, new java.lang.Integer(availableCopies), new java.lang.Double(rentAmount), new java.lang.Integer(categoryId)});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Integer(movieId), movieName, movieBanner, releaseDate, new java.lang.Integer(availableCopies), new java.lang.Integer(categoryId)});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -1361,7 +1456,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[20]);
+        _call.setOperation(_operations[21]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1395,7 +1490,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[21]);
+        _call.setOperation(_operations[22]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1429,7 +1524,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[22]);
+        _call.setOperation(_operations[23]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1463,7 +1558,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[23]);
+        _call.setOperation(_operations[24]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1497,7 +1592,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[24]);
+        _call.setOperation(_operations[25]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1531,7 +1626,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[25]);
+        _call.setOperation(_operations[26]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1565,7 +1660,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[26]);
+        _call.setOperation(_operations[27]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1599,7 +1694,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[27]);
+        _call.setOperation(_operations[28]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1633,7 +1728,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[28]);
+        _call.setOperation(_operations[29]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1667,7 +1762,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[29]);
+        _call.setOperation(_operations[30]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1701,7 +1796,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[30]);
+        _call.setOperation(_operations[31]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1735,7 +1830,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[31]);
+        _call.setOperation(_operations[32]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1769,7 +1864,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[32]);
+        _call.setOperation(_operations[33]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1803,7 +1898,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[33]);
+        _call.setOperation(_operations[34]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1837,7 +1932,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[34]);
+        _call.setOperation(_operations[35]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1871,7 +1966,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[35]);
+        _call.setOperation(_operations[36]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1905,7 +2000,7 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[36]);
+        _call.setOperation(_operations[37]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1927,6 +2022,108 @@ public class ServiceSoapBindingStub extends org.apache.axis.client.Stub implemen
                 return (edu.sjsu.videolibrary.model.User[]) _resp;
             } catch (java.lang.Exception _exception) {
                 return (edu.sjsu.videolibrary.model.User[]) org.apache.axis.utils.JavaUtils.convert(_resp, edu.sjsu.videolibrary.model.User[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public edu.sjsu.videolibrary.model.Admin displayAdminInformation(java.lang.String adminId) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[38]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "displayAdminInformation"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {adminId});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (edu.sjsu.videolibrary.model.Admin) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (edu.sjsu.videolibrary.model.Admin) org.apache.axis.utils.JavaUtils.convert(_resp, edu.sjsu.videolibrary.model.Admin.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String updateAdminInfo(java.lang.String adminId, java.lang.String firstName, java.lang.String lastName, java.lang.String password) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[39]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updateAdminInfo"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {adminId, firstName, lastName, password});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String updateUserPassword(int membershipId, java.lang.String newPassword) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[40]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://service.videolibrary.sjsu.edu", "updateUserPassword"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Integer(membershipId), newPassword});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

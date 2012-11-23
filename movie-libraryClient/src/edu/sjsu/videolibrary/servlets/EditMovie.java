@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.rmi.RemoteException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import edu.sjsu.videolibrary.model.User;
 import edu.sjsu.videolibrary.service.ServiceProxy;
 
 
-@WebServlet("/Admin/EditMovie")
 public class EditMovie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ServiceProxy proxy = new ServiceProxy();  
@@ -69,7 +67,7 @@ public class EditMovie extends HttpServlet {
     
     public void updateMovie (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
     	
-	    String movieId = request.getParameter("movieId"); 
+	    int movieId = Integer.parseInt(request.getParameter("movieId")); 
 	    String movieName = request.getParameter("moiveName"); 
 	    String movieBanner = request.getParameter("movieBanner"); 
 	    int availableCopies = Integer.parseInt(request.getParameter("availableCopies")); 
@@ -78,7 +76,7 @@ public class EditMovie extends HttpServlet {
 	    
 	    System.out.println(movieId + " " + movieName + " " + movieBanner + releaseDate + "  " + availableCopies + " " + categoryId);
 	   
-	    String done =  proxy.updateMovieInfo(Integer.parseInt(movieId), movieName, movieBanner, releaseDate, availableCopies, categoryId);
+	    String done =  proxy.updateMovieInfo(movieId, movieName, movieBanner, releaseDate, availableCopies, categoryId);
 	    
 	    if (!done.equals("true")) {
 	    	msg = "Error with database connection"; 

@@ -158,12 +158,6 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.updatePassword(membershipId, oldPassword, newPassword);
   }
   
-  public java.lang.String updateMovieInfo(int movieId, java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, double rentAmount, int categoryId) throws java.rmi.RemoteException{
-    if (service == null)
-      _initServiceProxy();
-    return service.updateMovieInfo(movieId, movieName, movieBanner, releaseDate, availableCopies, rentAmount, categoryId);
-  }
-  
   public java.lang.String generateMonthlyStatement(int membershipId, int month, int year) throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();
@@ -264,6 +258,36 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     if (service == null)
       _initServiceProxy();
     return service.searchUserByMembershipId(adminInput);
+  }
+  
+  public edu.sjsu.videolibrary.model.Admin displayAdminInformation(java.lang.String adminId) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.displayAdminInformation(adminId);
+  }
+  
+  public java.lang.String updateAdminInfo(java.lang.String adminId, java.lang.String firstName, java.lang.String lastName, java.lang.String password) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.updateAdminInfo(adminId, firstName, lastName, password);
+  }
+  
+  public java.lang.String updateUserPassword(int membershipId, java.lang.String newPassword) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.updateUserPassword(membershipId, newPassword);
+  }
+  
+  public java.lang.String[] getStates() throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.getStates();
+  }
+  
+  public java.lang.String updateMovieInfo(int movieId, java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int availableCopies, int categoryId) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.updateMovieInfo(movieId, movieName, movieBanner, releaseDate, availableCopies, categoryId);
   }
   
   

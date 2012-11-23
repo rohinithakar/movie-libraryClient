@@ -105,7 +105,7 @@ public class EditMember extends HttpServlet {
     }
     
     public void updateUserPassword (int membershipId, String newPassword) throws RemoteException { 
-		String updatePassword = proxy.updateUserPassword(membershipId, newPassword);
+		String updatePassword = proxy.updateUserPassword(membershipId,newPassword);
 		if (updatePassword.equals("true")) {
 			msg = ("Account and Password updated <a href=\"ViewMembers.jsp\">go Back to View Members</a> "); 	
 		} else { 
