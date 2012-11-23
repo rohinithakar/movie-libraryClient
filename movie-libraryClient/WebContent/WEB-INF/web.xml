@@ -70,6 +70,7 @@
   
   
   <!-- SignIn Pages -->
+  
   <servlet>
     <display-name>SignInUser</display-name>
     <servlet-name>SignInUser</servlet-name>
@@ -117,8 +118,82 @@
     <servlet-class>edu.sjsu.videolibrary.servlets.HomePage</servlet-class>
   </servlet>  
   <servlet-mapping>
-    <servlet-name>HomePaget</servlet-name>
+    <servlet-name>HomePage</servlet-name>
     <url-pattern>/View/HomePage</url-pattern>
   </servlet-mapping>
+  
+  <!-- Admin Servlets -->
+  
+  <servlet>
+    <servlet-name>CreateMovie</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.CreateMovie</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateMovie</servlet-name>
+    <url-pattern>/Admin/CreateMovie</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>EditAdmin</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.EditAdmin</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditAdmin</servlet-name>
+    <url-pattern>/Admin/EditAdmin</url-pattern>
+  </servlet-mapping> 
+
+  <servlet>
+    <servlet-name>EditMember</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.EditMember</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMember</servlet-name>
+    <url-pattern>/Admin/EditMember</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>EditMovie</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.EditMovie</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMovie</servlet-name>
+    <url-pattern>/Admin/EditMovie</url-pattern>
+  </servlet-mapping>   
+  
+  <servlet>
+    <servlet-name>SignInAdmin</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.SignInAdmin</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignInAdmin</servlet-name>
+    <url-pattern>/Admin/SignInAdmin</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>
+    <servlet-name>SignUpAdmin</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.SignUpAdmin</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUpAdmin</servlet-name>
+    <url-pattern>/Admin/SignUpAdmin</url-pattern>
+  </servlet-mapping>    
+
+  <servlet>
+    <servlet-name>ViewMembers</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.ViewMembers</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMembers</servlet-name>
+    <url-pattern>/Admin/ViewMembers</url-pattern>
+  </servlet-mapping>  
+  
+   <servlet>
+    <servlet-name>ViewMovies</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.ViewMovies</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMovies</servlet-name>
+    <url-pattern>/Admin/ViewMovies</url-pattern>
+  </servlet-mapping>  
   
 </web-app>
