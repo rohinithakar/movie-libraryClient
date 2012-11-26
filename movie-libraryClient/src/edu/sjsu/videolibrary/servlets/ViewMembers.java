@@ -62,18 +62,17 @@ public class ViewMembers extends HttpServlet {
 	}
 	
 	public void displayAdmins () throws RemoteException { 
-		// TODO: Add viewAdmins method to service
-//		Admin admins [] = proxy.viewAdmins();
-//		if (admins.length > 0) {
-//			for (int i = 0; i < admins.length; i++) { 
-//				Admin m = admins[i]; 
-//				out.print("<tr><td>" + m.getAdminId()  + "</td><td>" + m.getFirstName() + " " +  m.getLastName() + "</td>");
-//				out.print("<td><form name=\"adminForm" + i + "\" method=\"post\" action=\"EditAdmin\">"); 
-//				out.print("<input type=\"hidden\" name=\"id\" value="+ m.getAdminId() + ">"); 
-//				out.print("<input type=\"submit\"  name=\"act\" value=\"Edit\"  />    <input type=\"submit\"  name=\"act\" value=\"Delete\"  />");
-//				out.print("</form></td></tr>");
-//			}			
-//		}
+		Admin admins [] = proxy.viewAdmins();
+		if (admins.length > 0) {
+			for (int i = 0; i < admins.length; i++) { 
+				Admin m = admins[i]; 
+				out.print("<tr><td>" + m.getAdminId()  + "</td><td>" + m.getFirstName() + " " +  m.getLastName() + "</td>");
+				out.print("<td><form name=\"adminForm" + i + "\" method=\"post\" action=\"EditAdmin\">"); 
+				out.print("<input type=\"hidden\" name=\"id\" value="+ m.getAdminId() + ">"); 
+				out.print("<input type=\"submit\"  name=\"act\" value=\"Edit\"  />    <input type=\"submit\"  name=\"act\" value=\"Delete\"  />");
+				out.print("</form></td></tr>");
+			}			
+		}
 		
 	}
 	
