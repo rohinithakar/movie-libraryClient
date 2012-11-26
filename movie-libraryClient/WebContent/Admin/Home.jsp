@@ -14,7 +14,7 @@
 <h2>Members/Admin</h2>
 <ul>
   <li><a href="ViewMembers.jsp">View Members</a></li>
-  <li><a href="CreateAdmin.jsp">Create Admin</a></li>
+  <li><a href="SignUpAdmin.jsp">Create Admin</a></li>
   <li><a href="#">Search</a></li>
 </ul>
 <h2>Movies</h2>
@@ -24,9 +24,9 @@
   <li><a href="#">Search</a></li>
 </ul>
  
-<p><a href="#">Sign Out</a></p>
+<p><a href="SignOut.jsp">Sign Out</a></p>
 </body>
 
 </body>
 </html>
-<% } %> 
+<% } %>

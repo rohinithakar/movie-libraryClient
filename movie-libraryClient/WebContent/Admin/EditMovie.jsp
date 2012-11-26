@@ -3,8 +3,7 @@
 <%@ page import="edu.sjsu.videolibrary.model.Movie" %>
  
 <% Admin admin = (Admin) session.getAttribute("currentAdmin");  if (admin == null ) { %> <jsp:forward page="LogIn.jsp" /> <%  } 
-//TODO: isValid not found
-/*else if (admin.isValid()) { */%> 
+ else if (admin.isValid()) {  %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,4 +38,4 @@
 <% }  %>
 </body>
 </html>
-<% /*}*/%> 
+<% } %> 
