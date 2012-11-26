@@ -16,6 +16,8 @@ public class Admin  implements java.io.Serializable {
 
     private java.lang.String password;
 
+    private boolean valid;
+
     public Admin() {
     }
 
@@ -23,11 +25,13 @@ public class Admin  implements java.io.Serializable {
            java.lang.String adminId,
            java.lang.String firstName,
            java.lang.String lastName,
-           java.lang.String password) {
+           java.lang.String password,
+           boolean valid) {
            this.adminId = adminId;
            this.firstName = firstName;
            this.lastName = lastName;
            this.password = password;
+           this.valid = valid;
     }
 
 
@@ -110,6 +114,26 @@ public class Admin  implements java.io.Serializable {
         this.password = password;
     }
 
+
+    /**
+     * Gets the valid value for this Admin.
+     * 
+     * @return valid
+     */
+    public boolean isValid() {
+        return valid;
+    }
+
+
+    /**
+     * Sets the valid value for this Admin.
+     * 
+     * @param valid
+     */
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Admin)) return false;
@@ -133,7 +157,8 @@ public class Admin  implements java.io.Serializable {
               this.lastName.equals(other.getLastName()))) &&
             ((this.password==null && other.getPassword()==null) || 
              (this.password!=null &&
-              this.password.equals(other.getPassword())));
+              this.password.equals(other.getPassword()))) &&
+            this.valid == other.isValid();
         __equalsCalc = null;
         return _equals;
     }
@@ -157,6 +182,7 @@ public class Admin  implements java.io.Serializable {
         if (getPassword() != null) {
             _hashCode += getPassword().hashCode();
         }
+        _hashCode += (isValid() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -190,6 +216,12 @@ public class Admin  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "password"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("valid");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "valid"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 
