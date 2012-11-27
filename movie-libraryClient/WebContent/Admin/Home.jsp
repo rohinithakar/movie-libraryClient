@@ -24,7 +24,7 @@
   <li><a href="#">Search</a></li>
 </ul>
  
-<p><a href="SignOut.jsp">Sign Out</a></p>
+<p><a href="SignOutAdmin">Sign Out</a></p>
 </body>
 
 </body>
