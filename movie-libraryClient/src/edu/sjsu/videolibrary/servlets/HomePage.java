@@ -33,7 +33,7 @@ public class HomePage extends HttpServlet {
 		HttpSession session=request.getSession();
 		Movie[] movieArray = null;
 		Movie m = new Movie();	
-		proxy.setEndpoint("http://localhost:8080/MovieLibrary/services/Service");
+		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
 		if(request.getParameter("ViewByCategory")!=null){
 			String category=(String) request.getParameter("category");					
 			movieArray = proxy.listMoviesByCategory(category);				
