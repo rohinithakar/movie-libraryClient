@@ -44,17 +44,10 @@ public class HomePage extends HttpServlet {
 		}
 		
 		if(request.getParameter("search")!=null){
-			String userInput = (String)request.getParameter("userInput");
-			String searchCriteria = (String)request.getParameter("searchCriteria");
-			if(searchCriteria.equals("name")){
-				movieArray= proxy.searchByName(userInput);
-			}
-			if(searchCriteria.equals("banner")){
-				movieArray=proxy.searchByMovieBanner(userInput);
-			}
-			if(searchCriteria.equals("releaseDate")){
-				movieArray=proxy.searchByReleaseDate(userInput);
-			}
+			String movieName= request.getParameter("movieName");
+			String movieBanner= request.getParameter("movieBanner");
+			String releaseDate= request.getParameter("releaseDate");						
+			movieArray = proxy.searchMovie(movieName, movieBanner, releaseDate);	
 			
 		}
 		session.setAttribute("movieArray",movieArray);

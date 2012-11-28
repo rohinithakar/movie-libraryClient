@@ -15,14 +15,14 @@ body{
 <h2>Choose from the following options:</h2>
 <form method="get" action="HomePage">
 <table>
-	<tr>
-		<td>Search Movie By:</td>
-		<td><input type="radio" name="searchCriteria" value="name">Name</td>
-		<td><input type="radio" name="searchCriteria" value="banner">Banner</td>
-		<td><input type="radio" name="searchCriteria" value="releaseDate">Release Date</td>
-		<td><input type="text" name="userInput"/></td>
-		<td><input type="submit" class="submit" name="search" value="Search"></td>
-	</tr>
+	<tr><td>Search a movie by:</td><td></td></tr>
+	<tr><td>Movie Name</td><td><input type="text" name="movieName"></td></tr>
+	<tr><td>Movie Banner</td><td><input type="text" name="movieBanner"></td></tr>
+	<tr><td>Movie Release Date</td><td><input type="text" name="releaseDate"></td></tr>
+	<tr><td><input type="submit" class="submit" name="search" value="Search"></td><td></td></tr>
+</table>
+<table>
+	
 	<tr>
 		<td>View Movies By Category</td>
 		<% 
