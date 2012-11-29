@@ -5,24 +5,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>View Members</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 <body>
-<form name="form" id="viewMembersForm" method="post" action="ViewMembers">
-	<label>View Members </label>
-
-  <select name="memberType" id="memberSelectBox" >
-    <option value="all">All</option>
-    <option value="Simple">Simple</option>
-    <option value="Premium">Premium</option>
- 	<option value="Admin">Admin</option>    
-  </select>
-  <br>
-  <input type="submit" name="buttonView" id="buttonView" value="Submit">
-</form> 
-<p>
-<a href="Home.jsp" >Back to Home</a>
-</p>
+	<jsp:include page="includes/header.jsp"></jsp:include>	
+	<div id="wrapper">
+		<jsp:include page="includes/sidebar.jsp"></jsp:include>
+		<div id="rightContent">
+		<h3>View Members</h3>
+		<p></p>
+		<form name="form" id="viewMembersForm" method="post" action="ViewMembers">
+			<table width="95%">
+				<tr><td width="125px"><b>Memeber Type </b></td><td>
+			  <select name="memberType" id="memberSelectBox" >
+			    <option value="all">All</option>
+			    <option value="Simple">Simple</option>
+			    <option value="Premium">Premium</option>
+			 	<option value="Admin">Admin</option>    
+			  </select>
+	 			 </td></tr>
+	  			<tr><td></td><td>
+	  				<input type="submit" class="button" name="buttonView" id="buttonView" value="Submit">
+	  			</td></tr>
+	  		</table>
+		</form> 
+		</div>
+		<jsp:include page="includes/footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>
 <% } %> 

@@ -7,22 +7,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>View Movies</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+
 </head>
 <body>
-<form name="form" id="viewMoviesForm" method="post" action="ViewMovies">
-	<label>By Category </label>
+<jsp:include page="includes/header.jsp"></jsp:include>
 
-  <select name="category" id="categorySelectBox" >
-    <option value="all">All</option>
-    <option value="1">Drama</option>
-    <option value="2">Romance</option>
- 	<option value="3">Comedy</option>  
-  	<option value="4">Thriller</option>       
-  </select>
-  <br>
-  <input type="submit" name="buttonView" id="buttonView" value="Submit">
-</form> 
-
+<div id="wrapper">
+<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
+	<h3>View Movies</h3>
+	<p></p>
+	<form name="form" id="viewMoviesForm" method="post" action="ViewMovies">
+		<table width="95%">
+			<tr><td width="125px"><b>By Category</b></td><td>
+  				<select name="category" id="categorySelectBox" >
+				    <option value="all">All</option>
+				    <option value="Drama">Drama</option>
+				    <option value="Romance">Romance</option>
+				 	<option value="Comedy">Comedy</option>  
+				  	<option value="Thriller">Thriller</option>       
+ 		 		</select>
+ 			 </td></tr>
+  			<tr><td></td><td>
+  				<input type="submit" class="button" name="buttonView" id="buttonView" value="Submit">
+  			</td></tr>
+  		</table>
+	</form> 
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>
 <%  }  %> 

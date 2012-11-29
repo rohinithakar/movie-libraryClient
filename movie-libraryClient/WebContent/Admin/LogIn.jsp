@@ -1,22 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="edu.sjsu.videolibrary.model.Admin" %>
-<% Admin admin = (Admin) session.getAttribute("currentAdmin");  if (admin.isValid() ) { %> <jsp:forward page="Home.jsp" /> <%  } else  { %> 
+<% Admin admin = (Admin) session.getAttribute("currentAdmin");  if (admin == null )  { %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Administrator</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 
  <body> 
- <form action="SignInAdmin" method="post"> 
-	 <label>Admin:</label><input type="text" name="userId"/>
+<div id="header">
+	<div class="inHeaderLogin"></div>
+</div>
+<div id="loginForm">
+	<div class="headLoginForm">
+	Login Administrator
+	</div>
+	<div class="fieldLogin">
+ <form action="SignInAdmin" method="post">
+	 <label>Admin:</label><br>
+	 <input type="text"  class="login" name="userId"/>
 	 <br> 
-	 <label>Password:</label><input type="password" name="password"/> 
-	 <input type="submit" value="submit"> 
- </form> 
+	 <label>Password:</label>
+	 <br>
+	 <input type="password"  class="login" name="password"/> 
+	 <br>
+	 <input type="submit"class="button"   value="submit"> 
+ </form>
+	</div>
+</div>
  </body>
-
 </html>
-<% } %>
+<% } else if (admin.isValid()) { %><jsp:forward page="Home.jsp" /><% } %>
