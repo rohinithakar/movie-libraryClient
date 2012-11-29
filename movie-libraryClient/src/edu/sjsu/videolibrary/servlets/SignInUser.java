@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import edu.sjsu.videolibrary.model.User;
 import edu.sjsu.videolibrary.service.ServiceProxy;
 
 /**
@@ -47,8 +48,8 @@ public class SignInUser extends HttpServlet
 		try
 		{
 			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
-			String res = proxy.signInUser(uid, pwd);
-			if(res != null || res != "")
+			User res = proxy.signInUser(uid, pwd);
+			if(res != null)
 			{
 				String[] categoryName = proxy.listCategories();
 				session.setAttribute("categoryName",categoryName);
