@@ -11,7 +11,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAccount</servlet-name>
-    <url-pattern>/ViewAccount</url-pattern>
+    <url-pattern>/View/ViewAccount</url-pattern>
   </servlet-mapping>
   
     <servlet>

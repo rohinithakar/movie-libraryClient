@@ -21,6 +21,7 @@ body{
 </style>
 </head>
 <body>
+<jsp:include page="includes/header.jsp"></jsp:include>
 <h2>Choose from the following options:</h2>
 <jsp:include page="includes/movieSearch.jsp"></jsp:include>
 <h3>View Movies By Category</h3>

@@ -11,5 +11,11 @@
 <td>
 <a href="HomePage">Home</a>
 </td>
+<td>
+<a href="ViewAccount">ViewAccount</a>
+</td>
+<td>
+<a href="Logout">Logout</a>
+</td>
 </tr>
 </table>
