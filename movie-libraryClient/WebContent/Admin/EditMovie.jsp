@@ -70,11 +70,12 @@
 	  					proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
 	  					String [] categories = proxy.listCategories();
    						for (int i = 0; i < categories.length; i++) {
-  						String sel = ""; 
-  						String category = request.getParameter("categoryName");
-  						if (category != null) { if (category.equals(categories[i])) { sel = "selected"; } }
-   						out.println("<option value=\"" + i+1  + "\"" + sel + ">"+  categories[i] +   "</option>");
-  					} %>       
+  							String sel = ""; 
+  							String category = request.getParameter("categoryName");
+  							if (category != null) { if (category.equals(categories[i])) { sel = "selected"; } }
+  							int catID = i + 1; 
+   							out.println("<option value=\"" + catID + "\"" + sel + ">"+  categories[i] +   "</option>");  					
+   						} %>       
  		 		</select>
  				</td>
  			</tr>

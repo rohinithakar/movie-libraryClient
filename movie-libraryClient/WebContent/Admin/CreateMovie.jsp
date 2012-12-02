@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="edu.sjsu.videolibrary.model.Admin" %>
 <%@ page import="edu.sjsu.videolibrary.model.Movie" %>
+ <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
  
 <% Admin admin = (Admin) session.getAttribute("currentAdmin");  if (admin == null ) { %> <jsp:forward page="LogIn.jsp" /> 
 <%  } else if (admin.isValid()) { %> 
@@ -38,7 +39,8 @@
 		  <table width="95%">
  			<tr>
  				<td width="125px"><b>Release Date: </b></td>
- 				<td><input type="text" name="releaseDate" id="releaseDate" value="YYYY-MM-DD"></td>
+ 				<td><jsp:include page="includes/dateComponent.jsp"></jsp:include>
+ 				</td>
  			</tr>
  			<tr>
  				 <td width="125px"><b>Movie Name: </b></td>
@@ -54,7 +56,17 @@
  			</tr>		
   			<tr>
  				 <td width="125px"><b>Category: </b></td>
- 				 <td><input type="text" name="categoryId" id="categoryId" value=""></td>
+				 <td><select name="categoryId" id="categoryId" >
+  					<% 
+	  					ServiceProxy proxy = new ServiceProxy(); 
+	  					proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
+	  					String [] categories = proxy.listCategories();
+   						for (int i = 0; i < categories.length; i++) {
+  							String category = request.getParameter("categoryName");
+  							int catID = i + 1; 
+   							out.println("<option value=\"" + catID + "\">"+  categories[i] +   "</option>");
+  						} %>       
+ 		 		</select></td>
  			</tr>		
   			<tr>
   				<td></td>
