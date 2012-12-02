@@ -74,10 +74,10 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.checkOutMovieCart(membershipId, creditCardNumber);
   }
   
-  public void returnMovie() throws java.rmi.RemoteException{
+  public boolean returnMovie(int membershipId, int movieId) throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();
-    service.returnMovie();
+    return service.returnMovie(membershipId, movieId);
   }
   
   public java.lang.String signUpUser(java.lang.String userId, java.lang.String password, java.lang.String memType, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, java.lang.String ccNumber) throws java.rmi.RemoteException{

@@ -13,7 +13,7 @@ public interface Service extends java.rmi.Remote {
     public edu.sjsu.videolibrary.model.ItemOnCart[] viewCart(int membershipId) throws java.rmi.RemoteException;
     public boolean deleteMovieFromCart(int movieId, int membershipId) throws java.rmi.RemoteException;
     public boolean checkOutMovieCart(int membershipId, java.lang.String creditCardNumber) throws java.rmi.RemoteException;
-    public void returnMovie() throws java.rmi.RemoteException;
+    public boolean returnMovie(int membershipId, int movieId) throws java.rmi.RemoteException;
     public java.lang.String signUpUser(java.lang.String userId, java.lang.String password, java.lang.String memType, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, java.lang.String ccNumber) throws java.rmi.RemoteException;
     public java.lang.String signUpAdmin(java.lang.String userId, java.lang.String password, java.lang.String firstName, java.lang.String lastName) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.User signInUser(java.lang.String userId, java.lang.String password) throws java.rmi.RemoteException;

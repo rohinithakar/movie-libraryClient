@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="edu.sjsu.videolibrary.jspHelper.SignInUserHelper"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,6 +29,9 @@
 </head>
 <body>
 <h1>Sign in User Page</h1>
+<p>
+<%=SignInUserHelper.getLoginError(request)%>
+</p>
 <form id="form1" method="post" action="SignInUserServlet" onsubmit="return validateForm()">
 <table>
 				<tr>
@@ -43,7 +47,7 @@
 			</table>
 			<br>
 			<input type="submit" value="Submit" />
-			
 			</form>
+			<a href="SignUpUser">Register Here</a>
 </body>
 </html>

@@ -15,10 +15,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">100</stringProp>
+          <stringProp name="LoopController.loops">10</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">10</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
         <longProp name="ThreadGroup.start_time">1353642208000</longProp>
         <longProp name="ThreadGroup.end_time">1353642208000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -47,8 +47,18 @@
           <stringProp name="WebServiceSampler.proxy_host"></stringProp>
           <stringProp name="WebServiceSampler.proxy_port"></stringProp>
         </WebServiceSampler>
-        <hashTree/>
-        <WebServiceSampler guiclass="WebServiceSamplerGui" testclass="WebServiceSampler" testname="listMovieByCategories" enabled="true">
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//listCategoriesResponse</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <WebServiceSampler guiclass="WebServiceSamplerGui" testclass="WebServiceSampler" testname="listMovieByCategory" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -69,7 +79,145 @@
           <stringProp name="WebServiceSampler.proxy_host"></stringProp>
           <stringProp name="WebServiceSampler.proxy_port"></stringProp>
         </WebServiceSampler>
-        <hashTree/>
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//listMoviesByCategoryResponse</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <WebServiceSampler guiclass="WebServiceSamplerGui" testclass="WebServiceSampler" testname="viewCart" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/movie-library/services/Service</stringProp>
+          <stringProp name="WebserviceSampler.wsdl_url">http://localhost:8080/movie-library/services/Service?wsdl</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="Soap.Action">viewCart</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;soapenv:Body&gt;&lt;viewCart xmlns=&quot;http://service.videolibrary.sjsu.edu&quot;&gt;&lt;membershipId&gt;111127000&lt;/membershipId&gt;&lt;/viewCart&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</stringProp>
+          <stringProp name="WebServiceSampler.xml_data_file"></stringProp>
+          <stringProp name="WebServiceSampler.xml_path_loc"></stringProp>
+          <stringProp name="WebserviceSampler.timeout"></stringProp>
+          <stringProp name="WebServiceSampler.memory_cache">true</stringProp>
+          <stringProp name="WebServiceSampler.read_response">true</stringProp>
+          <stringProp name="WebServiceSampler.use_proxy">false</stringProp>
+          <stringProp name="WebServiceSampler.proxy_host"></stringProp>
+          <stringProp name="WebServiceSampler.proxy_port"></stringProp>
+        </WebServiceSampler>
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//viewCartResponse</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <WebServiceSampler guiclass="WebServiceSamplerGui" testclass="WebServiceSampler" testname="searchMovie" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/movie-library/services/Service</stringProp>
+          <stringProp name="WebserviceSampler.wsdl_url">http://localhost:8080/movie-library/services/Service?wsdl</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="Soap.Action">searchMovie</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;soapenv:Body&gt;&lt;searchMovie xmlns=&quot;http://service.videolibrary.sjsu.edu&quot;&gt;&lt;movieName&gt;The Dark Knight43&lt;/movieName&gt;&lt;movieBanner&gt;Christian &lt;/movieBanner&gt;&lt;releaseDate xsi:nil=&quot;true&quot;/&gt;&lt;/searchMovie&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</stringProp>
+          <stringProp name="WebServiceSampler.xml_data_file"></stringProp>
+          <stringProp name="WebServiceSampler.xml_path_loc"></stringProp>
+          <stringProp name="WebserviceSampler.timeout"></stringProp>
+          <stringProp name="WebServiceSampler.memory_cache">true</stringProp>
+          <stringProp name="WebServiceSampler.read_response">true</stringProp>
+          <stringProp name="WebServiceSampler.use_proxy">false</stringProp>
+          <stringProp name="WebServiceSampler.proxy_host"></stringProp>
+          <stringProp name="WebServiceSampler.proxy_port"></stringProp>
+        </WebServiceSampler>
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//searchMovieResponse</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <WebServiceSampler guiclass="WebServiceSamplerGui" testclass="WebServiceSampler" testname="searchUser" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/movie-library/services/Service</stringProp>
+          <stringProp name="WebserviceSampler.wsdl_url">http://localhost:8080/movie-library/services/Service?wsdl</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="Soap.Action">seachUser</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;soapenv:Body&gt;&lt;searchUser xmlns=&quot;http://service.videolibrary.sjsu.edu&quot;&gt;&lt;membershipId xsi:nil=&quot;true&quot;/&gt;&lt;userId xsi:nil=&quot;true&quot;/&gt;&lt;membershipType xsi:nil=&quot;true&quot;/&gt;&lt;startDate xsi:nil=&quot;true&quot;/&gt;&lt;firstName xsi:nil=&quot;true&quot;/&gt;&lt;lastName&gt;McLinn&lt;/lastName&gt;&lt;address xsi:nil=&quot;true&quot;/&gt;&lt;city xsi:nil=&quot;true&quot;/&gt;&lt;state&gt;IL&lt;/state&gt;&lt;zipCode xsi:nil=&quot;true&quot;/&gt;&lt;/searchUser&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</stringProp>
+          <stringProp name="WebServiceSampler.xml_data_file"></stringProp>
+          <stringProp name="WebServiceSampler.xml_path_loc"></stringProp>
+          <stringProp name="WebserviceSampler.timeout"></stringProp>
+          <stringProp name="WebServiceSampler.memory_cache">true</stringProp>
+          <stringProp name="WebServiceSampler.read_response">true</stringProp>
+          <stringProp name="WebServiceSampler.use_proxy">false</stringProp>
+          <stringProp name="WebServiceSampler.proxy_host"></stringProp>
+          <stringProp name="WebServiceSampler.proxy_port"></stringProp>
+        </WebServiceSampler>
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//searchUserResponse</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <WebServiceSampler guiclass="WebServiceSamplerGui" testclass="WebServiceSampler" testname="signInUser" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">localhost</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/movie-library/services/Service</stringProp>
+          <stringProp name="WebserviceSampler.wsdl_url">http://localhost:8080/movie-library/services/Service?wsdl</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <stringProp name="Soap.Action">signInUser</stringProp>
+          <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;soapenv:Body&gt;&lt;signInUser xmlns=&quot;http://service.videolibrary.sjsu.edu&quot;&gt;&lt;userId&gt;589sk@gmail.com&lt;/userId&gt;&lt;password&gt;sk589&lt;/password&gt;&lt;/signInUser&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</stringProp>
+          <stringProp name="WebServiceSampler.xml_data_file"></stringProp>
+          <stringProp name="WebServiceSampler.xml_path_loc"></stringProp>
+          <stringProp name="WebserviceSampler.timeout"></stringProp>
+          <stringProp name="WebServiceSampler.memory_cache">true</stringProp>
+          <stringProp name="WebServiceSampler.read_response">true</stringProp>
+          <stringProp name="WebServiceSampler.use_proxy">false</stringProp>
+          <stringProp name="WebServiceSampler.proxy_host"></stringProp>
+          <stringProp name="WebServiceSampler.proxy_port"></stringProp>
+        </WebServiceSampler>
+        <hashTree>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="true">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">//signInUserResponse</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+        </hashTree>
         <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
@@ -78,57 +226,24 @@
               <time>true</time>
               <latency>true</latency>
               <timestamp>true</timestamp>
-              <success>true</success>
+              <success>false</success>
               <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
+              <code>false</code>
+              <message>false</message>
+              <threadName>false</threadName>
               <dataType>true</dataType>
               <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
+              <assertions>false</assertions>
+              <subresults>false</subresults>
               <responseData>false</responseData>
               <samplerData>false</samplerData>
-              <xml>true</xml>
-              <fieldNames>false</fieldNames>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
               <responseHeaders>false</responseHeaders>
               <requestHeaders>false</requestHeaders>
               <responseDataOnError>false</responseDataOnError>
               <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
               <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>true</xml>
-              <fieldNames>false</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
@@ -144,6 +259,39 @@
               <timestamp>true</timestamp>
               <success>true</success>
               <label>true</label>
+              <code>false</code>
+              <message>false</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>false</assertions>
+              <subresults>false</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
               <code>true</code>
               <message>true</message>
               <threadName>true</threadName>
@@ -164,6 +312,73 @@
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">500</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>false</latency>
+              <timestamp>true</timestamp>
+              <success>false</success>
+              <label>true</label>
+              <code>false</code>
+              <message>true</message>
+              <threadName>false</threadName>
+              <dataType>false</dataType>
+              <encoding>false</encoding>
+              <assertions>false</assertions>
+              <subresults>false</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\rohinimodi\workspace\movie-libraryClient\movie-libraryClient\TestPlan\Results\ResponseTime.csv</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>

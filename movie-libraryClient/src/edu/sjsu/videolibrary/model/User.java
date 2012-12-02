@@ -28,6 +28,8 @@ public class User  implements java.io.Serializable {
 
     private java.lang.String password;
 
+    private int rentedMovies;
+
     private java.lang.String startDate;
 
     private java.lang.String state;
@@ -50,6 +52,7 @@ public class User  implements java.io.Serializable {
            java.lang.String membershipType,
            java.lang.String[] movieList,
            java.lang.String password,
+           int rentedMovies,
            java.lang.String startDate,
            java.lang.String state,
            java.lang.String userId,
@@ -64,6 +67,7 @@ public class User  implements java.io.Serializable {
            this.membershipType = membershipType;
            this.movieList = movieList;
            this.password = password;
+           this.rentedMovies = rentedMovies;
            this.startDate = startDate;
            this.state = state;
            this.userId = userId;
@@ -272,6 +276,26 @@ public class User  implements java.io.Serializable {
 
 
     /**
+     * Gets the rentedMovies value for this User.
+     * 
+     * @return rentedMovies
+     */
+    public int getRentedMovies() {
+        return rentedMovies;
+    }
+
+
+    /**
+     * Sets the rentedMovies value for this User.
+     * 
+     * @param rentedMovies
+     */
+    public void setRentedMovies(int rentedMovies) {
+        this.rentedMovies = rentedMovies;
+    }
+
+
+    /**
      * Gets the startDate value for this User.
      * 
      * @return startDate
@@ -390,6 +414,7 @@ public class User  implements java.io.Serializable {
             ((this.password==null && other.getPassword()==null) || 
              (this.password!=null &&
               this.password.equals(other.getPassword()))) &&
+            this.rentedMovies == other.getRentedMovies() &&
             ((this.startDate==null && other.getStartDate()==null) || 
              (this.startDate!=null &&
               this.startDate.equals(other.getStartDate()))) &&
@@ -449,6 +474,7 @@ public class User  implements java.io.Serializable {
         if (getPassword() != null) {
             _hashCode += getPassword().hashCode();
         }
+        _hashCode += getRentedMovies();
         if (getStartDate() != null) {
             _hashCode += getStartDate().hashCode();
         }
@@ -531,6 +557,12 @@ public class User  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "password"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("rentedMovies");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "rentedMovies"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("startDate");

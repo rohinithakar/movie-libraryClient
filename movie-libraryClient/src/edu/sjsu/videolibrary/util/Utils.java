@@ -8,6 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.axis.session.Session;
+import org.apache.catalina.connector.Request;
+
+import edu.sjsu.videolibrary.model.User;
+import edu.sjsu.videolibrary.service.ServiceProxy;
+
 public class Utils {
 	
 	static public void generateHeader( HttpServletRequest request, HttpServletResponse response ) throws IOException {
@@ -43,12 +49,24 @@ public class Utils {
 	}
 	
 	static public boolean validateLogin( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-		String user =(String) request.getSession().getAttribute("user");
+		User user = getUserSession(request);
 		if( user == null ) {
-			response.sendRedirect("SignIn");
+			response.sendRedirect(ClientConfig.USER_LOGIN);
 			return false;
 		}
 		return true;
+	}
+	
+	static public ServiceProxy getServiceProxy() {
+		ServiceProxy proxy = new ServiceProxy();
+		proxy.setEndpoint(ClientConfig.PROXY_ADDRESS);
+		return proxy;
+	}
+	
+	static public User getUserSession(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		User user = (User)session.getAttribute(Parameters.pUserBean);
+		return user;
 	}
 
 }

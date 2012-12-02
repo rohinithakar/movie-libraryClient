@@ -16,7 +16,7 @@ public class StatementInfo  implements java.io.Serializable {
 
     private java.lang.String returnDate;
 
-    private java.lang.String totalDueAmount;
+    private double totalDueAmount;
 
     public StatementInfo() {
     }
@@ -26,7 +26,7 @@ public class StatementInfo  implements java.io.Serializable {
            java.lang.String movieName,
            java.lang.String rentDate,
            java.lang.String returnDate,
-           java.lang.String totalDueAmount) {
+           double totalDueAmount) {
            this.movieId = movieId;
            this.movieName = movieName;
            this.rentDate = rentDate;
@@ -120,7 +120,7 @@ public class StatementInfo  implements java.io.Serializable {
      * 
      * @return totalDueAmount
      */
-    public java.lang.String getTotalDueAmount() {
+    public double getTotalDueAmount() {
         return totalDueAmount;
     }
 
@@ -130,7 +130,7 @@ public class StatementInfo  implements java.io.Serializable {
      * 
      * @param totalDueAmount
      */
-    public void setTotalDueAmount(java.lang.String totalDueAmount) {
+    public void setTotalDueAmount(double totalDueAmount) {
         this.totalDueAmount = totalDueAmount;
     }
 
@@ -158,9 +158,7 @@ public class StatementInfo  implements java.io.Serializable {
             ((this.returnDate==null && other.getReturnDate()==null) || 
              (this.returnDate!=null &&
               this.returnDate.equals(other.getReturnDate()))) &&
-            ((this.totalDueAmount==null && other.getTotalDueAmount()==null) || 
-             (this.totalDueAmount!=null &&
-              this.totalDueAmount.equals(other.getTotalDueAmount())));
+            this.totalDueAmount == other.getTotalDueAmount();
         __equalsCalc = null;
         return _equals;
     }
@@ -184,9 +182,7 @@ public class StatementInfo  implements java.io.Serializable {
         if (getReturnDate() != null) {
             _hashCode += getReturnDate().hashCode();
         }
-        if (getTotalDueAmount() != null) {
-            _hashCode += getTotalDueAmount().hashCode();
-        }
+        _hashCode += new Double(getTotalDueAmount()).hashCode();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -224,8 +220,8 @@ public class StatementInfo  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("totalDueAmount");
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "totalDueAmount"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(true);
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 
