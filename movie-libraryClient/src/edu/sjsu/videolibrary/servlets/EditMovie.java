@@ -36,19 +36,22 @@ public class EditMovie extends HttpServlet {
 			HttpSession session = request.getSession();	   			
 			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
 			
-			if (action.equals("Edit")) {					
+			if (action.equals("Edit")) {	
 				editMovie(session, request, response, id);
 			} else if (action.equals("Update")) {
-				updateMovie(session, request, response, id);
+ 				updateMovie(session, request, response, id);
 			}  else if (action.equals("Delete")) {
 				deleteMovie(session, request, response, id);
 			} else {
 				response.sendRedirect("ViewMovies.jsp");
 			}
 			
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		out.print(msg);
+		
+
 				
 	}
 	
@@ -56,8 +59,8 @@ public class EditMovie extends HttpServlet {
 		Movie movie = proxy.displayMovieInformation(Integer.parseInt(id));
 		
 		if (movie.getMovieName() != null) {
-			//Include categories 
-			session.setAttribute("currentMovie", movie);
+ 			session.setAttribute("currentMovie", movie);
+			request.setAttribute("categoryName", request.getAttribute("categoryName"));
 			response.sendRedirect("EditMovie.jsp");
 		}  else { 
 			error = true; 
@@ -66,34 +69,34 @@ public class EditMovie extends HttpServlet {
     }
     
     public void updateMovie (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
-    	
-	    int movieId = Integer.parseInt(request.getParameter("movieId")); 
-	    String movieName = request.getParameter("moiveName"); 
-	    String movieBanner = request.getParameter("movieBanner"); 
-	    int availableCopies = Integer.parseInt(request.getParameter("availableCopies")); 
-	    int categoryId = Integer.parseInt(request.getParameter("categoryId")); 
-	    String releaseDate = request.getParameter("releaseDate");  
+    	String msg = "";  
+    	try {
+		    int movieId = Integer.parseInt(request.getParameter("movieId")); 
+		    String movieName = request.getParameter("moiveName"); 
+		    String movieBanner = request.getParameter("movieBanner"); 
+		    int availableCopies = Integer.parseInt(request.getParameter("availableCopies")); 
+		    int categoryId = Integer.parseInt(request.getParameter("categoryId")); 
+		    String releaseDate = request.getParameter("releaseDate");  
+		    msg = proxy.updateMovieInfo(movieId, movieName, movieBanner, releaseDate, availableCopies, categoryId);
+    	} catch (Exception e) { 
+    		msg = "error";
+    		
+    	}
+		response.sendRedirect("EditMovie.jsp?msg=" + msg);
+
 	    
-	    System.out.println(movieId + " " + movieName + " " + movieBanner + releaseDate + "  " + availableCopies + " " + categoryId);
-	   
-	    String done =  proxy.updateMovieInfo(movieId, movieName, movieBanner, releaseDate, availableCopies, categoryId);
-	    
-	    if (!done.equals("true")) {
-	    	msg = "Error with database connection"; 
-	    	error = true; 
-		} else {
-			msg = ("Movie updated <a href=\"ViewMovies.jsp\">go Back to View Movies</a> "); 
-		}
     }
     
  
     public void deleteMovie (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
 		String done = proxy.deleteMovie(id);
 		if (!done.equals("false")) {
-			msg = ("Movie deleted <a href=\"ViewMovies.jsp\">go Back to View Movies</a> "); 
+			msg = "true deleted"; 
 		} else {
-			error = true; 
+			msg = "error deleted"; 
 		}
+		response.sendRedirect("ViewMovies.jsp?msg="+msg);
+		
     }
 
 }

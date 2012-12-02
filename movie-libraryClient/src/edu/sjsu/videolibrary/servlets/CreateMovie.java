@@ -26,43 +26,28 @@ public class CreateMovie extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();  
-
+		String done = "";
+			
 		try {
 			String id = request.getParameter("id");
 			String action = request.getParameter("act");
-			
-			HttpSession session = request.getSession();	   			
+						
+			HttpSession session = request.getSession();	   
+						
 			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
 			if (action.equals("Create")) {					
-				createMovie(session, request, response, id);
- 			} else {
-				response.sendRedirect("ViewMovies.jsp");
-			}
+			    String movieName = request.getParameter("moiveName"); 
+			    String movieBanner = request.getParameter("movieBanner"); 
+			    int availableCopies = Integer.parseInt(request.getParameter("availableCopies")); 
+			    int categoryId = Integer.parseInt(request.getParameter("categoryId")); 
+			    String releaseDate = request.getParameter("releaseDate");  			    
+			    done = proxy.createNewMovie(movieName, movieBanner, releaseDate, availableCopies, categoryId);
+			    
+			    System.out.println("done: " + done);		    
+			}  
 			
 		} catch (Exception e) {}
 		
-		out.print(msg);
-				
+		response.sendRedirect("CreateMovie.jsp?msg="+ done);
 	}
-	
-    public void createMovie (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
-    	
-	    String movieName = request.getParameter("moiveName"); 
-	    String movieBanner = request.getParameter("movieBanner"); 
-	    int availableCopies = Integer.parseInt(request.getParameter("availableCopies")); 
-	    int categoryId = Integer.parseInt(request.getParameter("categoryId")); 
-	    String releaseDate = request.getParameter("releaseDate");  
-	    	   
-	    //Need to add Validation 
-	    
-	    String done = proxy.createNewMovie(movieName, movieBanner, releaseDate, availableCopies, categoryId);
-	    
-	    if (!done.equals("true")) {
-	    	msg = "Error with database connection"; 
-	    	error = true; 
-		} else {
-			msg = ("Movie created <a href=\"ViewMovies.jsp\">go Back to View Movies</a> "); 
-		}
-    }
 }

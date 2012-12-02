@@ -28,8 +28,7 @@ public class EditMember extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();  
-
+ 
 		try {
 			String id = request.getParameter("id");
 			String action = request.getParameter("act");
@@ -43,13 +42,11 @@ public class EditMember extends HttpServlet {
 				updateUser(session, request, response, id);
 			}  else if (action.equals("Delete")) {
 				deleteUser(session, request, response, id);
-			} else {
-				response.sendRedirect("ViewMembers.jsp");
-			}
+			} 
 			
-		} catch (Exception e) {}
+		} catch (Exception e) { msg = "error"; }
 		
-		out.print(msg);
+
 				
 	}
 	
@@ -81,33 +78,37 @@ public class EditMember extends HttpServlet {
 	    String membershipType = request.getParameter("membershipType"); 
 	    String creditCardNumber = request.getParameter("creditCardNumber"); //Validate CC			    
 	    
+	    
+	    
 	    boolean changePassword = Boolean.parseBoolean(request.getParameter("changePassword"));
 	    String newPassword = request.getParameter("newPassword");
 
 	    String done = proxy.updateUserInfo(membershipId, userId, firstName, lastName, address, city, state, zipCode, membershipType, creditCardNumber);
 	    
-	    System.out.println("> " + changePassword + " " + newPassword);
-	    
 	    if (!done.equals("true")) {
 	    	msg = "Error with database connection"; 
 	    	error = true; 
 		} else {
-			msg = ("Account updated <a href=\"ViewMembers.jsp\">go Back to View Members</a> "); 
+			msg = "Account updated"; 
 		}
 	    
-	    //For user it might be different, admin doesn't need to inputOldUserPassword
 	    System.out.println(changePassword + " " + newPassword.length() + " " + error);
-		if (changePassword == true && newPassword.length() > 6 && error != true) {  
-			updateUserPassword(membershipId, newPassword);
+		if (changePassword == true && error != true) {
+			if (newPassword.length() >= 6)
+				updateUserPassword(membershipId, newPassword);
+			else 
+				msg = "Error: Please input a longer password";
 		} else {
-			msg = ("Account updated  <a href=\"ViewMembers.jsp\">go Back to View Members</a> "); 	
+			msg = "Account updated"; 	
 		}
+ 		response.sendRedirect("ViewMembers.jsp?memberType=All&msg="+msg);
+
     }
     
     public void updateUserPassword (int membershipId, String newPassword) throws RemoteException { 
 		String updatePassword = proxy.updateUserPassword(membershipId,newPassword);
 		if (updatePassword.equals("true")) {
-			msg = ("Account and Password updated <a href=\"ViewMembers.jsp\">go Back to View Members</a> "); 	
+			msg = "Account and Password updated"; 	
 		} else { 
 			msg = "Invalid new password";
 			error = true; 
@@ -116,11 +117,7 @@ public class EditMember extends HttpServlet {
     
     public void deleteUser (HttpSession session, HttpServletRequest request, HttpServletResponse response, String id) throws Exception { 
 		String done = proxy.deleteUserAccount(id);
-		if (!done.equals("false")) {
-			msg = ("Account deleted <a href=\"ViewMembers.jsp\">go Back to View Members</a> "); 
-		} else {
-			error = true; 
-		}
+		response.sendRedirect("ViewMembers.jsp?msg=" + done);
     }
 
 }

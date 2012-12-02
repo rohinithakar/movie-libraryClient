@@ -20,32 +20,33 @@ public class SignUpAdmin extends HttpServlet
         super();
      }
 
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 	}
-
- 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		PrintWriter out = response.getWriter();
+		String msg = "";
 		response.setContentType("text/html");
 		
 	    String uid = request.getParameter("uid");
 		String pwd = request.getParameter("pwd");
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
-		try
-		{
-			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
-			String res = proxy.signUpAdmin(uid, pwd,fname,lname);
-			if(res != null || res != "")
-			{
-				response.sendRedirect("MainPage.jsp");	
-			} else {
-				out.println("could not sign in");
+		String confirm = request.getParameter("confirmation");
+		
+		System.out.println(uid + " " + pwd + " " + fname + " " + lname + " " + confirm); 
+		
+		if (!pwd.equals(confirm)) {
+			msg = "Not matching password";
+		} else {
+			try {
+				proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
+				msg = proxy.signUpAdmin(uid, pwd,fname,lname);
+			}
+			catch(Exception e) { 
+				e.printStackTrace();
+				msg = "error"; 
 			}
 		}
-		catch(Exception e) {}
+		response.sendRedirect("SignUpAdmin.jsp?msg=" + msg);
+
 	}
 
 }
