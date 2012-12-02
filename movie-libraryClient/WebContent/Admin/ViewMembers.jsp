@@ -31,6 +31,10 @@
 					out.print("<div class=\"sukses\">Account has been deleted</div>");
 				} else if (msg.equals("delete false")) {
 					out.print("<div class=\"gagal\">Account can not be deleted</div>");					
+				} else if (msg.indexOf("Error")>=0){
+					out.print("<div class=\"gagal\">"+ msg + "</div>");										
+				} else if (msg.indexOf("updated")>=0) {
+					out.print("<div class=\"sukses\">"+ msg + "</div>");										
 				}
 			}
 		%>

@@ -24,18 +24,20 @@ function validateEditAdmin()
 }
 
 function validateUpdateUser () {
-	alert("Alert");
-	/*
-	var email = document.forms["userInfoForm"]["uid"].value;	
+ 
+   
+	var email = document.forms["userInfoForm"]["userId"].value;	
 	var city = document.forms["userInfoForm"]["city"].value;	
 	var address = document.forms["userInfoForm"]["address"].value;
-	var fName = document.forms["userInfoForm"]["fname"].value; 
-	var lName = document.forms["userInfoForm"]["lname"].value; 
+ 
+	var fName = document.forms["userInfoForm"]["firstName"].value; 
+	var lName = document.forms["userInfoForm"]["lastName"].value; 
+ 
 	var zipCode = document.forms["userInfoForm"]["zipCode"].value; 
-	var password = document.forms["userInfoForm"]["newPassword"].value;	
-	var changepassword = document.forms["userInfoForm"]["changePassword"].value;
-	
-	alert(changepassword);
+ 	var password = document.forms["userInfoForm"]["newPassword"].value;
+
+	var changepassword = document.forms["userInfoForm"]["changePassword"].checked;
+	 
 	
 	var atpos = email.indexOf("@");
 	var dotpos= email.lastIndexOf(".");
@@ -62,11 +64,14 @@ function validateUpdateUser () {
 		alert("Please enter a valid zip code");
 		return false; 
 	}
-	if (password == null || password.length < 6) {
-		alert("Passowrds missmatch");
-		return false; 
+	if(changepassword == true) {
+		if (password == null || password.length < 6) {
+			alert("Passowrd is too short");
+			return false; 
+		}
 	}
-	*/
+ 
+ 
 }
 
 

@@ -17,7 +17,6 @@
 	<div id="wrapper">
 		<jsp:include page="includes/sidebar.jsp"></jsp:include>
 		<div id="rightContent">
-			<h3>Edit Member</h3>
 		<% 
 			String msg = request.getParameter("msg");
 			if (msg != null) {
@@ -30,12 +29,14 @@
 				}  
 			}
 		%>
+			<h3>Edit Member</h3>
+
 	
 <% 
 	User user = (User) session.getAttribute("currentMember");	
 	if (user != null) { 
 %>    
-		<form name="userInfoForm" method="post" action="EditMember" onsubmit="return validateUpdateUser();'">
+		<form name="userInfoForm" method="post" action="EditMember" onsubmit="return validateUpdateUser();">
 		  	<table width="60%">
 			<tr>
 		    	<td><label for="mermbershipId">Membership ID:</label></td><td><%= user.getMembershipId() %>
@@ -115,7 +116,7 @@
 		    <tr><td>
 		    <label for="zipCpde">Zip Code:</label>
 		    </td><td>
-		 	<input type="text" name="zipCpde"  maxlength="5" id="zipCpde" value="<%= user.getZip() %>">
+		 	<input type="text" name="zipCode"  maxlength="5" id="zipCode" value="<%= user.getZip() %>">
 		    </td>
 		    </tr>
 		    <tr><td>
