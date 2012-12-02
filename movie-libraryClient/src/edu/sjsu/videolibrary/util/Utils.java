@@ -3,6 +3,8 @@ package edu.sjsu.videolibrary.util;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,21 +17,6 @@ import edu.sjsu.videolibrary.model.User;
 import edu.sjsu.videolibrary.service.ServiceProxy;
 
 public class Utils {
-	
-	static public void generateHeader( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
-		out.write("<table border=1><tr>");
-		out.write("<td><a href=\"UserMain\">Home</a></td>");
-		out.write("<td><a href=\"ViewAccount\">View My Account</a></td>");
-		out.write("	<td><a href=\"Cart\">View Cart</a></td>");
-		out.write("	<td><a href=\"SellItem\">Return Movie</a></td>");
-	
-		out.write("	<td><a href=\"SignOutServlet\">Sign-Out</a></td>");
-		out.write("</tr>");
-		out.write("</table>");
-	}
-	
 	static public boolean isValidInput(String in){
 		return in != null && !in.isEmpty() && !in.trim().isEmpty();
 	}
@@ -47,7 +34,7 @@ public class Utils {
 			return false;
 		}
 	}
-	
+
 	static public boolean validateLogin( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		User user = getUserSession(request);
 		if( user == null ) {
@@ -56,17 +43,34 @@ public class Utils {
 		}
 		return true;
 	}
-	
+
 	static public ServiceProxy getServiceProxy() {
 		ServiceProxy proxy = new ServiceProxy();
 		proxy.setEndpoint(ClientConfig.PROXY_ADDRESS);
 		return proxy;
 	}
-	
+
 	static public User getUserSession(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		User user = (User)session.getAttribute(Parameters.pUserBean);
 		return user;
+	}
+
+	static public String generateQueryString(String startUrl, Map<String,String> queryParams) {
+		StringBuilder queryString = new StringBuilder();
+		queryString.append(startUrl);
+		boolean firstParam = true;
+		for(Map.Entry<String, String> kvPair : queryParams.entrySet()) {
+			if(kvPair.getValue() != null && kvPair.getValue().length() > 0) {
+				if(firstParam) {
+					queryString.append("?" + kvPair.getKey() + "=" + kvPair.getValue());
+					firstParam = false;
+				} else {
+					queryString.append("&" + kvPair.getKey() + "=" + kvPair.getValue());
+				}
+			}
+		}
+		return queryString.toString();
 	}
 
 }

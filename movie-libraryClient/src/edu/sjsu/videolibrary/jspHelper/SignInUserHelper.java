@@ -10,6 +10,9 @@ public class SignInUserHelper {
 		HttpSession session = req.getSession();
 		String errorString = (String) session.getAttribute(Parameters.pLoginError);
 		session.removeAttribute(Parameters.pLoginError);
+		if(errorString == null){
+			return "";
+		}
 		return errorString;
 	}
 }

@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>movie-libraryClient</display-name>
   <welcome-file-list>
-    <welcome-file>/View/SignInUser.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
     <servlet>
@@ -63,6 +63,24 @@
     <url-pattern>/UpdatePasswordInfoServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>ViewMovies</servlet-name>
+    <jsp-file>/View/ViewMovies.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMovies</servlet-name>
+    <url-pattern>/View/ViewMovies</url-pattern>
+  </servlet-mapping>  
+  
+  
+   <servlet>
+    <servlet-name>ViewMoviesServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.ViewMovies</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMoviesServlet</servlet-name>
+    <url-pattern>/View/ViewMoviesServlet</url-pattern>
+  </servlet-mapping>  
   
   <!-- SignIn Pages -->
   
@@ -83,7 +101,7 @@
   </servlet>  
   <servlet-mapping>
     <servlet-name>SignInUserServlet</servlet-name>
-    <url-pattern>/SignInUserServlet</url-pattern>
+    <url-pattern>/View/SignInUserServlet</url-pattern>
   </servlet-mapping>
   
   <!-- Signup Pages -->
@@ -107,14 +125,22 @@
     <url-pattern>/SignUpUserServlet</url-pattern>
   </servlet-mapping>
   
-  <servlet>
-    <display-name>HomePage</display-name>
+    <servlet>
     <servlet-name>HomePage</servlet-name>
-    <servlet-class>edu.sjsu.videolibrary.servlets.HomePage</servlet-class>
+    <jsp-file>/View/HomePage.jsp</jsp-file>
   </servlet>  
   <servlet-mapping>
     <servlet-name>HomePage</servlet-name>
     <url-pattern>/View/HomePage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>HomePageServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.HomePage</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>HomePageServlet</servlet-name>
+    <url-pattern>/View/HomePageServlet</url-pattern>
   </servlet-mapping>
   
   <!-- Admin Servlets -->
@@ -183,11 +209,11 @@
   </servlet-mapping>  
   
    <servlet>
-    <servlet-name>ViewMovies</servlet-name>
+    <servlet-name>ViewMoviesAdmin</servlet-name>
     <servlet-class>edu.sjsu.videolibrary.servlets.ViewMovies</servlet-class> 
   </servlet>
   <servlet-mapping>
-    <servlet-name>ViewMovies</servlet-name>
+    <servlet-name>ViewMoviesAdmin</servlet-name>
     <url-pattern>/Admin/ViewMovies</url-pattern>
   </servlet-mapping>  
   

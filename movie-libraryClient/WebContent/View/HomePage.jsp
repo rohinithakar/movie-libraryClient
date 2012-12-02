@@ -3,6 +3,7 @@
 <%@ page import="edu.sjsu.videolibrary.model.User"%>
 <%@ page import="edu.sjsu.videolibrary.util.Utils"%>
 <%@ page import="edu.sjsu.videolibrary.jspHelper.HomePageHelper"%>
+<%@ page import="java.util.Map"%>
 <%
 	if(!Utils.validateLogin(request, response)) {
 		return;
@@ -21,14 +22,14 @@ body{
 </head>
 <body>
 <h2>Choose from the following options:</h2>
-<jsp:include page="movieSearch.jsp"></jsp:include>
+<jsp:include page="includes/movieSearch.jsp"></jsp:include>
 <h3>View Movies By Category</h3>
 		<%
-			String[] categories = HomePageHelper.getCategories();
-			for(String category : categories) {
+			Map<String,String> categories = HomePageHelper.getCategories();
+			for(Map.Entry<String,String> category : categories.entrySet()) {
 		%>
-		<a href="<%=category%>"><%=category%></a>
+		<a href="<%=category.getValue()%>"><%=category.getKey()%></a>
 		<%	} %>
-		<h3>View All Movies</h3>
+		<p><a href="ViewMovies">View All Movies</a></p>
 </body>
 </html>
