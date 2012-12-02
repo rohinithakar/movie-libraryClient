@@ -32,35 +32,14 @@
 		<div class="shortcutHome">
 		<a href="SignUpAdmin.jsp"><img src="../css/img/quote.png"><br>Create a New Admin</a>
 		</div>
+		<!--  
 		<div class="shortcutHome">
 		<a href=""><img src="../css/img/bukutamu.png"><br>Search Members</a>
 		</div>
+		-->
 		
 		<div class="clear"></div>
 		
-		<div id="smallRight">
-		<h3>Movies</h3>
-		<table style="border: none;font-size: 12px;color: #5b5b5b;width: 100%;margin: 10px 0 10px 0;">
-			<tr>
-			  <td style="border: none;padding: 4px;">Total Movies</td><td style="border: none;padding: 4px;"><b>12</b></td></tr>
-			<tr>
-			  <td style="border: none;padding: 4px;">Total Categories</td><td style="border: none;padding: 4px;"><b>12</b></td></tr>
-			<tr>
-			  <td style="border: none;padding: 4px;">Total Transactions</td><td style="border: none;padding: 4px;"><b>12</b></td></tr>
-		</table>
-		</div>
-		<div id="smallRight">
-		<h3>Members</h3>
-		
-		<table style="border: none;font-size: 12px;color: #5b5b5b;width: 100%;margin: 10px 0 10px 0;">
-			<tr>
-			  <td style="border: none;padding: 4px;">Total Members</td><td style="border: none;padding: 4px;"><b>12</b></td></tr>
-			<tr>
-			  <td style="border: none;padding: 4px;">Simple Members</td><td style="border: none;padding: 4px;"><b>12</b></td></tr>
-			<tr>
-			  <td style="border: none;padding: 4px;">Premium Members</td><td style="border: none;padding: 4px;"><b>12</b></td></tr>
-		</table>
-		</div>
 	</div>
 <jsp:include page="includes/footer.jsp"></jsp:include>
 </div>

@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Administrator</title>
 <link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+<script type="text/javascript" src="../js/admin.js"></script>
 </head>
 
  <body> 
@@ -19,7 +20,7 @@
 	Login Administrator
 	</div>
 	<div class="fieldLogin">
- <form action="SignInAdmin" method="post">
+ <form action="SignInAdmin" id="aloginForm" method="post" onsubmit="return validateLogin();">
 	 <label>Admin:</label><br>
 	 <input type="text"  class="login" name="userId"/>
 	 <br> 

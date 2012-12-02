@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create Movie</title>
 <link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+<script type="text/javascript" src="../js/admin.js"></script>
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
@@ -17,9 +18,23 @@
 <div id="wrapper">
 <jsp:include page="includes/sidebar.jsp"></jsp:include>
 	<div id="rightContent">
+	
+		<% 
+			String msg = request.getParameter("msg");
+			if (msg != null) {
+				if (msg.equals("error")) {
+						out.print("<div class=\"gagal\">Movie can not be added</div>");
+				} else if (msg.indexOf("true") >= 0) { 
+					out.print("<div class=\"sukses\">Movie has been added</div>");
+				} else if (msg.indexOf("false") >= 0 || msg.equals("")) { 
+					out.print("<div class=\"gagal\">Please verify your information</div>");
+				}  
+			}
+		%>
+	
 		<h3>Create a New Movie</h3>
 		<p></p>
-		<form method="post" action="CreateMovie">
+		<form method="post" id="CreateMovieForm" action="CreateMovie" onsubmit="return validateCreateMovie(); " >
 		  <table width="95%">
  			<tr>
  				<td width="125px"><b>Release Date: </b></td>
@@ -35,7 +50,7 @@
  			</tr>		    
  			<tr>
  				 <td width="125px"><b>Copies: </b></td>
- 				 <td><input type="text" name="availableCopies" id="availableCopies" value=""></td>
+ 				 <td><input type="text" name="availableCopies" id="availableCopies" value="0"></td>
  			</tr>		
   			<tr>
  				 <td width="125px"><b>Category: </b></td>

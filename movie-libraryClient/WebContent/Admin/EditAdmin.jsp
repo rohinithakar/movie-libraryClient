@@ -9,27 +9,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Edit Admin</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+<script type="text/javascript" src="../js/admin.js" ></script>
+
 </head>
 <body>
-
+	<jsp:include page="includes/header.jsp"></jsp:include>	
+	<div id="wrapper">
+		<jsp:include page="includes/sidebar.jsp"></jsp:include>
+		<div id="rightContent">
+			<h3>Edit Admin</h3>
+		
 <% 
 	Admin user = (Admin) session.getAttribute("currentMember");	
 	if (user != null) { 
 %>    
-<form name="adminInfoForm" method="post" action="EditAdmin">
-  <p>Personal Information:</p>
-    <label for="mermbershipId">Membership ID:</label> <%= user.getAdminId() %>
-    <input type="hidden" name="userId" id="userId" value="<%= user.getAdminId()  %>" /> 
-  <p><br>    
-    <label for="firstName">First Name</label>
-    <input type="text" name="firstName" id="firstName" value="<%= user.getFirstName() %>"><br>
-    <label for="firstName">Last Name</label>
-    <input type="text" name="lastName" id="lastName" value="<%= user.getLastName() %>"><br>
-     <label for="newPassword">New password: </label><input type="text" name="newPassword" id="newPassword" value="">
-   	<br>
-   <input type="submit"  name="act" value="Update"  />  <input type="submit"  name="act" value="Cancel"  />   
+
+<form name="adminInfoForm" method="post" action="EditAdmin" onsubmit="return validateEditAdmin();">
+  	<table width="95%">
+		<tr>
+			 <td width="125px"><b>Admin ID: </b></td>
+			 <td> <%= user.getAdminId() %>
+			 			 <input type="hidden" name="userId" id="userId" value="<%= user.getAdminId()  %>" /> 
+			 </td>			
+		</tr>
+		<tr>
+			 <td width="125px"><b>First Name:</b></td>
+			 <td>    <input type="text" name="firstName" id="firstName" value="<%= user.getFirstName() %>"></td>
+		</tr>
+ 		<tr>
+			 <td width="125px"><b>Last Name:</b></td>
+			 <td>    <input type="text" name="lastName" id="lastName" value="<%= user.getLastName() %>"></td>
+		</tr>
+ 		<tr>
+			 <td width="125px"><b>New Password:</b></td>
+			 <td> <input type="text" name="newPassword" id="newPassword" value=""></td>
+		</tr> 
+ 		<tr>
+			<td></td>
+			<td>   <input type="submit" class="button"  name="act" value="Update"  />  <input type="reset" class="button" value="Clear"  />  </td> 		
+ 		</tr>
+   </table> 
 </form>
 <% }  %>
+		</div>
+		<jsp:include page="includes/footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>
 <%  } %> 
