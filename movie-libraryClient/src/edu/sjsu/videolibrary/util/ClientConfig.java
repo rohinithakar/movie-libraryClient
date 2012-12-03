@@ -10,6 +10,7 @@ public class ClientConfig {
 	static public final String VIEW_CART_SERVLET = "ViewCartServlet";
 	static public final String CHECKOUT = "CheckOut";
 	static public final String VIEW_ACCOUNT = "ViewAccount";
+	static public final String VIEW_USERS = "ViewUsers";
 	
 	static public int DEFAULT_PAGE_SIZE = 100;
 }
