@@ -43,7 +43,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewMonthlyBill</servlet-name>
-    <url-pattern>/ViewMonthlyBill</url-pattern>
+    <url-pattern>/View/ViewMonthlyBill</url-pattern>
   </servlet-mapping>
   
   <servlet>
