@@ -72,5 +72,12 @@ public class UtilsClient {
 		}
 		return queryString.toString();
 	}
+	
+	public static String[] getStates() { 
+		 return new String[] { "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "HI", "ID", "IL", "IN",
+				 "IA", "KS", "KY", "LA","ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", 
+				 "NJ", "NM", "NY","NC", "ND", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT","VI", 
+				 "VA", "WA", "WV", "WI", "WY" }; 
+	}
 
 }

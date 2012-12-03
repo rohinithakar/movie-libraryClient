@@ -18,4 +18,14 @@ public class Parameters {
 	public final static String pMonth = "month";
 	public final static String pYear = "year";
 	
+	// UpdateUserInfo
+	public final static String pFirstName = "fname";
+	public final static String pLastName = "lname";
+	public final static String pMembershipType = "membershipType";
+	public final static String pAddress = "address";
+	public final static String pCity = "city";
+	public final static String pState = "State";
+	public final static String pZip = "zipCode";
+	public final static String pMembershipId = "membershipId";
+	
 }

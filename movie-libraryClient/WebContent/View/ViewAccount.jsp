@@ -1,6 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="edu.sjsu.videolibrary.jspHelper.ViewAccountHelper"%>
 <%@page import="edu.sjsu.videolibrary.jspHelper.ViewMoviesHelper"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.io.IOException"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="javax.servlet.ServletException"%>
@@ -15,7 +15,7 @@
  	if(!UtilsClient.validateLogin(request, response)) {
  		return;
  	}
- %>t
+ %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,7 +28,12 @@
 		Transaction[] trans = ViewAccountHelper.getUserTransactions(request, response);
 		if (trans != null && trans.length != 0) {
 	%>
-
+	<table border="1">
+	<tr>
+	<td><a href="UpdateUserInfo">Update UserInformation</a></td>
+	<td><a href="UpdatePasswordInfo">Update Password</a></td>
+	</tr>
+	</table>
 	<table border="1">
 		<tr>
 			<td>Movie Name</td>

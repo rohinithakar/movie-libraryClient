@@ -27,7 +27,6 @@
     <url-pattern>/Error.jsp</url-pattern>
   </servlet-mapping>
   
-	
     <servlet>
     <servlet-name>ViewAccount</servlet-name>
     <jsp-file>/View/ViewAccount.jsp</jsp-file>
@@ -52,7 +51,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateUserInfo</servlet-name>
-    <url-pattern>/UpdateUserInfo</url-pattern>
+    <url-pattern>/View/UpdateUserInfo</url-pattern>
   </servlet-mapping>
   
      <servlet>
@@ -61,29 +60,29 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdatePasswordInfo</servlet-name>
-    <url-pattern>/UpdatePasswordInfo</url-pattern>
+    <url-pattern>/View/UpdatePasswordInfo</url-pattern>
   </servlet-mapping>
   
   <servlet>
     <description>UpdateUserInfoServlet</description>
     <display-name>UpdateUserInfoServlet</display-name>
     <servlet-name>UpdateUserInfoServlet</servlet-name>
-    <servlet-class>Servlets.UpdateUserInfo</servlet-class>
+    <servlet-class>edu.sjsu.videolibrary.servlets.UpdateUserInfo</servlet-class>
   </servlet>  
   <servlet-mapping>
     <servlet-name>UpdateUserInfoServlet</servlet-name>
-    <url-pattern>/UpdateUserInfoServlet</url-pattern>
+    <url-pattern>/View/UpdateUserInfoServlet</url-pattern>
   </servlet-mapping>
   
    <servlet>
     <description>UpdatePasswordInfoServlet</description>
     <display-name>UpdatePasswordInfoServlet</display-name>
     <servlet-name>UpdatePasswordInfoServlet</servlet-name>
-    <servlet-class>Servlets.UpdatePasswordInfo</servlet-class>
+    <servlet-class>edu.sjsu.videolibrary.servlets.UpdatePasswordInfo</servlet-class>
   </servlet>  
   <servlet-mapping>
     <servlet-name>UpdatePasswordInfoServlet</servlet-name>
-    <url-pattern>/UpdatePasswordInfoServlet</url-pattern>
+    <url-pattern>/View/UpdatePasswordInfoServlet</url-pattern>
   </servlet-mapping>
   
   <servlet>

@@ -10,17 +10,19 @@
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
 <%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
 <%
-	// 	if(!Utils.validateLogin(request, response)) {
-	// 		return;
-	// 	}
+		if(!UtilsClient.validateLogin(request, response)) {
+			return;
+		}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-<%
-	// Utils.generateHeader(request, response);
-%>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>UpdatePasswordInfo</title>
+</head>
+<body>
+<jsp:include page="includes/header.jsp"></jsp:include>
 
 <%
 		String error = request.getParameter("msg");
@@ -32,22 +34,9 @@
 			out.println("Update Successful.");
 		
 		}
-	%>
+		ServiceProxy proxy = UtilsClient.getServiceProxy();
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>UpdatePasswordInfo</title>
-</head>
-<body>
-
-	<%
-		ServiceProxy proxy = new ServiceProxy();
-		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service ");
-		// User usrSession = (User)session.getAttribute(Parameters.pUserBean);
-
-		// Hard coded values
-		User usrSession = new User();
-		usrSession.setMembershipId(1);
+		User usrSession = UtilsClient.getUserSession(request);
 		User usr = proxy.displayUserInformation(usrSession.getMembershipId());
 	%>
 

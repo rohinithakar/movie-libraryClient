@@ -1,8 +1,6 @@
 package edu.sjsu.videolibrary.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.sjsu.videolibrary.service.ServiceProxy;
 import edu.sjsu.videolibrary.util.UtilsClient;
+import edu.sjsu.videolibrary.model.User;
 
 public class UpdatePasswordInfo extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -24,26 +23,24 @@ public class UpdatePasswordInfo extends HttpServlet{
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//	if(!Utils.validateLogin(request, response)) {
-		//		return;
-		//	}
-
-		PrintWriter out = response.getWriter();
+		if(!UtilsClient.validateLogin(request, response)) {
+			return;
+		}
 		try{
-			int membershipId = Integer.parseInt(request.getParameter("membershipId"));
+			User usr = UtilsClient.getUserSession(request);
+			int membershipId = usr.getMembershipId();
 			String oldPwd = request.getParameter("oldPwd");
 			String newPwd = request.getParameter("newPwd");
 
-			ServiceProxy proxy  = new ServiceProxy();
-			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
+			ServiceProxy proxy = UtilsClient.getServiceProxy();
 			String result = proxy.updatePassword(membershipId,oldPwd,newPwd);
 
 			if(result == null){
-				response.sendRedirect("UpdatePassword?msg=serverError");
+				response.sendRedirect("UpdatePasswordInfo?msg=serverError");
 				return;
 			}
 			if(result.equalsIgnoreCase("true")){
-				response.sendRedirect("UpdatePassword?msg=successful");
+				response.sendRedirect("UpdatePasswordInfo?msg=successful");
 				return;
 			}
 		}

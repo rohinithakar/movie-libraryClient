@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.sjsu.videolibrary.service.ServiceProxy;
+import edu.sjsu.videolibrary.util.Parameters;
 import edu.sjsu.videolibrary.util.UtilsClient;
 
 public class UpdateUserInfo extends HttpServlet{
@@ -25,25 +26,22 @@ public class UpdateUserInfo extends HttpServlet{
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//	if(!Utils.validateLogin(request, response)) {
-		//		return;
-		//	}
-
-		PrintWriter out = response.getWriter();
+		if(!UtilsClient.validateLogin(request, response)) {
+			return;
+		}
 		try{
-			int membershipId = Integer.parseInt(request.getParameter("membershipId"));
-			String firstName = request.getParameter("firstName");
-			String lastName = request.getParameter("lastName");
-			String address = request.getParameter("address");
-			String city = request.getParameter("city");
-			String state = request.getParameter("state");
-			String zipCode = request.getParameter("zipCode");
-			String membershipType = request.getParameter("membershipType");
-			String creditCardNumber = request.getParameter("creditCardNumber");
-			String userId = request.getParameter("userId");
+			int membershipId = Integer.parseInt(request.getParameter(Parameters.pMembershipId));
+			String firstName = request.getParameter(Parameters.pFirstName);
+			String lastName = request.getParameter(Parameters.pLastName);
+			String address = request.getParameter(Parameters.pAddress);
+			String city = request.getParameter(Parameters.pCity);
+			String state = request.getParameter(Parameters.pState);
+			String zipCode = request.getParameter(Parameters.pZip);
+			String membershipType = request.getParameter(Parameters.pMembershipType);
+			String creditCardNumber = request.getParameter(Parameters.pCreditCard);
+			String userId = request.getParameter(Parameters.pUserId);
 
-			ServiceProxy proxy  = new ServiceProxy();
-			proxy.setEndpoint("http://localhost:8080/SimpleMarketPlace/services/Service");
+			ServiceProxy proxy = UtilsClient.getServiceProxy();
 			String result = proxy.updateUserInfo(membershipId, userId, firstName, lastName, address, city, state, zipCode, membershipType, creditCardNumber);
 
 			if(result == null){
