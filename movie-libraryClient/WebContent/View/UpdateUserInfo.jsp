@@ -8,12 +8,11 @@
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="edu.sjsu.videolibrary.model.User"%>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
-<%@ page import="edu.sjsu.videolibrary.util.Utils"%>
-
+<%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
 <%
-	// 	if(!Utils.validateLogin(request, response)) {
-	// 		return;
-	// 	}
+	if(!UtilsClient.validateLogin(request, response)) {
+		return;
+	}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

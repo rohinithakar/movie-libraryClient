@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>movie-libraryClient</display-name>
   <welcome-file-list>
-    <welcome-file>/View/index.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
    	<error-page>
@@ -274,4 +274,59 @@
     <servlet-name>Home</servlet-name>
     <url-pattern>/Admin/Home</url-pattern>
   </servlet-mapping>
+   
+  <servlet>
+    <servlet-name>CheckOut</servlet-name>
+    <jsp-file>/View/CheckOut.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOut</servlet-name>
+    <url-pattern>/View/CheckOut</url-pattern>
+  </servlet-mapping>  
+    
+  <servlet>
+    <servlet-name>ViewCart</servlet-name>
+    <jsp-file>/View/ViewCart.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCart</servlet-name>
+    <url-pattern>/View/ViewCart</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.CheckOut</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/View/CheckOutServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>viewCartServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.ViewCartServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>viewCartServlet</servlet-name>
+    <url-pattern>/View/ViewCartServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>deleteCartItemtServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.DeleteCartItemServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>deleteCartItemtServlet</servlet-name>
+    <url-pattern>/View/DeleteCartItemServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.AddToCart</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/View/AddToCartServlet</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>

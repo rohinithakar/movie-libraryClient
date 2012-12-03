@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ page import="edu.sjsu.videolibrary.util.Utils"%>
- <%
-	if(!Utils.validateLogin(request, response)) {
-		return;
-	}
-%>
 <table>
 <tr>
 <td>
@@ -13,6 +7,15 @@
 </td>
 <td>
 <a href="ViewAccount">ViewAccount</a>
+</td>
+<td>
+<a href="ViewMonthlyBill">ViewMonthlyBill</a>
+</td>
+<td>
+<a href="ReturnMovie">ReturnMovie</a>
+</td>
+<td>
+<a href="ViewCart">ViewCart</a>
 </td>
 <td>
 <a href="Logout">Logout</a>

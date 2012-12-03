@@ -248,6 +248,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.listMoviesByCategoryByPage(categoryName, start, stop);
   }
   
+  public edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage(int start, int stop) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.listAllMoviesByPage(start, stop);
+  }
+  
   public edu.sjsu.videolibrary.model.Admin displayAdminInformation(java.lang.String adminId) throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();
@@ -264,12 +270,6 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     if (service == null)
       _initServiceProxy();
     return service.updateUserPassword(membershipId, newPassword);
-  }
-  
-  public edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage(int start, int stop) throws java.rmi.RemoteException{
-    if (service == null)
-      _initServiceProxy();
-    return service.listAllMoviesByPage(start, stop);
   }
   
   

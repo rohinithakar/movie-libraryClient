@@ -3,15 +3,13 @@ package edu.sjsu.videolibrary.jspHelper;
 import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import edu.sjsu.videolibrary.model.Movie;
 import edu.sjsu.videolibrary.service.ServiceProxy;
 import edu.sjsu.videolibrary.util.ClientConfig;
 import edu.sjsu.videolibrary.util.Parameters;
-import edu.sjsu.videolibrary.util.Utils;
+import edu.sjsu.videolibrary.util.UtilsClient;
 
 public class ViewMoviesHelper {
 
@@ -23,7 +21,7 @@ public class ViewMoviesHelper {
 			page = Integer.parseInt(pageNum);
 		}
 		
-		ServiceProxy proxy = Utils.getServiceProxy();
+		ServiceProxy proxy = UtilsClient.getServiceProxy();
 		Movie[] movieList = null;
 		if( categoryName == null ) {
 			movieList = proxy.listAllMoviesByPage(page * ClientConfig.DEFAULT_PAGE_SIZE, ClientConfig.DEFAULT_PAGE_SIZE);
@@ -49,14 +47,14 @@ public class ViewMoviesHelper {
 			Map<String,String> map = new HashMap<String,String>();
 			map.put(Parameters.pCategory, categoryName);
 			map.put(Parameters.pPage, Integer.valueOf(page-1).toString());
-			pageLinks[0] = Utils.generateQueryString(ClientConfig.VIEW_MOVIES, map );
+			pageLinks[0] = UtilsClient.generateQueryString(ClientConfig.VIEW_MOVIES, map );
 		} else {
 			pageLinks[0] = null;
 		}
 		Map<String,String> map = new HashMap<String,String>();
 		map.put(Parameters.pCategory, categoryName);
 		map.put(Parameters.pPage, Integer.valueOf(page+1).toString());
-		pageLinks[1] = Utils.generateQueryString(ClientConfig.VIEW_MOVIES, map );
+		pageLinks[1] = UtilsClient.generateQueryString(ClientConfig.VIEW_MOVIES, map );
 		return pageLinks;
 	}
 
