@@ -176,6 +176,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.viewAccountTransactions(membershipId);
   }
   
+  public edu.sjsu.videolibrary.model.Transaction[] moviesToReturn(int membershipId) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.moviesToReturn(membershipId);
+  }
+  
   public java.lang.String makeMonthlyPayment(int membershipId) throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();

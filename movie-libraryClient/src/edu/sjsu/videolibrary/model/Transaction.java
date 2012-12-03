@@ -8,6 +8,8 @@
 package edu.sjsu.videolibrary.model;
 
 public class Transaction  implements java.io.Serializable {
+    private int movieId;
+
     private java.lang.String movieName;
 
     private double perMovieAmount;
@@ -22,16 +24,38 @@ public class Transaction  implements java.io.Serializable {
     }
 
     public Transaction(
+           int movieId,
            java.lang.String movieName,
            double perMovieAmount,
            java.lang.String purchaseDate,
            java.lang.String returnDate,
            int transactionId) {
+           this.movieId = movieId;
            this.movieName = movieName;
            this.perMovieAmount = perMovieAmount;
            this.purchaseDate = purchaseDate;
            this.returnDate = returnDate;
            this.transactionId = transactionId;
+    }
+
+
+    /**
+     * Gets the movieId value for this Transaction.
+     * 
+     * @return movieId
+     */
+    public int getMovieId() {
+        return movieId;
+    }
+
+
+    /**
+     * Sets the movieId value for this Transaction.
+     * 
+     * @param movieId
+     */
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
 
@@ -146,6 +170,7 @@ public class Transaction  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            this.movieId == other.getMovieId() &&
             ((this.movieName==null && other.getMovieName()==null) || 
              (this.movieName!=null &&
               this.movieName.equals(other.getMovieName()))) &&
@@ -168,6 +193,7 @@ public class Transaction  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        _hashCode += getMovieId();
         if (getMovieName() != null) {
             _hashCode += getMovieName().hashCode();
         }
@@ -190,6 +216,12 @@ public class Transaction  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "Transaction"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("movieId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "movieId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("movieName");
         elemField.setXmlName(new javax.xml.namespace.QName("http://model.videolibrary.sjsu.edu", "movieName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

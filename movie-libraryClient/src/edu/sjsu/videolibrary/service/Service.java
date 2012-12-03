@@ -30,6 +30,7 @@ public interface Service extends java.rmi.Remote {
     public edu.sjsu.videolibrary.model.User displayUserInformation(int membershipId) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Movie displayMovieInformation(int movieId) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Transaction[] viewAccountTransactions(int membershipId) throws java.rmi.RemoteException;
+    public edu.sjsu.videolibrary.model.Transaction[] moviesToReturn(int membershipId) throws java.rmi.RemoteException;
     public java.lang.String makeMonthlyPayment(int membershipId) throws java.rmi.RemoteException;
     public java.lang.String updateUserInfo(int membershipId, java.lang.String userId, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, java.lang.String membershipType, java.lang.String creditCardNumber) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.User[] searchUser(java.lang.String membershipId, java.lang.String userId, java.lang.String membershipType, java.lang.String startDate, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode) throws java.rmi.RemoteException;

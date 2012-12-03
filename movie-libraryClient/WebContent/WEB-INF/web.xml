@@ -26,7 +26,25 @@
     <servlet-name>Error</servlet-name>
     <url-pattern>/Error.jsp</url-pattern>
   </servlet-mapping>
-  
+
+  <servlet>
+    <servlet-name>ReturnMovieServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.ReturnMovie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReturnMovieServlet</servlet-name>
+    <url-pattern>/View/ReturnMovieServlet</url-pattern>
+  </servlet-mapping>
+ 
+   <servlet>
+    <servlet-name>ReturnMovie</servlet-name>
+    <jsp-file>/View/ReturnMovie.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReturnMovie</servlet-name>
+    <url-pattern>/View/ReturnMovie</url-pattern>
+  </servlet-mapping>
+   
     <servlet>
     <servlet-name>ViewAccount</servlet-name>
     <jsp-file>/View/ViewAccount.jsp</jsp-file>

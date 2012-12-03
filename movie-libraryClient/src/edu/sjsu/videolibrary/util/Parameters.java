@@ -28,4 +28,6 @@ public class Parameters {
 	public final static String pZip = "zipCode";
 	public final static String pMembershipId = "membershipId";
 	
+	public final static String pReturnMovieMessage = "returnMovieMessage";
+	
 }
