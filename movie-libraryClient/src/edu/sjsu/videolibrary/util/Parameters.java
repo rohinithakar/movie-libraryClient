@@ -30,4 +30,6 @@ public class Parameters {
 	
 	public final static String pReturnMovieMessage = "returnMovieMessage";
 	
+	public final static String pMakePaymentMessage = "makePayment Message";
+	
 }

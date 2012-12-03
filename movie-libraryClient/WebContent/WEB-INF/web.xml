@@ -122,6 +122,24 @@
     <url-pattern>/View/ViewMoviesServlet</url-pattern>
   </servlet-mapping>  
   
+     <servlet>
+    <servlet-name>MakeMonthlyPaymentServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.MakeMonthlyPayment</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeMonthlyPaymentServlet</servlet-name>
+    <url-pattern>/View/MakeMonthlyPaymentServlet</url-pattern>
+  </servlet-mapping> 
+  
+    <servlet>
+    <servlet-name>MakeMonthlyPayment</servlet-name>
+    <jsp-file>/View/MakeMonthlyPayment.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeMonthlyPayment</servlet-name>
+    <url-pattern>/View/MakeMonthlyPayment</url-pattern>
+  </servlet-mapping> 
+  
   <!-- SignIn Pages -->
   
   <servlet>
@@ -246,6 +264,17 @@
     <servlet-name>SignOutAdmin</servlet-name>
     <url-pattern>/Admin/SignOutAdmin</url-pattern>
   </servlet-mapping>  
+  
+   <servlet>
+    <servlet-name>SignOutUser</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.SignOutUser</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignOutUser</servlet-name>
+    <url-pattern>/SignOutUser</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>ViewMembers</servlet-name>
     <servlet-class>edu.sjsu.videolibrary.servlets.ViewMembers</servlet-class> 

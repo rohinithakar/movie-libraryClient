@@ -1,0 +1,8 @@
+Label,Samples#,Average,Median,aggregate_report_90%_line,Minimum,Maximum,aggregate_report_error%,aggregate_report_rate,aggregate_report_bandwidth
+listCategories,100,24,19,56,8,122,0,1.382571306,0.833053219
+listMovieByCategory,100,32,29,53,13,124,0,1.382628654,50.18239896
+viewCart,100,29,23,57,9,151,0,1.382552191,2.187240771
+searchMovie,100,6281,5930,9812,1888,10930,0,1.347436502,47.83645647
+searchUser,100,62,39,119,20,350,0,1.42454201,71.08926492
+signInUser,100,32,22,53,8,181,0,1.425252626,1.223434627
+TOTAL,600,1077,30,5506,8,10930,0,8.072436665,167.8299393

@@ -9,16 +9,19 @@
 <a href="ViewAccount">ViewAccount</a>
 </td>
 <td>
+<a href="ViewCart">ViewCart</a>
+</td>
+<td>
 <a href="ViewMonthlyBill">ViewMonthlyBill</a>
 </td>
 <td>
 <a href="ReturnMovie">ReturnMovie</a>
 </td>
 <td>
-<a href="ViewCart">ViewCart</a>
+<a href="MakeMonthlyPayment">Make Monthly Payment</a>
 </td>
 <td>
-<a href="Logout">Logout</a>
+<a href="SignOutServlet">Logout</a>
 </td>
 </tr>
 </table>
