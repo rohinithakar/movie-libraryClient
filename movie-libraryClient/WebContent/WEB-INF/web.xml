@@ -258,20 +258,20 @@
   </servlet-mapping> 
 
   <servlet>
-    <servlet-name>AdminLogIn</servlet-name>
+    <servlet-name>LogIn</servlet-name>
     <jsp-file>/Admin/LogIn.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AdminLogIn</servlet-name>
-    <url-pattern>/Admin/LogIn.jsp</url-pattern>
+    <servlet-name>LogIn</servlet-name>
+    <url-pattern>/Admin/LogIn</url-pattern>
   </servlet-mapping>
   
    <servlet>
-    <servlet-name>AdminHome</servlet-name>
+    <servlet-name>Home</servlet-name>
     <jsp-file>/Admin/Home.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AdminHome</servlet-name>
-    <url-pattern>/Admin/Home.jsp</url-pattern>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/Admin/Home</url-pattern>
   </servlet-mapping>
 </web-app>
