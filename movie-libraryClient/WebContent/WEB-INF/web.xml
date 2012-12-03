@@ -2,9 +2,32 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>movie-libraryClient</display-name>
   <welcome-file-list>
-    <welcome-file>default.htm</welcome-file>
+    <welcome-file>/View/index.jsp</welcome-file>
   </welcome-file-list>
   
+   	<error-page>
+		<error-code>404</error-code>
+		<location>/View/Error.jsp</location>
+	</error-page>
+  	<error-page>
+		<error-code>405</error-code>
+		<location>/View/Error.jsp</location>
+	</error-page>
+   	<error-page>
+		<error-code>500</error-code>
+		<location>/View/Error.jsp</location>
+	</error-page> 
+
+  <servlet>
+    <servlet-name>Error</servlet-name>
+    <jsp-file>/View/Error.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Error</servlet-name>
+    <url-pattern>/Error.jsp</url-pattern>
+  </servlet-mapping>
+  
+	
     <servlet>
     <servlet-name>ViewAccount</servlet-name>
     <jsp-file>/View/ViewAccount.jsp</jsp-file>
@@ -23,7 +46,7 @@
     <url-pattern>/ViewMonthlyBill</url-pattern>
   </servlet-mapping>
   
-      <servlet>
+  <servlet>
     <servlet-name>UpdateUserInfo</servlet-name>
     <jsp-file>/View/UpdateUserInfo.jsp</jsp-file>
   </servlet>
@@ -198,7 +221,14 @@
     <servlet-name>SignUpAdmin</servlet-name>
     <url-pattern>/Admin/SignUpAdmin</url-pattern>
   </servlet-mapping>    
-
+  <servlet>
+    <servlet-name>SignOutAdmin</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.SignOutAdmin</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignOutAdmin</servlet-name>
+    <url-pattern>/Admin/SignOutAdmin</url-pattern>
+  </servlet-mapping>  
   <servlet>
     <servlet-name>ViewMembers</servlet-name>
     <servlet-class>edu.sjsu.videolibrary.servlets.ViewMembers</servlet-class> 
@@ -217,4 +247,31 @@
     <url-pattern>/Admin/ViewMovies</url-pattern>
   </servlet-mapping>  
   
+  <!-- Admin JSPs -->
+   <servlet>
+    <servlet-name>AdminIndex</servlet-name>
+    <jsp-file>/Admin/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminIndex</servlet-name>
+    <url-pattern>/Admin/</url-pattern>
+  </servlet-mapping> 
+
+  <servlet>
+    <servlet-name>AdminLogIn</servlet-name>
+    <jsp-file>/Admin/LogIn.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogIn</servlet-name>
+    <url-pattern>/Admin/LogIn.jsp</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>AdminHome</servlet-name>
+    <jsp-file>/Admin/Home.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminHome</servlet-name>
+    <url-pattern>/Admin/Home.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>
