@@ -1503,15 +1503,37 @@ if(listMoviesByCategoryByPage378mtemp == null){
 break;
 case 387:
         gotMethod = true;
-        String adminId_86id=  request.getParameter("adminId400");
-            java.lang.String adminId_86idTemp = null;
-        if(!adminId_86id.equals("")){
-         adminId_86idTemp  = adminId_86id;
-        }
-        edu.sjsu.videolibrary.model.Admin displayAdminInformation387mtemp = sampleServiceProxyid.displayAdminInformation(adminId_86idTemp);
-if(displayAdminInformation387mtemp == null){
+        String start_86id=  request.getParameter("start390");
+        int start_86idTemp  = Integer.parseInt(start_86id);
+        String stop_87id=  request.getParameter("stop392");
+        int stop_87idTemp  = Integer.parseInt(stop_87id);
+        edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage387mtemp = sampleServiceProxyid.listAllMoviesByPage(start_86idTemp,stop_87idTemp);
+if(listAllMoviesByPage387mtemp == null){
 %>
-<%=displayAdminInformation387mtemp %>
+<%=listAllMoviesByPage387mtemp %>
+<%
+}else{
+        String tempreturnp388 = null;
+        if(listAllMoviesByPage387mtemp != null){
+        java.util.List listreturnp388= java.util.Arrays.asList(listAllMoviesByPage387mtemp);
+        tempreturnp388 = listreturnp388.toString();
+        }
+        %>
+        <%=tempreturnp388%>
+        <%
+}
+break;
+case 394:
+        gotMethod = true;
+        String adminId_88id=  request.getParameter("adminId407");
+            java.lang.String adminId_88idTemp = null;
+        if(!adminId_88id.equals("")){
+         adminId_88idTemp  = adminId_88id;
+        }
+        edu.sjsu.videolibrary.model.Admin displayAdminInformation394mtemp = sampleServiceProxyid.displayAdminInformation(adminId_88idTemp);
+if(displayAdminInformation394mtemp == null){
+%>
+<%=displayAdminInformation394mtemp %>
 <%
 }else{
 %>
@@ -1523,11 +1545,11 @@ if(displayAdminInformation387mtemp == null){
 <TD COLSPAN="2" ALIGN="LEFT">password:</TD>
 <TD>
 <%
-if(displayAdminInformation387mtemp != null){
-java.lang.String typepassword390 = displayAdminInformation387mtemp.getPassword();
-        String tempResultpassword390 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typepassword390));
+if(displayAdminInformation394mtemp != null){
+java.lang.String typepassword397 = displayAdminInformation394mtemp.getPassword();
+        String tempResultpassword397 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typepassword397));
         %>
-        <%= tempResultpassword390 %>
+        <%= tempResultpassword397 %>
         <%
 }%>
 </TD>
@@ -1536,11 +1558,11 @@ java.lang.String typepassword390 = displayAdminInformation387mtemp.getPassword()
 <TD COLSPAN="2" ALIGN="LEFT">lastName:</TD>
 <TD>
 <%
-if(displayAdminInformation387mtemp != null){
-java.lang.String typelastName392 = displayAdminInformation387mtemp.getLastName();
-        String tempResultlastName392 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typelastName392));
+if(displayAdminInformation394mtemp != null){
+java.lang.String typelastName399 = displayAdminInformation394mtemp.getLastName();
+        String tempResultlastName399 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typelastName399));
         %>
-        <%= tempResultlastName392 %>
+        <%= tempResultlastName399 %>
         <%
 }%>
 </TD>
@@ -1549,11 +1571,11 @@ java.lang.String typelastName392 = displayAdminInformation387mtemp.getLastName()
 <TD COLSPAN="2" ALIGN="LEFT">firstName:</TD>
 <TD>
 <%
-if(displayAdminInformation387mtemp != null){
-java.lang.String typefirstName394 = displayAdminInformation387mtemp.getFirstName();
-        String tempResultfirstName394 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typefirstName394));
+if(displayAdminInformation394mtemp != null){
+java.lang.String typefirstName401 = displayAdminInformation394mtemp.getFirstName();
+        String tempResultfirstName401 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typefirstName401));
         %>
-        <%= tempResultfirstName394 %>
+        <%= tempResultfirstName401 %>
         <%
 }%>
 </TD>
@@ -1562,9 +1584,9 @@ java.lang.String typefirstName394 = displayAdminInformation387mtemp.getFirstName
 <TD COLSPAN="2" ALIGN="LEFT">valid:</TD>
 <TD>
 <%
-if(displayAdminInformation387mtemp != null){
+if(displayAdminInformation394mtemp != null){
 %>
-<%=displayAdminInformation387mtemp.isValid()
+<%=displayAdminInformation394mtemp.isValid()
 %><%}%>
 </TD>
 <TR>
@@ -1572,11 +1594,11 @@ if(displayAdminInformation387mtemp != null){
 <TD COLSPAN="2" ALIGN="LEFT">adminId:</TD>
 <TD>
 <%
-if(displayAdminInformation387mtemp != null){
-java.lang.String typeadminId398 = displayAdminInformation387mtemp.getAdminId();
-        String tempResultadminId398 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeadminId398));
+if(displayAdminInformation394mtemp != null){
+java.lang.String typeadminId405 = displayAdminInformation394mtemp.getAdminId();
+        String tempResultadminId405 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeadminId405));
         %>
-        <%= tempResultadminId398 %>
+        <%= tempResultadminId405 %>
         <%
 }%>
 </TD>
@@ -1584,80 +1606,58 @@ java.lang.String typeadminId398 = displayAdminInformation387mtemp.getAdminId();
 <%
 }
 break;
-case 402:
+case 409:
         gotMethod = true;
-        String adminId_87id=  request.getParameter("adminId405");
-            java.lang.String adminId_87idTemp = null;
-        if(!adminId_87id.equals("")){
-         adminId_87idTemp  = adminId_87id;
+        String adminId_89id=  request.getParameter("adminId412");
+            java.lang.String adminId_89idTemp = null;
+        if(!adminId_89id.equals("")){
+         adminId_89idTemp  = adminId_89id;
         }
-        String firstName_88id=  request.getParameter("firstName407");
-            java.lang.String firstName_88idTemp = null;
-        if(!firstName_88id.equals("")){
-         firstName_88idTemp  = firstName_88id;
+        String firstName_90id=  request.getParameter("firstName414");
+            java.lang.String firstName_90idTemp = null;
+        if(!firstName_90id.equals("")){
+         firstName_90idTemp  = firstName_90id;
         }
-        String lastName_89id=  request.getParameter("lastName409");
-            java.lang.String lastName_89idTemp = null;
-        if(!lastName_89id.equals("")){
-         lastName_89idTemp  = lastName_89id;
+        String lastName_91id=  request.getParameter("lastName416");
+            java.lang.String lastName_91idTemp = null;
+        if(!lastName_91id.equals("")){
+         lastName_91idTemp  = lastName_91id;
         }
-        String password_90id=  request.getParameter("password411");
-            java.lang.String password_90idTemp = null;
-        if(!password_90id.equals("")){
-         password_90idTemp  = password_90id;
+        String password_92id=  request.getParameter("password418");
+            java.lang.String password_92idTemp = null;
+        if(!password_92id.equals("")){
+         password_92idTemp  = password_92id;
         }
-        java.lang.String updateAdminInfo402mtemp = sampleServiceProxyid.updateAdminInfo(adminId_87idTemp,firstName_88idTemp,lastName_89idTemp,password_90idTemp);
-if(updateAdminInfo402mtemp == null){
+        java.lang.String updateAdminInfo409mtemp = sampleServiceProxyid.updateAdminInfo(adminId_89idTemp,firstName_90idTemp,lastName_91idTemp,password_92idTemp);
+if(updateAdminInfo409mtemp == null){
 %>
-<%=updateAdminInfo402mtemp %>
+<%=updateAdminInfo409mtemp %>
 <%
 }else{
-        String tempResultreturnp403 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(updateAdminInfo402mtemp));
+        String tempResultreturnp410 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(updateAdminInfo409mtemp));
         %>
-        <%= tempResultreturnp403 %>
-        <%
-}
-break;
-case 413:
-        gotMethod = true;
-        String membershipId_91id=  request.getParameter("membershipId416");
-        int membershipId_91idTemp  = Integer.parseInt(membershipId_91id);
-        String newPassword_92id=  request.getParameter("newPassword418");
-            java.lang.String newPassword_92idTemp = null;
-        if(!newPassword_92id.equals("")){
-         newPassword_92idTemp  = newPassword_92id;
-        }
-        java.lang.String updateUserPassword413mtemp = sampleServiceProxyid.updateUserPassword(membershipId_91idTemp,newPassword_92idTemp);
-if(updateUserPassword413mtemp == null){
-%>
-<%=updateUserPassword413mtemp %>
-<%
-}else{
-        String tempResultreturnp414 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(updateUserPassword413mtemp));
-        %>
-        <%= tempResultreturnp414 %>
+        <%= tempResultreturnp410 %>
         <%
 }
 break;
 case 420:
         gotMethod = true;
-        String start_93id=  request.getParameter("start423");
-        int start_93idTemp  = Integer.parseInt(start_93id);
-        String stop_94id=  request.getParameter("stop425");
-        int stop_94idTemp  = Integer.parseInt(stop_94id);
-        edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage420mtemp = sampleServiceProxyid.listAllMoviesByPage(start_93idTemp,stop_94idTemp);
-if(listAllMoviesByPage420mtemp == null){
+        String membershipId_93id=  request.getParameter("membershipId423");
+        int membershipId_93idTemp  = Integer.parseInt(membershipId_93id);
+        String newPassword_94id=  request.getParameter("newPassword425");
+            java.lang.String newPassword_94idTemp = null;
+        if(!newPassword_94id.equals("")){
+         newPassword_94idTemp  = newPassword_94id;
+        }
+        java.lang.String updateUserPassword420mtemp = sampleServiceProxyid.updateUserPassword(membershipId_93idTemp,newPassword_94idTemp);
+if(updateUserPassword420mtemp == null){
 %>
-<%=listAllMoviesByPage420mtemp %>
+<%=updateUserPassword420mtemp %>
 <%
 }else{
-        String tempreturnp421 = null;
-        if(listAllMoviesByPage420mtemp != null){
-        java.util.List listreturnp421= java.util.Arrays.asList(listAllMoviesByPage420mtemp);
-        tempreturnp421 = listreturnp421.toString();
-        }
+        String tempResultreturnp421 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(updateUserPassword420mtemp));
         %>
-        <%=tempreturnp421%>
+        <%= tempResultreturnp421 %>
         <%
 }
 break;

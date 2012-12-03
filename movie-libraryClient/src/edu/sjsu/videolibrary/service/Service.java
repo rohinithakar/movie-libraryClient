@@ -42,8 +42,8 @@ public interface Service extends java.rmi.Remote {
     public double getMonthlyFeesForPremiumMember() throws java.rmi.RemoteException;
     public java.lang.String[] listCategories() throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Movie[] listMoviesByCategoryByPage(java.lang.String categoryName, int start, int stop) throws java.rmi.RemoteException;
+    public edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage(int start, int stop) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Admin displayAdminInformation(java.lang.String adminId) throws java.rmi.RemoteException;
     public java.lang.String updateAdminInfo(java.lang.String adminId, java.lang.String firstName, java.lang.String lastName, java.lang.String password) throws java.rmi.RemoteException;
     public java.lang.String updateUserPassword(int membershipId, java.lang.String newPassword) throws java.rmi.RemoteException;
-    public edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage(int start, int stop) throws java.rmi.RemoteException;
 }

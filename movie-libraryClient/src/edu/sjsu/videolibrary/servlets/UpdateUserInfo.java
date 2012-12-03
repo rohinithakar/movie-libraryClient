@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.sjsu.videolibrary.service.ServiceProxy;
-import edu.sjsu.videolibrary.util.Utils;
+import edu.sjsu.videolibrary.util.UtilsClient;
 
 public class UpdateUserInfo extends HttpServlet{
 	private static final long serialVersionUID = 1L;

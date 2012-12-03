@@ -16,7 +16,7 @@ import org.apache.catalina.connector.Request;
 import edu.sjsu.videolibrary.model.User;
 import edu.sjsu.videolibrary.service.ServiceProxy;
 
-public class Utils {
+public class UtilsClient {
 	static public boolean isValidInput(String in){
 		return in != null && !in.isEmpty() && !in.trim().isEmpty();
 	}

@@ -10,7 +10,7 @@
 <%@ page import="edu.sjsu.videolibrary.model.User"%>
 <%@ page import="edu.sjsu.videolibrary.model.StatementInfo"%>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
-<%@ page import="edu.sjsu.videolibrary.util.Utils"%>
+<%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
 <%@ page import="edu.sjsu.videolibrary.util.Parameters"%>
 <%@ page import="edu.sjsu.videolibrary.util.DateUtils"%>
 <%@ page import="java.util.Calendar"%>

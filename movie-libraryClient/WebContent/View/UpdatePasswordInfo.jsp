@@ -8,8 +8,7 @@
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
 <%@ page import="edu.sjsu.videolibrary.model.User"%>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
-<%@ page import="edu.sjsu.videolibrary.util.Utils"%>
-
+<%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
 <%
 	// 	if(!Utils.validateLogin(request, response)) {
 	// 		return;

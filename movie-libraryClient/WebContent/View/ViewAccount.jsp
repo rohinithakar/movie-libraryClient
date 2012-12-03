@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@page import="edu.sjsu.videolibrary.jspHelper.ViewAccountHelper"%>
+<%@page import="edu.sjsu.videolibrary.jspHelper.ViewMoviesHelper"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.io.IOException"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ page import="javax.servlet.ServletException"%>
@@ -9,8 +10,12 @@
 <%@ page import="edu.sjsu.videolibrary.model.Transaction"%>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
 <%@ page import="edu.sjsu.videolibrary.model.User"%>
-<%@ page import="edu.sjsu.videolibrary.util.Utils"%>
-
+<%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
+<%
+ 	if(!UtilsClient.validateLogin(request, response)) {
+ 		return;
+ 	}
+ %>t
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,17 +25,7 @@
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
 	<%
-		ServiceProxy proxy = new ServiceProxy();
-		proxy.setEndpoint("http://localhost:8080/movie-library/services/Service ");
-		// User usr = (User)session.getAttribute("user");
-				
-		// Hard code
-		User usr = new User();
-		usr.setMembershipId(1);
-		Transaction[] trans = proxy.viewAccountTransactions(usr.getMembershipId());
-	%>
-
-	<%
+		Transaction[] trans = ViewAccountHelper.getUserTransactions(request, response);
 		if (trans != null && trans.length != 0) {
 	%>
 

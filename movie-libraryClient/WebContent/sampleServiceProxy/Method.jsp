@@ -42,10 +42,10 @@
 <LI><A HREF="Input.jsp?method=372" TARGET="inputs"> getMonthlyFeesForPremiumMember()</A></LI>
 <LI><A HREF="Input.jsp?method=375" TARGET="inputs"> listCategories()</A></LI>
 <LI><A HREF="Input.jsp?method=378" TARGET="inputs"> listMoviesByCategoryByPage(java.lang.String,int,int)</A></LI>
-<LI><A HREF="Input.jsp?method=387" TARGET="inputs"> displayAdminInformation(java.lang.String)</A></LI>
-<LI><A HREF="Input.jsp?method=402" TARGET="inputs"> updateAdminInfo(java.lang.String,java.lang.String,java.lang.String,java.lang.String)</A></LI>
-<LI><A HREF="Input.jsp?method=413" TARGET="inputs"> updateUserPassword(int,java.lang.String)</A></LI>
-<LI><A HREF="Input.jsp?method=420" TARGET="inputs"> listAllMoviesByPage(int,int)</A></LI>
+<LI><A HREF="Input.jsp?method=387" TARGET="inputs"> listAllMoviesByPage(int,int)</A></LI>
+<LI><A HREF="Input.jsp?method=394" TARGET="inputs"> displayAdminInformation(java.lang.String)</A></LI>
+<LI><A HREF="Input.jsp?method=409" TARGET="inputs"> updateAdminInfo(java.lang.String,java.lang.String,java.lang.String,java.lang.String)</A></LI>
+<LI><A HREF="Input.jsp?method=420" TARGET="inputs"> updateUserPassword(int,java.lang.String)</A></LI>
 </UL>
 </BODY>
 </HTML>

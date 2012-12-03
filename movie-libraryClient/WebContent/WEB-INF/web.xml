@@ -62,6 +62,15 @@
     <servlet-name>UpdatePasswordInfoServlet</servlet-name>
     <url-pattern>/UpdatePasswordInfoServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CheckOut</servlet-name>
+    <jsp-file>/View/CheckOut.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOut</servlet-name>
+    <url-pattern>/View/CheckOut</url-pattern>
+  </servlet-mapping>  
   
   <servlet>
     <servlet-name>ViewMovies</servlet-name>
@@ -72,6 +81,50 @@
     <url-pattern>/View/ViewMovies</url-pattern>
   </servlet-mapping>  
   
+  <servlet>
+    <servlet-name>ViewCart</servlet-name>
+    <jsp-file>/View/ViewCart.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCart</servlet-name>
+    <url-pattern>/View/ViewCart</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.CheckOut</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/View/CheckOutServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>viewCartServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.ViewCartServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>viewCartServlet</servlet-name>
+    <url-pattern>/View/ViewCartServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>deleteCartItemtServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.DeleteCartItemServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>deleteCartItemtServlet</servlet-name>
+    <url-pattern>/View/DeleteCartItemServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>edu.sjsu.videolibrary.servlets.AddToCart</servlet-class> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/View/AddToCartServlet</url-pattern>
+  </servlet-mapping>
   
    <servlet>
     <servlet-name>ViewMoviesServlet</servlet-name>

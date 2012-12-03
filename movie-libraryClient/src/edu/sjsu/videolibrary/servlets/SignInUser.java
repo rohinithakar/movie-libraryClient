@@ -11,7 +11,7 @@ import edu.sjsu.videolibrary.model.User;
 import edu.sjsu.videolibrary.service.ServiceProxy;
 import edu.sjsu.videolibrary.util.ClientConfig;
 import edu.sjsu.videolibrary.util.Parameters;
-import edu.sjsu.videolibrary.util.Utils;
+import edu.sjsu.videolibrary.util.UtilsClient;
 
 /**
  * Servlet implementation class SignInUser
@@ -48,7 +48,7 @@ public class SignInUser extends HttpServlet
 		String pwd = request.getParameter(Parameters.pPassword);
 		try
 		{
-			ServiceProxy proxy = Utils.getServiceProxy();
+			ServiceProxy proxy = UtilsClient.getServiceProxy();
 			User res = proxy.signInUser(uid, pwd);
 			if(res != null)
 			{
