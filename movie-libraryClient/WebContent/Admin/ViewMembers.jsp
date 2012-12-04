@@ -95,12 +95,32 @@
 				}
 				%>
 			</table>
-		<% 
+		<%
 		} else { 
+ 			String pageStr = request.getParameter("page");
+ 			int currentPage = 1;
+ 			if (pageStr != null) {
+ 				currentPage = Integer.parseInt(pageStr);
+ 				if (currentPage < 1) {
+ 					currentPage = 1;
+ 				}
+ 			} 
+ 			int previousPage = currentPage - 1;
+ 			int nextPage = currentPage + 1;
+ 			int offset = (currentPage * 20) + 1;
 			
- 			members = proxy.viewMembers(type);
-		%>
-				<% if (members != null) { %>
+ 			members = proxy.viewMembersByPage(type, offset, 20);
+ 			//members = proxy.viewMembers(type);
+
+ 			if (currentPage > 1) {
+				out.print("<a href=\"ViewMembers.jsp?memberType=" + type + "&page=" + previousPage + "\"> Previous </a>");
+			}
+
+ 			if (members.length == 20) {
+				out.print("<a href=\"ViewMembers.jsp?memberType=" + type + "&page=" + nextPage + "\"> Next </a>");
+			}
+
+ 			if (members != null) { %>
 				<table class="data">
 				<tr class="data">
 					<th class="data" width="30">ID</th>
