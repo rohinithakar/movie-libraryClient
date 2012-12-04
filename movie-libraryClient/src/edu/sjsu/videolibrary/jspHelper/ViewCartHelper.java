@@ -16,8 +16,11 @@ public class ViewCartHelper {
 		ItemOnCart[] cartItems = null;
 		try {
 			User user = UtilsClient.getUserSession(req);
+			System.out.println(user.getMembershipId());
+			System.out.println("Inside Helper");
 			ServiceProxy proxy = UtilsClient.getServiceProxy();
 			cartItems = proxy.viewCart(user.getMembershipId());
+			System.out.println(cartItems);
 		} catch( RemoteException e ) {
 			e.printStackTrace();
 		}
