@@ -16,7 +16,7 @@ import edu.sjsu.videolibrary.util.UtilsClient;
 public class ViewUsersHelper {
 
 	public static User[] getUsers(HttpServletRequest req, HttpServletResponse resp) throws RemoteException {
-		String memType = (String) req.getParameter(Parameters.pMembershipTpe);
+		String memType = (String) req.getParameter(Parameters.pMembershipType);
 		int page = 0;
 		String pageNum = (String) req.getParameter(Parameters.pPage);
 		if(pageNum != null) {
@@ -32,7 +32,7 @@ public class ViewUsersHelper {
 		}
 	
 	public static String[] getPageLinks(HttpServletRequest req, HttpServletResponse resp) {
-		String memType = (String) req.getParameter(Parameters.pMembershipTpe);
+		String memType = (String) req.getParameter(Parameters.pMembershipType);
 		if(memType == null) {
 			memType = "";
 		}
@@ -45,14 +45,14 @@ public class ViewUsersHelper {
 		String[] pageLinks = new String[2];
 		if(page!=0) {
 			Map<String,String> map = new HashMap<String,String>();
-			map.put(Parameters.pMembershipTpe, memType);
+			map.put(Parameters.pMembershipType, memType);
 			map.put(Parameters.pPage, Integer.valueOf(page-1).toString());
 			pageLinks[0] = UtilsClient.generateQueryString(ClientConfig.VIEW_USERS, map );
 		} else {
 			pageLinks[0] = null;
 		}
 		Map<String,String> map = new HashMap<String,String>();
-		map.put(Parameters.pMembershipTpe, memType);
+		map.put(Parameters.pMembershipType, memType);
 		map.put(Parameters.pPage, Integer.valueOf(page+1).toString());
 		pageLinks[1] = UtilsClient.generateQueryString(ClientConfig.VIEW_MOVIES, map );
 		return pageLinks;

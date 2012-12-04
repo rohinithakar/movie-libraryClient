@@ -12,7 +12,6 @@ public class Parameters {
 	public final static String pMovieId = "movieId";
 	public final static String pCheckOutCheck = "checkout";
 	public final static String pCreditCard = "creditCard";
-	public final static String pMembershipTpe = "memberType";
 	
 	// User Session management
 	public final static String pUserBean = "user";
