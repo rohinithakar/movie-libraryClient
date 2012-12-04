@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.axis.session.Session;
 
+import edu.sjsu.videolibrary.util.ClientConfig;
 import edu.sjsu.videolibrary.util.Parameters;
 
 public class SignOutUser extends HttpServlet {
@@ -19,10 +20,11 @@ public class SignOutUser extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getSession().removeAttribute(Parameters.pUserBean);
-		response.sendRedirect("SignInUser.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		HttpSession session = request.getSession();
+		session.removeAttribute(Parameters.pUserBean);
+		session.invalidate();
+		response.sendRedirect(ClientConfig.USER_LOGIN);
 	}
 
 }

@@ -56,17 +56,33 @@ public class UtilsClient {
 		return user;
 	}
 
-	static public String generateQueryString(String startUrl, Map<String,String> queryParams) {
+	/**
+	 * A field with multiple values is represented as field1=value1&field1=value2&field1=value3
+	 * @param startUrl
+	 * @param queryParams
+	 * @return
+	 */
+	static public String generateQueryString(String startUrl, Map<String,String[]> queryParams) {
 		StringBuilder queryString = new StringBuilder();
 		queryString.append(startUrl);
 		boolean firstParam = true;
-		for(Map.Entry<String, String> kvPair : queryParams.entrySet()) {
-			if(kvPair.getValue() != null && kvPair.getValue().length() > 0) {
+		for(Map.Entry<String, String[]> kvPair : queryParams.entrySet()) {
+			if(kvPair.getValue() != null && kvPair.getValue().length > 0) {
 				if(firstParam) {
-					queryString.append("?" + kvPair.getKey() + "=" + kvPair.getValue());
+					String[] values = kvPair.getValue();
+					for( int i = 0; i < values.length; i++ ) {
+						if( i == 0 ) {
+							queryString.append("?" + kvPair.getKey() + "=" + values[i] );
+						} else {
+							queryString.append("&" + kvPair.getKey() + "=" + values[i] );
+						}
+						
+					}
 					firstParam = false;
 				} else {
-					queryString.append("&" + kvPair.getKey() + "=" + kvPair.getValue());
+					for( String paramValue : kvPair.getValue() ) {
+						queryString.append("&" + kvPair.getKey() + "=" + paramValue );
+					}
 				}
 			}
 		}

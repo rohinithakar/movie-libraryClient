@@ -19,6 +19,7 @@ public interface Service extends java.rmi.Remote {
     public edu.sjsu.videolibrary.model.User signInUser(java.lang.String userId, java.lang.String password) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Admin signInAdmin(java.lang.String userId, java.lang.String password) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.User[] viewMembers(java.lang.String type) throws java.rmi.RemoteException;
+    public edu.sjsu.videolibrary.model.User[] viewMembersByPage(java.lang.String type, int offset, int count) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Admin[] viewAdmins() throws java.rmi.RemoteException;
     public java.lang.String deleteUserAccount(java.lang.String userId) throws java.rmi.RemoteException;
     public java.lang.String deleteAdminAccount(java.lang.String userId) throws java.rmi.RemoteException;
@@ -44,7 +45,9 @@ public interface Service extends java.rmi.Remote {
     public java.lang.String[] listCategories() throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Movie[] listMoviesByCategoryByPage(java.lang.String categoryName, int start, int stop) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Movie[] listAllMoviesByPage(int start, int stop) throws java.rmi.RemoteException;
+    public edu.sjsu.videolibrary.model.User[] searchUserByPage(java.lang.String membershipId, java.lang.String userId, java.lang.String membershipType, java.lang.String startDate, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, int offset, int count) throws java.rmi.RemoteException;
     public edu.sjsu.videolibrary.model.Admin displayAdminInformation(java.lang.String adminId) throws java.rmi.RemoteException;
     public java.lang.String updateAdminInfo(java.lang.String adminId, java.lang.String firstName, java.lang.String lastName, java.lang.String password) throws java.rmi.RemoteException;
     public java.lang.String updateUserPassword(int membershipId, java.lang.String newPassword) throws java.rmi.RemoteException;
+    public edu.sjsu.videolibrary.model.Movie[] searchMovieByPage(java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int start, int stop) throws java.rmi.RemoteException;
 }

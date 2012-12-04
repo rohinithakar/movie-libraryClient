@@ -280,7 +280,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SignOutUserServlet</servlet-name>
-		<url-pattern>/SignOutUserServlet</url-pattern>
+		<url-pattern>/View/SignOutUserServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>ViewMembers</servlet-name>
@@ -352,6 +352,15 @@
 	<servlet-mapping>
 		<servlet-name>ViewCart</servlet-name>
 		<url-pattern>/View/ViewCart</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SearchedMovies</servlet-name>
+		<jsp-file>/View/searchedMovies.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchedMovies</servlet-name>
+		<url-pattern>/View/SearchedMovies</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

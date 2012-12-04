@@ -110,6 +110,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.viewMembers(type);
   }
   
+  public edu.sjsu.videolibrary.model.User[] viewMembersByPage(java.lang.String type, int offset, int count) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.viewMembersByPage(type, offset, count);
+  }
+  
   public edu.sjsu.videolibrary.model.Admin[] viewAdmins() throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();
@@ -260,6 +266,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     return service.listAllMoviesByPage(start, stop);
   }
   
+  public edu.sjsu.videolibrary.model.User[] searchUserByPage(java.lang.String membershipId, java.lang.String userId, java.lang.String membershipType, java.lang.String startDate, java.lang.String firstName, java.lang.String lastName, java.lang.String address, java.lang.String city, java.lang.String state, java.lang.String zipCode, int offset, int count) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.searchUserByPage(membershipId, userId, membershipType, startDate, firstName, lastName, address, city, state, zipCode, offset, count);
+  }
+  
   public edu.sjsu.videolibrary.model.Admin displayAdminInformation(java.lang.String adminId) throws java.rmi.RemoteException{
     if (service == null)
       _initServiceProxy();
@@ -276,6 +288,12 @@ public class ServiceProxy implements edu.sjsu.videolibrary.service.Service {
     if (service == null)
       _initServiceProxy();
     return service.updateUserPassword(membershipId, newPassword);
+  }
+  
+  public edu.sjsu.videolibrary.model.Movie[] searchMovieByPage(java.lang.String movieName, java.lang.String movieBanner, java.lang.String releaseDate, int start, int stop) throws java.rmi.RemoteException{
+    if (service == null)
+      _initServiceProxy();
+    return service.searchMovieByPage(movieName, movieBanner, releaseDate, start, stop);
   }
   
   

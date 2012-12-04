@@ -1,3 +1,4 @@
+<%@page import="edu.sjsu.videolibrary.util.ClientConfig"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import=" edu.sjsu.videolibrary.model.Movie"%>
@@ -12,12 +13,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>movieSearch</title>
+<title>Searched Movies</title>
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
 	<%
-		Movie[] movies = ViewMoviesHelper.getMovies(request, response);
+		Movie[] movies = ViewMoviesHelper.getSearchedMovies(request, response);
 		int count = 1;
 		if (movies != null) {
 	%>
@@ -28,7 +29,7 @@
 			<td>Movie Banner</td>
 			<td>Release Date</td>
 			<td>Available Copies</td>
-			<td></td>
+			<th></th>
 		</tr>
 		<%
 			for (Movie movie : movies) {
@@ -66,21 +67,19 @@
 					<input class="submit" type="submit"	value="Add to Cart">
 				</form></td>
 		</tr>
+		
 		<%
 			}
 				}
 		%>
 	</table>
 	<%
-		String[] pageLinks = ViewMoviesHelper.getPageLinks(request,
-					response);
+		String[] pageLinks = ViewMoviesHelper.getPageLinks(ClientConfig.SEARCHED_MOVIES, request, response);
 			if (pageLinks[0] != null) {
 				out.print("<a href=\"" + pageLinks[0] + "\"> Prev</a>");
-
 			}
 			if (pageLinks[1] != null) {
 				out.print("<a href=\"" + pageLinks[1] + "\"> Next</a>");
-
 			}
 		} else {
 			out.print("No Movies found in Databsae");

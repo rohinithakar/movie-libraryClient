@@ -10,6 +10,9 @@ public class Parameters {
 	public final static String pCategory = "viewCategory";
 	public final static String pPage = "page";
 	public final static String pMovieId = "movieId";
+	public final static String pMovieName = "movieName";
+	public final static String pMovieBanner = "movieBanner";
+	public final static String pMovieReleaseDate = "releaseDate";
 	public final static String pCheckOutCheck = "checkout";
 	public final static String pCreditCard = "creditCard";
 	
