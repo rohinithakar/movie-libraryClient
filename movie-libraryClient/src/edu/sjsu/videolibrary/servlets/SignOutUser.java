@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.axis.session.Session;
+
 import edu.sjsu.videolibrary.util.Parameters;
 
 public class SignOutUser extends HttpServlet {

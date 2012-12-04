@@ -5,9 +5,9 @@
 <%@ page import=" edu.sjsu.videolibrary.jspHelper.ViewMoviesHelper"%>
 <%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
  <%
- 	if(!UtilsClient.validateLogin(request, response)) {
- 		return;
- 	}
+//  	if(!UtilsClient.validateLogin(request, response)) {
+//  		return;
+//  	}
  %>
 <html>
 <head>

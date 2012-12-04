@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.sjsu.videolibrary.model.User;
 import edu.sjsu.videolibrary.service.ServiceProxy;
+import edu.sjsu.videolibrary.util.ClientConfig;
 
 /**
  * Servlet implementation class SignUpUser
@@ -65,7 +66,7 @@ public class SignUpUser extends HttpServlet
 			String res = proxy.signUpUser(uid,pwd,mem,fname,lname, stAddress,city,state,zip,ccnum);
 			if(res != null)
 			{
-				response.sendRedirect("MainPage.jsp");
+				response.sendRedirect(ClientConfig.USER_LOGIN);
 			}
 			else
 			{

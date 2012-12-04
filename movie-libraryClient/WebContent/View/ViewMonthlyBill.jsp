@@ -134,8 +134,7 @@
 	<%
 		} else {
 	%>
-	<b>Currently you don't have any movie-billing transaction
-		associated with your account.</b>
+	<b>No Billing Statement found in database for selected information.</b>
 	<%
 		}
 	%>

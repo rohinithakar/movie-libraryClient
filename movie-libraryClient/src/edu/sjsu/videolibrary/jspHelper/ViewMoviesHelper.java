@@ -31,6 +31,26 @@ public class ViewMoviesHelper {
 		return movieList;
 	}
 	
+
+	public static Movie[] getSearchedMovies(HttpServletRequest req, HttpServletResponse resp) throws RemoteException {
+		String categoryName = (String) req.getParameter(Parameters.pCategory);
+		int page = 0;
+		String pageNum = (String) req.getParameter(Parameters.pPage);
+		if(pageNum != null) {
+			page = Integer.parseInt(pageNum);
+		}
+		
+		ServiceProxy proxy = UtilsClient.getServiceProxy();
+		Movie[] movieList = null;
+		if( categoryName == null ) {
+			movieList = proxy.listAllMoviesByPage(page * ClientConfig.DEFAULT_PAGE_SIZE, ClientConfig.DEFAULT_PAGE_SIZE);
+		} else {			
+			movieList = proxy.listMoviesByCategoryByPage(categoryName, page * ClientConfig.DEFAULT_PAGE_SIZE, ClientConfig.DEFAULT_PAGE_SIZE);
+		}
+		return movieList;
+	}
+	
+	
 	public static String[] getPageLinks(HttpServletRequest req, HttpServletResponse resp) {
 		String categoryName = (String) req.getParameter(Parameters.pCategory);
 		if(categoryName == null) {

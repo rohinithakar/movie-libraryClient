@@ -58,8 +58,7 @@
 	<%
 		} else {
 	%>
-	<b>Currently you don't have any transaction associated with your
-		account.</b>
+	<b>Currently No Movies pending to Return.</b>
 	<%
 		}
 	%>

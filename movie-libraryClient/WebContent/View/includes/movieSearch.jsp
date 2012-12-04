@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<form method="get" action="MovieSearch">
+<form method="get" action="SearchMovieServlet">
 	<table>
 		<tr><td>Search a movie by:</td><td></td></tr>
 		<tr><td>Movie Name</td><td><input type="text" name="movieName"></td></tr>
