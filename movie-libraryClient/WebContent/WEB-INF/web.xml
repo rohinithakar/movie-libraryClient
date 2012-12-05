@@ -308,6 +308,15 @@
 		<servlet-name>SearchMember</servlet-name>
 		<url-pattern>/Admin/SearchMember</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SearchMovie</servlet-name>
+		<servlet-class>edu.sjsu.videolibrary.servlets.SearchMovie</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchMovie</servlet-name>
+		<url-pattern>/Admin/SearchMovie</url-pattern>
+	</servlet-mapping>	
 	<!-- Admin JSPs -->
 	<servlet>
 		<servlet-name>AdminIndex</servlet-name>
