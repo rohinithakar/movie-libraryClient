@@ -85,6 +85,21 @@
  				<input type="submit" class="button" name="act" value="Update"  />  <input type="submit" class="button" name="act" value="Cancel"  />
  				</td>
  			</tr>   
+ 			<tr>
+ 				<td><b>Total rents:</b></td>
+ 				<td><%= m.getBuyerList().length %></td>
+ 			</tr>
+ 			<% 
+ 				String [] rents = m.getBuyerList(); 
+ 				if (rents != null)
+ 				if (rents.length > 0) { %>
+ 			<tr>
+ 				<td><b>History:</b></td>
+ 				<td><% for (int i = 0; i < rents.length; i++) {
+ 						out.print(rents[i] + "<br>");
+ 					} %></td>
+ 			</tr>
+ 			<% } %>
 		</table>
 		</form>
 
