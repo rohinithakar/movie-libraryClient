@@ -20,50 +20,62 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ViewAccount</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+<title>View Account</title>
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
-	<table border="1">
-	<tr>
-	<td><a href="UpdateUserInfo">Update UserInformation</a></td>
-	<td><a href="UpdatePasswordInfo">Update Password</a></td>
-	</tr>
-	</table>
-
-	<%
-		Transaction[] trans = ViewAccountHelper.getUserTransactions(request, response);
-		if (trans != null && trans.length != 0) {
-	%>
-	<table border="1">
-		<tr>
-			<td>Movie Name</td>
-			<td>Rent Amount/Movie</td>
-			<td>Rent Date</td>
-			<td>Return Date</td>
-		</tr>
-
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
+		<h3>View Monthly Statement</h3>
+		<div style="padding-top:20px;" >
+			<table border="0">
+			<tr>
+			<td><a href="UpdateUserInfo" class="button">Update UserInformation</a></td>
+			<td><a href="UpdatePasswordInfo" class="button">Update Password</a></td>
+			</tr>
+			</table>
+		</div>
+		
+		<div class="clear"></div>
+	
 		<%
-			for (Transaction tran : trans) {
+			Transaction[] trans = ViewAccountHelper.getUserTransactions(request, response);
+			if (trans != null && trans.length != 0) {
 		%>
-		<tr>
-			<td><%=tran.getMovieName()%></td>
-			<td><%=tran.getPerMovieAmount()%></td>
-			<td><%=tran.getPurchaseDate()%></td>
-			<td><%=tran.getReturnDate()%></td>
-		</tr>
+		<table class="data">
+			<tr class="data">
+				<th class="data">Movie Name</th>
+				<th class="data">Rent Amount/Movie</th>
+				<th class="data">Rent Date</th>
+				<th class="data">Return Date</th>
+			</tr>
+	
+			<%
+				for (Transaction tran : trans) {
+			%>
+			<tr class="data">
+				<td><%=tran.getMovieName()%></td>
+				<td><%=tran.getPerMovieAmount()%></td>
+				<td><%=tran.getPurchaseDate()%></td>
+				<td><%=tran.getReturnDate()%></td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+		<%
+			} else {
+		%>
+		<div class="clear"></div>
+		<p><b>Currently you don't have any transaction associated with your
+			account.</b></p>
 		<%
 			}
 		%>
-	</table>
-	<%
-		} else {
-	%>
-	<b>Currently you don't have any transaction associated with your
-		account.</b>
-	<%
-		}
-	%>
-
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

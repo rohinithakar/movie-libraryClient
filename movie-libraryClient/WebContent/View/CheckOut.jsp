@@ -35,8 +35,8 @@
 	<div id="rightContent">
 	<h3>Shopping Cart</h3>
 	
-	<table border="1">
-		<tr>
+	<table border="1" class="data">
+		<tr class="data">
 			<th class="data">Movie Name</th>
 			<th class="data">Movie Banner</th>			
 			<th class="data">Rent Amount</th>

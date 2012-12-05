@@ -29,13 +29,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ViewMonthlyBill</title>
 </head>
 <body>
-	<jsp:include page="includes/header.jsp"></jsp:include>
-
+<jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
 	<%
 		ServiceProxy proxy = UtilsClient.getServiceProxy();
 
@@ -71,8 +73,11 @@
 	<%
 		if (statement != null && statement.length != 0) {
 	%>
-
+	<h3>View Monthly Statement</h3>
 	<form method="get">
+		<table>
+		<tr> 
+		<td>
 		Select Month: <select name="month">
 			<%
 				for (Integer monthDisplay : months) {
@@ -88,7 +93,10 @@
 						}
 					}
 			%>
-		</select> Select Year: <select name="year">
+		</select> 
+		</td>
+		<td> 
+			Select Year: <select name="year">
 			<%
 				for (Integer yearDisplay : years) {
 						if (year == yearDisplay.intValue()) {
@@ -101,21 +109,25 @@
 					}
 			%>
 
-		</select> <input type="submit" value="Get Statement" />
+		</select>
+		</td>
+		<td><input type="submit" class="button" value="Get Statement" /></td>
+		</tr>
+		</table>
 	</form>
 
-	<table border="1">
-		<tr>
-			<td>Movie Name</td>
-			<td>Rent Amount</td>
-			<td>PurchaseDate/PaymentDate</td>
-			<td>Return Date</td>
+	<table border="1" width="80%" class="data">
+		<tr class="data">
+			<th class="data">Movie Name</th>
+			<th class="data">Rent Amount</th>
+			<th class="data">PurchaseDate/PaymentDate</th>
+			<th class="data">Return Date</th>
 		</tr>
 
 		<%
 			for (StatementInfo st : statement) {
 		%>
-		<tr>
+		<tr class="data">
 			<td><%=st.getMovieName()%></td>
 			<td><%=st.getTotalDueAmount()%></td>
 			<td><%=st.getRentDate()%></td>
@@ -126,40 +138,34 @@
 			}
 		%>
 	</table>
-	<%
-		} else {
-	%>
-	<b>No Billing Statement found in database for selected information.</b>
-	<%
-		}
-	%>
-
-
+	<% } else { %> <b>No Billing Statement found in database for selected information.</b>
+	<% } %>
 	<%
 		if (usr.getMembershipType().equalsIgnoreCase("premium")) {
 			if (pymnt != null) {
 	%>
 
-	<table border="1">
-		<tr>
-			<td>Payment Date</td>
-			<td>Payment Amount</td>
-			<td>Payment Status</td>
+	<div  class="clear" style="padding-top:20px"></div>
+	<table border="1" class="data">
+		<tr class="data">
+			<th class="data">Payment Date</th>
+			<th class="data">Payment Amount</th>
+			<th class="data">Payment Status</th>
 		</tr>
-		<tr>
+		<tr class="data">
 			<td><%=pymnt.getPaymentDate()%></td>
 			<td><%=pymnt.getMonthlyPaymentAmount()%></td>
 			<td><%=pymnt.getPaymentStatus()%></td>
 		</tr>
 	</table>
-	<%
-		} else {
-	%>
-	<b>You don't have any payment information for selected month</b>
-	<%
-		}
+	<% } else { %>
+		<div class="clear"></div>
+		<b>You don't have any payment information for selected month</b>
+	<%  	}
 		}
 	%>
-
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

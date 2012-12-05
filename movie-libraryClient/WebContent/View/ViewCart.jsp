@@ -13,12 +13,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 <title>Shopping Cart</title>
 <style type="text/css">
 </style>
 </head>
 <body>
-	<jsp:include page="includes/header.jsp"></jsp:include>
+<jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
 	<%
 		ItemOnCart[] cartItems = ViewCartHelper.getCartItems(request,
 				response);
@@ -30,52 +34,41 @@
 			return;
 		}
 	%>
-	<table border="1">
-		<tr>
-			<td>Movie Name</td>
-			<td>Movie Banner</td>
-			<td>Rent Amount</td>
-		</tr>
-
-		<%
-			for (ItemOnCart cartItem : cartItems) {
-		%>
-		<tr>
-			<td><%=cartItem.getMovieName()%></td>
-			<td><%=cartItem.getMovieBanner()%></td>
-			<td><%=cartItem.getRentAmount()%></td>
-			<td><form name="input" action="DeleteCartItemServlet"
-					method="post">
-					<input type="submit" value="Delete"> <input type="hidden"
-						name="movieId" value="<%=cartItem.getMovieId()%>">
-				</form></td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-	<table width="100%">
-
-		<!-- Body -->
-		<tr>
-			<td>
-
-				<form method="post" action="CheckOut">
-					<div class="form-row">
-						<span>
-							<p>
-								<a href="HomePage">Continue Shopping </a>
-							</p>
-							<p>
-								<a href="CheckOut">Proceed to CheckOut </a>
-							</p>
-						</span>
-
-					</div>
-				</form>
-
-			</td>
-		</tr>
-	</table>
+		<table class="data">
+			<tr class="data">
+				<th class="data">Movie Name</th>
+				<th class="data">Movie Banner</th>
+				<th class="data">Rent Amount</th>
+			</tr>
+	
+			<%
+				for (ItemOnCart cartItem : cartItems) {
+			%>
+			<tr class="data">
+				<td><%=cartItem.getMovieName()%></td>
+				<td><%=cartItem.getMovieBanner()%></td>
+				<td><%=cartItem.getRentAmount()%></td>
+				<td>
+					<form name="input" action="DeleteCartItemServlet" method="post">
+						<input type="submit" value="Delete"> <input type="hidden" name="movieId" value="<%=cartItem.getMovieId()%>">
+					</form>
+				</td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+		<div>
+ 		<span style="float:left">
+  			<a href="HomePage" class="button">Continue Shopping </a>
+ 		</span>
+ 		<span style="float:right">
+ 				<a href="CheckOut" class="button">Proceed to CheckOut </a>		
+ 		</span>
+ 		</div>
+ 	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
+
 </html>

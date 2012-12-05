@@ -13,29 +13,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+
 <title>View Movies</title>
 </head>
 <body>
-	<jsp:include page="includes/header.jsp"></jsp:include>
+<jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
 	<%
 		Movie[] movies = ViewMoviesHelper.getMovies(request, response);
 		int count = 1;
 		if (movies != null) {
 	%>
-	<table border='1'>
-		<tr>
-			<td>Serial no.</td>
-			<td>Movie Name</td>
-			<td>Movie Banner</td>
-			<td>Release Date</td>
-			<td>Available Copies</td>
-			<td></td>
+	<table class="data">
+		<tr class="data">
+			<th class="data">Serial no.</th>
+			<th class="data">Movie Name</th>
+			<th class="data">Movie Banner</th>
+			<th class="data">Release Date</th>
+			<th class="data">Available Copies</th>
+			<th class="data"> </th>
 		</tr>
 		<%
 			for (Movie movie : movies) {
 					if (movie.getAvailableCopies() != 0) {
 		%>
-		<tr>
+		<tr class="data">
 			<td>
 				<%
 					out.print(count++);
@@ -64,7 +69,7 @@
 			<td>
 			<form action="AddToCartServlet" method="post">
 					<input type="hidden" name="movieId" value="<%=movie.getMovieId()%>"/>
-					<input class="submit" type="submit"	value="Add to Cart">
+					<input class="button" type="submit" value="Add to Cart">
 				</form></td>
 		</tr>
 		<%
@@ -72,6 +77,7 @@
 				}
 		%>
 	</table>
+	<div class="clear"></div>
 	<%
 		String[] pageLinks = ViewMoviesHelper.getPageLinks(ClientConfig.VIEW_MOVIES,request, response);
 			if (pageLinks[0] != null) {
@@ -83,8 +89,11 @@
 
 			}
 		} else {
-			out.print("No Movies found in Databsae");
+			out.print("<p>No Movies were found in Database</p>");
 		}
 	%>
+	 	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

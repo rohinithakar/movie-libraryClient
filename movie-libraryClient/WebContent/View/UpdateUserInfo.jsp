@@ -21,10 +21,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>UpdateUserInfo</title>
+<title>Update User Information</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
+	<h3>Update Information</h3>
 
 	<%
 		String error = request.getParameter("msg");
@@ -60,65 +65,82 @@
 	%>
 
 	<form id="form1" method="post" action="UpdateUserInfoServlet">
-		<div class="form-row">
-			First Name<input type="text" name="<%=Parameters.pFirstName%>"
+	<table width="60%">
+		<tr>
+			<td>First Name </td>
+			<td><input type="text" name="<%=Parameters.pFirstName%>"
 				value=<%=usr.getFirstName()%> />
-		</div>
-		<div class="form-row">
-			Last Name<input type="text" name="<%=Parameters.pLastName%>"
+			</td>
+		</tr>
+		<tr>
+			<td>Last Name </td>
+			<td><input type="text" name="<%=Parameters.pLastName%>"
 				value="<%=usr.getLastName()%>" />
-		</div>
-		<div class="form-row">
-			Membership Type
+			</td>
+		</tr>
+		<tr>
+ 			<td>Membership Type </td>
+ 			<td>
 				<select name="<%=Parameters.pMembershipType%>" id="membershipType">
 		    <%  String [] types = {"Simple", "Premium"}; 
 		    	for(int i=0; i < types.length; i++){ %>
 		    		<option value="<%= types[i] %>" <%= (types[i].equals(usr.getMembershipType().trim())) ?"selected" : "" %> ><%= types[i] %></option>  
 			<% } %>
 		    </select>
-		</div>
-		<div class="form-row">
-			User Id<input type="text" name="<%=Parameters.pUserId%>"
+		    </td>
+		  </tr>
+		  <tr>
+		  	<td>
+ 				User Id
+ 			</td>
+ 			<td>
+ 				<input type="text" name="<%=Parameters.pUserId%>"
 				value="<%=usr.getUserId()%>" />
-		</div>
-		<div class="form-row">
-			Address<input type="text" name="<%=Parameters.pAddress%>"
-				value="<%=usr.getAddress()%>" />
-		</div>
-		<div class="form-row">
-			City<input type="text" name="<%=Parameters.pCity%>" value="<%=usr.getCity()%>" />
-		</div>
-		<div class="form-row">
-			State
-			<select name="<%=Parameters.pState%>" id="state">
+			</td>
+			</tr>
+			<tr>
+				<td> Address</td>
+				<td><input type="text" name="<%=Parameters.pAddress%>"
+				value="<%=usr.getAddress()%>" /></td>
+			</tr>
+			<tr>
+ 				<td>City</td><td><input type="text" name="<%=Parameters.pCity%>" value="<%=usr.getCity()%>" /></td>
+ 			</tr>
+ 			<tr>
+ 				<td>State </td>
+ 				<td><select name="<%=Parameters.pState%>" id="state">
 		    <%  String [] states = UtilsClient.getStates(); 
 		    	for(int i=0; i < states.length; i++){ %>
 		    		<option value="<%= states[i] %>" <%= (states[i].equalsIgnoreCase(usr.getState())) ? "selected" : "" %> ><%= states[i] %></option>  
 			<% } %>
-		    </select>
-		</div>
-		<div class="form-row">
-			ZipCode<input type="text" name="<%=Parameters.pZip%>" value="<%=usr.getZip()%>" />
-		</div>
-		<div class="form-row">
-			Credit Card #<input type="text" name="<%=Parameters.pCreditCard%>"
+		    	</select></td>
+		    </tr>
+		    <tr>
+		    	<td>ZipCode</td>
+		    	<td><input type="text" name="<%=Parameters.pZip%>" value="<%=usr.getZip()%>" /></td>
+		    </tr>
+		    <tr>
+ 				<td>Credit Card # </td>
+ 				<td><input type="text" name="<%=Parameters.pCreditCard%>"
 				value="<%=usr.getCreditCardNumber()%>" />
-		</div>
-		<div>
-			<input type="hidden" name="<%=Parameters.pMembershipId%>"
+				</td>
+			</tr>
+ 			<tr>
+ 				<td><input type="hidden" name="<%=Parameters.pMembershipId%>"
 				value="<%= usr.getMembershipId()%>">
-		</div>
-		<div class="form-row">
-			<input class="submit" type="submit" value="Update">
-		</div>
-	</form>
-	<%
-		} 
-		else{
-			
-			%>
-	<b> No record Found.</b>
+				</td>
+				<td>
+ 				<input class="button" type="submit" value="Update">
+ 				</td>
+ 			</tr>
+ 			</table>
+ 	</form>
+	<% } else { %>
+		<div class="clear"> </div>
+		<b> No record Found.</b>
 	<% }  %>
-
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

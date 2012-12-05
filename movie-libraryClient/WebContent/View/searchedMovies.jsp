@@ -26,7 +26,7 @@
 		int count = 1;
 		if (movies != null) {
 	%>
-	<table border='1'>
+	<table border='1' class="data">
 		<tr>
 			<th class="data">Serial no.</th>
 			<th class="data">Movie Name</th>

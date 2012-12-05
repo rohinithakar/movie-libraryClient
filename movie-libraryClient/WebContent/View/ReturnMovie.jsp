@@ -35,11 +35,11 @@
 		Transaction[] trans = ReturnMovieHelper.getMovies(request, response);
 		if (trans != null && trans.length != 0) {
 	%>
-	<table width="60%">
+	<table width="60%" class="data">
 		<tr class="data">
-			<th>Movie Name</th>
-			<th>Rent Date</th>
-			<th width="100">Return Movie</th>
+			<th class="data">Movie Name</th>
+			<th class="data">Rent Date</th>
+			<th class="data" width="100">Return Movie</th>
 		</tr>
 
 		<%
