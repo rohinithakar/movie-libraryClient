@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <jsp:forward page="LogIn.jsp" />  
+  <jsp:forward page="HomePage.jsp" />  
  </head>
 <body>
 
