@@ -1,80 +1,166 @@
 function validateLogin()
 {
-	var email = document.forms["loginForm"]["email"].value;
+	var email = document.forms["loginForm"]["uid"].value;
 	var password = document.forms["loginForm"]["password"].value; 
 	
 	var atpos = email.indexOf("@");
 	var dotpos= email.lastIndexOf(".");
 
-	if (atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length || password.length < 6 || password == null) {
+	if (atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length || password.length < 5 || password == null) {
 		alert("Please enter your login details ");
 		return false; 
 	}	
 	
 }
 
-function validateAd () {
-	
-	
-	var title = document.forms["newAdForm"]["title"].value;	
-	var description = document.forms["newAdForm"]["description"].value; 
-	var price = document.forms["newAdForm"]["price"].value;
-	var qty = document.forms["newAdForm"]["qty"].value; 	
-	
-	if (title == null || title.length < 6 || title == "") {
-		alert("Please enter a title for your product");
-		return false;			
+function validateUpdateUser() {
+ 	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
+	{
+		alert("User id  must be filled out");
+  		return false;
 	}
-	
-	if (price == " " || price < 1 || price == null) {
-		alert("Please input a real price");
-		return false;		
+	if(IsEmptyOrNull(document.forms["form1"]["fname"].value))
+	{
+		alert("First Name must be filled out");
+  		return false;
 	}
-	
-	if (qty < 0 || qty > 10 || qty == "" || qty == null || qty == " ") {
-		alert("Please input a quantity betweem 1 and 10");
-		return false;
+	if(IsEmptyOrNull(document.forms["form1"]["lname"].value))
+	{
+		alert("Last Name must be filled out");
+  		return false;
 	}
-	
+	if(IsEmptyOrNull(document.forms["form1"]["city"].value))
+	{
+		alert("City must be filled out");
+  		return false;
+	}
+	if(IsEmptyOrNull(document.forms["form1"]["state"].value))
+	{
+		alert("State must be filled out");
+  		return false;
+	}
+	if(IsEmptyOrNull(document.forms["form1"]["zipCode"].value))
+	{
+		alert("Zip must be filled out");
+  		return false;
+	}
+	else
+	{
+		 var re = /^\d{5}([\-]\d{4})?$/;
+		 var zip = document.forms["form1"]["zipCode"].value;
+		 if( !re.test(zip))
+		 {
+			alert('Invalid ZipCode');
+			return false;
+		  }
+	}
+	if(document.forms["form1"]["membershipType"].value == "Premium")
+	{
+		var ccnum = document.forms["form1"]["creditCard"].value;
+		if(IsEmptyOrNull(ccnum))
+		{
+			alert('Premium members must fill out credit card number');
+		 	return false;
+		}
+		if(ccnum.length != 16)
+		{
+			alert('credit card number must be 16 digits');
+		 	return false;
+		}
+		var regex = /^\s*\d+\s*$/;
+		if( !regex.test(ccnum) ) 
+		{
+			alert('Invalid CC number');
+		 	return false;
+		}
 
-	
-	if (description == null || description.length < 12) {
-		alert("Please enter a longer description for your product");
-		return false;			
-	}
+}
 	
 }
 
 function validateSignUp()
 {
-	var email = document.forms["signUpForm"]["email"].value;	
-	var password = document.forms["signUpForm"]["password"].value; 
-	var confirm = document.forms["signUpForm"]["confirmation"].value;
-	var fName = document.forms["signUpForm"]["firstName"].value; 
-	var lName = document.forms["signUpForm"]["lastName"].value; 
-		
-	var atpos = email.indexOf("@");
-	var dotpos= email.lastIndexOf(".");
-	
-	if (fName == null || fName == "" || lName == "" || lName == null) {
-		alert("Please enter your name details correctly");
-		return false; 
-	}
-	
-	if (atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length) {
-		alert("Not a valid e-mail address");
-		return false; 
-	}
-	
-	if (password.length < 6) {
-		alert("Minimun password length is 6");
-		return false; 
-	}
-	
-	if (password != confirm || password == "" || password == null) {
-		alert("Passowrds missmatch");
-		return false; 
-	}	
+ 
+    	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
+    	{
+    		alert("User id  must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["pwd"].value))
+    	{
+    		alert("Password  must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["fname"].value))
+    	{
+    		alert("First Name must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["lname"].value))
+    	{
+    		alert("Last Name must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
+    	{
+    		alert("Street Address must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
+    	{
+    		alert("Street Address must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["city"].value))
+    	{
+    		alert("City must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["state"].value))
+    	{
+    		alert("State must be filled out");
+      		return false;
+    	}
+    	if(IsEmptyOrNull(document.forms["form1"]["zip"].value))
+    	{
+    		alert("Zip must be filled out");
+      		return false;
+    	}
+    	else
+    	{
+    		 var re = /^\d{5}([\-]\d{4})?$/;
+    		 var zip = document.forms["form1"]["zip"].value;
+    		 if( !re.test(zip))
+    		 {
+    			alert('Invalid ZipCode');
+    			return false;
+    		  }
+    	}
+    	if(document.forms["form1"]["mem"].value == "Premium")
+    	{
+    		var ccnum = document.forms["form1"]["ccnum"].value;
+    		if(IsEmptyOrNull(ccnum))
+    		{
+    			alert('Premium members must fill out credit card number');
+			 	return false;
+    		}
+    		if(ccnum.length != 16)
+    		{
+    			alert('credit card number must be 16 digits');
+			 	return false;
+    		}
+    		var regex = /^\s*\d+\s*$/;
+    		if( !regex.test(ccnum) ) 
+    		{
+    			alert('bad input');
+			 	return false;
+    		}
+ 
+    }
+    function IsEmptyOrNull(arg)
+    {
+    	return (arg==null || arg=="");	
+    }
 }
 
 function get_form( element )
