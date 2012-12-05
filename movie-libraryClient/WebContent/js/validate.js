@@ -1,7 +1,7 @@
 function validateLogin()
 {
-	var email = document.forms["loginForm"]["uid"].value;
-	var password = document.forms["loginForm"]["password"].value; 
+	var email = document.forms["form1"]["uid"].value;
+	var password = document.forms["form1"]["password"].value; 
 	
 	var atpos = email.indexOf("@");
 	var dotpos= email.lastIndexOf(".");
