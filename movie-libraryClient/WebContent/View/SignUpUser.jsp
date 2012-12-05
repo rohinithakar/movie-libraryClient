@@ -1,5 +1,8 @@
+<%@page import="edu.sjsu.videolibrary.util.ClientConfig"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="edu.sjsu.videolibrary.util.Parameters"%>
+<%@ page import="edu.sjsu.videolibrary.util.UtilsClient"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,12 +34,12 @@
         	}
         	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
         	{
-        		alert("Streett Address must be filled out");
+        		alert("Street Address must be filled out");
           		return false;
         	}
         	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
         	{
-        		alert("Streett Address must be filled out");
+        		alert("Street Address must be filled out");
           		return false;
         	}
         	if(IsEmptyOrNull(document.forms["form1"]["city"].value))
@@ -64,12 +67,12 @@
         			return false;
         		  }
         	}
-        	if(document.forms["form1"]["mem"].value == "Simple")
+        	if(document.forms["form1"]["mem"].value == "Premium")
         	{
         		var ccnum = document.forms["form1"]["ccnum"].value;
         		if(IsEmptyOrNull(ccnum))
         		{
-        			alert('Non Premium members must fill out credit card number');
+        			alert('Premium members must fill out credit card number');
     			 	return false;
         		}
         		if(ccnum.length != 16)
@@ -107,7 +110,7 @@
 				</tr>
 				<tr>
 					<td>Membership Type</td>
-					<td><select id="mem">
+					<td><select id="mem" name="<%=Parameters.pMembershipType%>">
 					<option value="Simple">Simple</option>
   					<option value="Premium">Premium</option>
 					</select></td>
@@ -133,7 +136,12 @@
 				</tr>
 				<tr>
 					<td>State</td>
-					<td><input type="text" name="state" /></td>
+					<td><select name="<%=Parameters.pState%>" id="state">
+		    <%  String [] states = UtilsClient.getStates(); 
+		    	for(int i=0; i < states.length; i++){ %>
+		    		<option value="<%= states[i] %>" ><%= states[i] %></option>  
+			<% } %>
+		    </select></td>
 				</tr>
 				<tr>
 					<td>Zip Code</td>
@@ -147,6 +155,7 @@
 			</table>
 			<br>
 			<input type="submit" value="Submit" />
+			<a href="<%=ClientConfig.USER_LOGIN%>">Cancel</a>
 </form>
 </body>
 </html>

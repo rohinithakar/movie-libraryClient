@@ -16,6 +16,11 @@ public class SignInUserHelper {
 		return errorString;
 	}
 	
+	public static final void setLoginError(HttpServletRequest req,String errorStr) {
+		HttpSession session = req.getSession();
+		session.setAttribute(Parameters.pLoginError,errorStr);
+	}
+	
 	public static final String getPaymentError(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		String errorString = (String) session.getAttribute(Parameters.pMakePaymentMessage);
