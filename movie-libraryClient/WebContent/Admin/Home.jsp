@@ -24,7 +24,7 @@
 		<a href="ViewMovies.jsp"><img src="../css/img/photo.png"><br>View Movies</a>
 		</div>
 		<div class="shortcutHome">
-		<a href=""><img src="../css/img/halaman.png"><br>Search a Movie</a>
+		<a href="SearchMovie.jsp"><img src="../css/img/halaman.png"><br>Search a Movie</a>
 		</div>
 		<div class="shortcutHome">
 		<a href="ViewMembers.jsp "><img src="../css/img/template.png"><br>View Members</a>
@@ -32,11 +32,11 @@
 		<div class="shortcutHome">
 		<a href="SignUpAdmin.jsp"><img src="../css/img/quote.png"><br>Create a New Admin</a>
 		</div>
-		<!--  
+		 
 		<div class="shortcutHome">
-		<a href=""><img src="../css/img/bukutamu.png"><br>Search Members</a>
+		<a href="SearchMember.jsp"><img src="../css/img/bukutamu.png"><br>Search Members</a>
 		</div>
-		-->
+	
 		
 		<div class="clear"></div>
 		
