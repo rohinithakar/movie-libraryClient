@@ -42,11 +42,6 @@
 		// Hard coded values
 		User usr = UtilsClient.getUserSession(request);
 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
-		usr.setStartDate(dateFormat.format(date));
-		usr.setMembershipType("simple");
-
 		String strMonth = request.getParameter(Parameters.pMonth);
 		String strYear = request.getParameter(Parameters.pYear);
 		int month = 0;
