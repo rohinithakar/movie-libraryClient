@@ -148,6 +148,20 @@ tr.data:hover small {color: #5b5b5b;}
 	-webkit-border-radius: 5px;
 	-o-border-radius: 5px;
 }
+
+#userloginForm {
+	width: 400px;
+	height: 250px;
+	border: 1px solid #dcdcdc;
+	float: center;
+	text-align: left;
+	background:#fff url(img/user_green.png) no-repeat left center;
+	margin: 50px auto 0 auto;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+
 .headLoginForm {
 	width: 380px;
 	padding: 10px 0 10px 20px;
