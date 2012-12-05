@@ -19,10 +19,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>UpdatePasswordInfo</title>
+<title>Update Password </title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
 
 <%
 		String error = request.getParameter("msg");
@@ -40,27 +44,26 @@
 		User usr = proxy.displayUserInformation(usrSession.getMembershipId());
 	%>
 
-	<%
-		if (usr != null) {
-	%>
+	<% if (usr != null) { %>
 
 	<form id="form1" method="post" action="UpdatePasswordInfoServlet">
-		<div class="form-row">
-			Old Password<input type="text" name="oldPwd" />
-		</div>
-		<div class="form-row">
-			New Password<input type="text" name="newPwd" />
-		</div>
-		<div class="form-row">
-			<input class="submit" type="submit" value="Update">
-		</div>
-	</form>
-	<%
-		} 
-		else{
-			
-			%>
-	<b> No record Found.</b>
+		  <table width="95%"> 
+		  	<tr>
+			  	<td>Old Password </td><td><input type="text" name="oldPwd" /></td>
+			</tr> 
+ 			<tr>
+				<td>New Password </td> <td><input type="text" name="newPwd" /> </td>
+ 			</tr>
+ 			<tr>
+				<td></td><td><input class="button" type="submit" value="Update"> </td>
+			</tr>
+		  </table> 
+ 	</form>
+	<% } else { %>
+	<p> No record Found.</p>
 	<% }  %>
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

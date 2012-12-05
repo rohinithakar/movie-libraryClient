@@ -4,24 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Thank you!</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 <body>
-	<table width="100%">
-	
-	<!-- Body -->
-	<tr>
-		<td>
-			<center>
-					Thank you for selling your soul
-					<table id = "">
-						<%= request.getAttribute("transaction") %>
-					</table>
-					<a href="">Continue Shopping </a> 
-				
-			</center>
-		</td>
-	</tr>
-</table>
+<jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
+		<h3> Thank you for your purchase! </h3>
+		<table id = "">
+			<%= request.getAttribute("transaction") %>
+		</table>
+		<div class="clear"></div>
+		<p>
+		<a class="button" href="HomePage.jsp">Continue Shopping </a> 
+		</p>						
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

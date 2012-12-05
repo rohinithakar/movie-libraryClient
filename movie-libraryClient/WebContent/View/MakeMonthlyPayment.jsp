@@ -22,27 +22,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MakeMonthLyPayment</title>
+<title>Make MonthLy Payment</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 <body>
+
 <jsp:include page="includes/header.jsp"></jsp:include>
-<b> Would like to pay your monthly membership fees? </b>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
+		<h3> Would like to pay your monthly membership fees? </h3>
 
-<p>
-<%=SignInUserHelper.getPaymentError(request) %>
-</p>
+		<p>
+		<%=SignInUserHelper.getPaymentError(request) %>
+		</p>
 
-	<table border="1">
-		<tr>
-
-			<td>
-				<form action="MakeMonthlyPaymentServlet" method="post">
-					 <input type="submit" value="Pay Now" />
-				</form>
-			</td>
-		</tr>
-
-	</table>
+		<table>
+			<tr>
+				<td>
+					<form action="MakeMonthlyPaymentServlet" method="post">
+						 <input type="submit" class="button" value="Pay Now" />
+					</form>
+				</td>
+			</tr>
+	
+		</table>
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 
 </body>
 </html>

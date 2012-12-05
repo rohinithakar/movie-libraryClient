@@ -20,10 +20,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ViewAccount</title>
+<title>Return Movie</title>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
+<div id="wrapper">
+	<jsp:include page="includes/sidebar.jsp"></jsp:include>
+	<div id="rightContent">
 <p>
 <%=ReturnMovieHelper.getReturnMovieMessage(request) %>
 </p>
@@ -31,23 +35,23 @@
 		Transaction[] trans = ReturnMovieHelper.getMovies(request, response);
 		if (trans != null && trans.length != 0) {
 	%>
-	<table border="1">
-		<tr>
-			<td>Movie Name</td>
-			<td>Rent Date</td>
-			<td>Return Movie</td>
+	<table width="60%">
+		<tr class="data">
+			<th>Movie Name</th>
+			<th>Rent Date</th>
+			<th width="100">Return Movie</th>
 		</tr>
 
 		<%
 			for (Transaction tran : trans) {
 		%>
-		<tr>
+		<tr class="data">
 			<td><%=tran.getMovieName()%></td>
 			<td><%=tran.getPurchaseDate()%></td>
 			<td>
 			<form action="ReturnMovieServlet" method="post">
 			<input type="hidden" name="<%=Parameters.pMovieId%>" value="<%=tran.getMovieId()%>"/>
-			<input type="submit" value="Return Movie"/>
+			<input type="submit" class="button" value="Return Movie"/>
 			</form>
 			</td>
 		</tr>
@@ -62,6 +66,8 @@
 	<%
 		}
 	%>
-
+	</div>
+	<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>
