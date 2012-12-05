@@ -19,7 +19,7 @@
 		</div>
 		<%=SignInUserHelper.getLoginError(request)%>
 		<div class="fieldLogin">
-			<form id="form1" method="post" action="SignInUserServlet" onsubmit="return validateLoginForm()">
+			<form id="form1" method="post" action="SignInUserServlet" onsubmit="return validateLogin()">
 				 <label>User ID:</label><br>
 				 <input type="text"  class="login" name="uid"/>
 				 <br> 
