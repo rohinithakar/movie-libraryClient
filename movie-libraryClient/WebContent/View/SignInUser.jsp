@@ -5,49 +5,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sign In User Page</title>
-<script type="text/javascript">
-       
-        function validateForm()
-        {
-        	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
-        	{
-        		alert("User id  must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["pwd"].value))
-        	{
-        		alert("Password  must be filled out");
-          		return false;
-        	}
-        }
-        function IsEmptyOrNull(arg)
-        {
-        	return (arg==null || arg=="");	
-        }
-    </script>
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+<script type="text/javascript" src="../js/validate.js"></script>
+<title>Welcome!</title>
 </head>
 <body>
-<h1>Sign in User Page</h1>
-<p>
-<%=SignInUserHelper.getLoginError(request)%>
-</p>
-<form id="form1" method="post" action="SignInUserServlet" onsubmit="return validateForm()">
-<table>
-				<tr>
-					<td>User ID</td>
-					<td><input type="text" name="uid" /></td>
-					<td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="pwd" /></td>
-					<td>
-				</tr>
-			</table>
-			<br>
-			<input type="submit" value="Submit" />
+	<div id="header">
+		<div class="inHeaderLogin"></div>
+	</div>
+	<div id="userloginForm">
+		<div class="headLoginForm">
+		Login Member
+		</div>
+		<%=SignInUserHelper.getLoginError(request)%>
+		<div class="fieldLogin">
+			<form id="form1" method="post" action="SignInUserServlet" onsubmit="return validateLoginForm()">
+				 <label>User ID:</label><br>
+				 <input type="text"  class="login" name="uid"/>
+				 <br> 
+				 <label>Password:</label>
+				 <br>
+				 <input type="password"  class="login" name="password"/> 
+				 <br>
+				 <input type="submit" class="button" value="Submit" />
+				 <a class="button" href="SignUpUser">Register Here</a>
+						
 			</form>
-			<a href="SignUpUser">Register Here</a>
+		</div>
+</div>
+	
 </body>
 </html>

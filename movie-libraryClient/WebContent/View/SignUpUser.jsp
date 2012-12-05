@@ -7,97 +7,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/admin-style.css">
+<script type="text/javascript" src="../js/validate.js"></script>
 <title>Sign up User</title>
-<script type="text/javascript">
-       
-        function validateForm()
-        {
-        	if(IsEmptyOrNull(document.forms["form1"]["uid"].value))
-        	{
-        		alert("User id  must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["pwd"].value))
-        	{
-        		alert("Password  must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["fname"].value))
-        	{
-        		alert("First Name must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["lname"].value))
-        	{
-        		alert("Last Name must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
-        	{
-        		alert("Street Address must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["stAddress"].value))
-        	{
-        		alert("Street Address must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["city"].value))
-        	{
-        		alert("City must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["state"].value))
-        	{
-        		alert("State must be filled out");
-          		return false;
-        	}
-        	if(IsEmptyOrNull(document.forms["form1"]["zip"].value))
-        	{
-        		alert("Zip must be filled out");
-          		return false;
-        	}
-        	else
-        	{
-        		 var re = /^\d{5}([\-]\d{4})?$/;
-        		 var zip = document.forms["form1"]["zip"].value;
-        		 if( !re.test(zip))
-        		 {
-        			alert('Invalid ZipCode');
-        			return false;
-        		  }
-        	}
-        	if(document.forms["form1"]["mem"].value == "Premium")
-        	{
-        		var ccnum = document.forms["form1"]["ccnum"].value;
-        		if(IsEmptyOrNull(ccnum))
-        		{
-        			alert('Premium members must fill out credit card number');
-    			 	return false;
-        		}
-        		if(ccnum.length != 16)
-        		{
-        			alert('credit card number must be 16 digits');
-    			 	return false;
-        		}
-        		var regex = /^\s*\d+\s*$/;
-        		if( !regex.test(ccnum) ) 
-        		{
-        			alert('bad input');
-    			 	return false;
-        		}
-        	}
-        }
-        function IsEmptyOrNull(arg)
-        {
-        	return (arg==null || arg=="");	
-        }
-    </script>
+
 </head>
 <body>
+<div id="header">
+	<div class="inHeaderLogin"></div>
+</div>
+<div id="wrapper">
+	<div id="rightContent">
+<h3>Sign Up</h3>
+
 <form id="form1" method="post" action="SignUpUserServlet" onsubmit="return validateForm()" >
-<h1>Sign Up User page</h1>
-<table>
+	<table>
 				<tr>
 					<td>User ID</td>
 					<td><input type="text" name="uid" /></td>
@@ -154,8 +78,11 @@
 				</tr>
 			</table>
 			<br>
-			<input type="submit" value="Submit" />
-			<a href="<%=ClientConfig.USER_LOGIN%>">Cancel</a>
+			<input type="submit" class="button" value="Submit" />
+			<a href="<%=ClientConfig.USER_LOGIN%>" class="button">Cancel</a>
 </form>
+</div>
+		<jsp:include page="includes/footer.jsp"></jsp:include>
+</div>
 </body>
 </html>
