@@ -46,7 +46,7 @@
 
 	<% if (usr != null) { %>
 
-	<form id="form1" method="post" action="UpdatePasswordInfoServlet">
+	<form id="form1" method="post" action="UpdatePasswordInfoServlet" onsubmit="return validateUpdatePassword();">
 		  <table width="95%"> 
 		  	<tr>
 			  	<td>Old Password </td><td><input type="text" name="oldPwd" /></td>
