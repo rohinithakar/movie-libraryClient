@@ -23,7 +23,7 @@ public class SearchMember extends HttpServlet {
 		response.setContentType("text/html");
 		HttpSession session = request.getSession();
 		if(request.getParameter("search")!=null){
-			User[] array = null;
+			User[] array = new User[0];
 			String membershipId = request.getParameter("membershipId");
 			String userId = request.getParameter("userId");
 			String membershipType = request.getParameter("membershipType");
