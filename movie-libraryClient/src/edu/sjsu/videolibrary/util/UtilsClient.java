@@ -95,5 +95,13 @@ public class UtilsClient {
 				 "NJ", "NM", "NY","NC", "ND", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT","VI", 
 				 "VA", "WA", "WV", "WI", "WY" }; 
 	}
+	
+	public static String convertMembershipId(String membershipId) {
+		return new String( membershipId.substring(0, 3) + "-" + membershipId.substring(3,5) + "-" + membershipId.substring(5));
+	}
+	
+	public static String convertMembershipId(int membershipId) {
+		return convertMembershipId(Integer.toString(membershipId));
+	}
 
 }

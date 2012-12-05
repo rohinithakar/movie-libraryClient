@@ -2,6 +2,7 @@
 <%@ page import="edu.sjsu.videolibrary.model.Admin" %>
 <%@ page import="edu.sjsu.videolibrary.service.ServiceProxy"%>
 <%@ page import="edu.sjsu.videolibrary.model.User" %>
+<%@ page import="edu.sjsu.videolibrary.util.UtilsClient" %>
 
 <% Admin admin = (Admin) session.getAttribute("currentAdmin");  if (admin == null ) { %> <jsp:forward page="LogIn.jsp" /> <%  } else if (admin.isValid()) { %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -132,7 +133,7 @@
 				<% 
 					for (int i = 0; i < members.length; i++) { 
 						User m = members[i]; 
-						out.print("<tr class=\"data\"><td>" + m.getMembershipId() + "</td><td>" + m.getFirstName() + " " +  m.getLastName() + "</td><td>"  + m.getUserId() + "</td><td>" + m.getStartDate() + "</td>" );
+						out.print("<tr class=\"data\"><td>" + UtilsClient.convertMembershipId(m.getMembershipId()) + "</td><td>" + m.getFirstName() + " " +  m.getLastName() + "</td><td>"  + m.getUserId() + "</td><td>" + m.getStartDate() + "</td>" );
 						out.print("<td><form name=\"memberForm" + i + "\" method=\"post\" action=\"EditMember\">"); 
 						out.print("<input type=\"hidden\" name=\"id\" value="+ m.getMembershipId() + ">"); 
 						out.print("<input type=\"submit\"  name=\"act\" value=\"Edit\"  />    <input type=\"submit\"  name=\"act\" value=\"Delete\"  />");
