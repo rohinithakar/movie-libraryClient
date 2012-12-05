@@ -34,6 +34,10 @@
 		
 			if(error.equalsIgnoreCase("successful"))
 			out.println("Update Successful.");
+			
+			if(error.equalsIgnoreCase("duplicate")) {
+				out.println("Duplicate user id provided");
+			}
 		
 		}
 	%>

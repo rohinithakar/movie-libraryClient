@@ -24,16 +24,17 @@
 </head>
 <body>
 <jsp:include page="includes/header.jsp"></jsp:include>
-	<%
-		Transaction[] trans = ViewAccountHelper.getUserTransactions(request, response);
-		if (trans != null && trans.length != 0) {
-	%>
 	<table border="1">
 	<tr>
 	<td><a href="UpdateUserInfo">Update UserInformation</a></td>
 	<td><a href="UpdatePasswordInfo">Update Password</a></td>
 	</tr>
 	</table>
+
+	<%
+		Transaction[] trans = ViewAccountHelper.getUserTransactions(request, response);
+		if (trans != null && trans.length != 0) {
+	%>
 	<table border="1">
 		<tr>
 			<td>Movie Name</td>

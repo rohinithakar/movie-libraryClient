@@ -48,6 +48,7 @@ public class SignUpUser extends HttpServlet
 	    String uid = request.getParameter("uid");
 		String pwd = request.getParameter("pwd");
 		String mem = request.getParameter(Parameters.pMembershipType);
+		mem = mem.trim();
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String stAddress = request.getParameter("stAddress");

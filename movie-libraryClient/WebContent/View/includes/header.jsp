@@ -11,7 +11,8 @@
 		<td><a href="ReturnMovie">ReturnMovie</a></td>
 		<% 
 User usr = UtilsClient.getUserSession(request);
-if(usr.getMembershipType().equalsIgnoreCase("Premium")){ %>
+if(usr.getMembershipType().contains("Premium")){
+	%>
 <td>
 <a href="MakeMonthlyPayment">Make Monthly Payment</a>
 </td>

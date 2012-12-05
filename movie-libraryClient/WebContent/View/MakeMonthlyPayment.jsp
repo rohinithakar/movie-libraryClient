@@ -25,6 +25,7 @@
 <title>MakeMonthLyPayment</title>
 </head>
 <body>
+<jsp:include page="includes/header.jsp"></jsp:include>
 <b> Would like to pay your monthly membership fees? </b>
 
 <p>

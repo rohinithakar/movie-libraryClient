@@ -28,6 +28,8 @@
 			if (msg != null) {
 				if (msg.equals("error") || msg.equals("false")) {
 					out.print("<div class=\"gagal\">Please verify your information</div>");
+				} else if (msg.equalsIgnoreCase("duplicate")) {
+					out.print("<div class=\"gagal\">Movie already exists</div>");
 				} else if (msg.indexOf("true") >= 0) { 
 					out.print("<div class=\"sukses\">Movie has been updated</div>");
 				}   

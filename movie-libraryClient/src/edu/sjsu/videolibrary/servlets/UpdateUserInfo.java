@@ -38,18 +38,23 @@ public class UpdateUserInfo extends HttpServlet{
 			String state = request.getParameter(Parameters.pState);
 			String zipCode = request.getParameter(Parameters.pZip);
 			String membershipType = request.getParameter(Parameters.pMembershipType);
+			membershipType = membershipType.trim();
 			String creditCardNumber = request.getParameter(Parameters.pCreditCard);
 			String userId = request.getParameter(Parameters.pUserId);
 
 			ServiceProxy proxy = UtilsClient.getServiceProxy();
 			String result = proxy.updateUserInfo(membershipId, userId, firstName, lastName, address, city, state, zipCode, membershipType, creditCardNumber);
 
-			if(result == null){
+			if(result == null || result.equalsIgnoreCase("false")){
 				response.sendRedirect("UpdateUserInfo?msg=serverError");
 				return;
 			}
 			if(result.equalsIgnoreCase("true")){
 				response.sendRedirect("UpdateUserInfo?msg=successful");
+				return;
+			}
+			if( result.equalsIgnoreCase("duplicate")) {
+				response.sendRedirect("UpdateUserInfo?msg=duplicate");
 				return;
 			}
 
