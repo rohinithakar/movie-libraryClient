@@ -398,5 +398,14 @@
 		<servlet-name>AddToCartServlet</servlet-name>
 		<url-pattern>/View/AddToCartServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserIndex</servlet-name>
+		<jsp-file>/View/index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserIndex</servlet-name>
+		<url-pattern>/View/</url-pattern>
+	</servlet-mapping>
 
 </web-app>
