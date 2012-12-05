@@ -12,41 +12,36 @@ import javax.servlet.http.HttpSession;
 
 import edu.sjsu.videolibrary.service.ServiceProxy;
 
-
-//@WebServlet("/Admin/CreateMovie")
 public class CreateMovie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ServiceProxy proxy = new ServiceProxy();  
 	
-	private String msg = "";
-	private boolean error = false; 
-
     public CreateMovie() {
         super();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String done = "";
-			
+				
 		try {
-			String id = request.getParameter("id");
-			String action = request.getParameter("act");
-						
-			HttpSession session = request.getSession();	   
-						
+			String action = request.getParameter("act");						
+
 			proxy.setEndpoint("http://localhost:8080/movie-library/services/Service");
-			if (action.equals("Create")) {					
+			if (action.equals("Create")) {	
+
 			    String movieName = request.getParameter("moiveName"); 
 			    String movieBanner = request.getParameter("movieBanner"); 
 			    int availableCopies = Integer.parseInt(request.getParameter("availableCopies")); 
 			    int categoryId = Integer.parseInt(request.getParameter("categoryId")); 
-			    String releaseDate = request.getParameter("releaseDate");  			    
-			    done = proxy.createNewMovie(movieName, movieBanner, releaseDate, availableCopies, categoryId);
+			    String releaseDate = request.getParameter("year") + "/" + request.getParameter("month") + "/" + request.getParameter("day");  
 			    
-			    System.out.println("done: " + done);		    
+			    done = proxy.createNewMovie(movieName, movieBanner, releaseDate, availableCopies, categoryId);
+ 			    System.out.println("done: " + done);		    
 			}  
 			
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		response.sendRedirect("CreateMovie.jsp?msg="+ done);
 	}
